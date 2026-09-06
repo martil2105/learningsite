@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visual explainers · Martin Le</title>
+    <meta name="description" content="Short, interactive essays on machine learning and statistics — one idea each, with something on the page you can actually move." />
+    <meta property="og:title" content="Visual explainers" />
+    <meta property="og:description" content="Short, interactive essays on machine learning and statistics — one idea each, with something on the page you can actually move." />
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZjFmM2YzIi8+PHJlY3QgeD0iNS41IiB5PSI1LjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjMyZjNlIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSIxOCIgeTE9IjUuNSIgeDI9IjE4IiB5Mj0iMjYuNSIgc3Ryb2tlPSIjN2M1YWVkIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSI1LjUiIHkxPSIxNyIgeDI9IjE4IiB5Mj0iMTciIHN0cm9rZT0iIzdjNWFlZCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48L3N2Zz4=" />
+    <style>
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-ext-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-ext-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+    :root {
+      --squidink: #232f3e;
+      --paper: #f1f3f3;
+      --violet: #7c5aed;
+      --stone: #d4dada;
+      --font-main: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--squidink);
+      font-family: var(--font-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 1.25rem 5rem 1.25rem;
+    }
+
+    .site-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 1.75rem 0 3.5rem 0;
+    }
+
+    .wordmark {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    h1 {
+      text-wrap: balance;
+      font-size: clamp(2.6rem, 9vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 0 0 1.5rem 0;
+      text-align: center;
+    }
+
+    .blurb {
+      text-wrap: balance;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      text-align: center;
+      opacity: 0.75;
+      margin: 0 auto 3.5rem auto;
+      max-width: 34rem;
+    }
+
+    .card {
+      display: block;
+      border: 3px solid var(--squidink);
+      padding: 1.5rem 1.6rem 1.2rem 1.6rem;
+      margin-bottom: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      background: transparent;
+      transition: border-color 150ms ease, transform 150ms ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: var(--violet);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin: 0 0 0.6rem 0;
+    }
+
+    .card-blurb {
+      font-size: 1rem;
+      line-height: 1.55;
+      margin: 0 0 1rem 0;
+      opacity: 0.8;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      margin: 0;
+    }
+
+    .card:hover .arrow { color: var(--violet); opacity: 1; }
+
+    .empty { text-align: center; opacity: 0.6; }
+
+    footer {
+      border-top: 1px solid var(--stone);
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    footer a { color: var(--violet); font-weight: 700; }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header class="site-mark">
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="5.5" y="5.5" width="21" height="21" fill="none" stroke="#232f3e" stroke-width="2.5" />
+          <line x1="18" y1="5.5" x2="18" y2="26.5" stroke="#7c5aed" stroke-width="2.5" />
+          <line x1="5.5" y1="17" x2="18" y2="17" stroke="#7c5aed" stroke-width="2.5" />
+        </svg>
+        <p class="wordmark">Martin Le</p>
+      </header>
+
+      <main>
+        <h1>Visual explainers</h1>
+        <p class="blurb">Short, interactive essays on machine learning and statistics — one idea each, with something on the page you can actually move.</p>
+
+      <a class="card" href="isolation-forest/">
+        <h2 class="card-title">Isolation Forest</h2>
+        <p class="card-blurb">Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.</p>
+        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+      </a>
+      </main>
+
+      <footer>
+        <p>
+          Built on the article scaffold and design system of
+          <a href="https://mlu-explain.github.io/">MLU-Explain</a>, used under
+          CC BY-SA 4.0. The writing, code and data are original; the
+          proprietary Amazon Ember typeface has been replaced with
+          <a href="https://rsms.me/inter/">Inter</a> and
+          <a href="https://www.ibm.com/plex/">IBM Plex Mono</a>, both under the
+          SIL Open Font License.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

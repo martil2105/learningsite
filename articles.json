@@ -1,0 +1,8 @@
+[
+  {
+    "slug": "isolation-forest",
+    "title": "Isolation Forest",
+    "blurb": "Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.",
+    "date": "September 2026"
+  }
+]
