@@ -1,6 +1,7 @@
 :root {
-  /* Fonts — free substitutes for the starter's proprietary Amazon Ember.
-     Defined in font.css; see the note at the top of that file. */
+  /* Fonts 
+  see: http://typography.aka.amazon.com/
+  */
   /* The starter's own rules ask for --squid-ink while defining --squidink, so
      every one of them silently falls back. Alias rather than chase them. */
   --squid-ink: #232f3e;
@@ -72,8 +73,6 @@ body {
   max-width: 600px;
 }
 
-/* Consecutive body paragraphs ran together without this: the starter's
-   .body-text has no vertical margin at all. */
 p.body-text + p.body-text {
   margin-top: 1.15rem;
 }
