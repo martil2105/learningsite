@@ -2,13 +2,37 @@
   {
     "slug": "isolation-forest",
     "title": "Isolation Forest",
-    "blurb": "Anomalies are few, and they are different. Both of those make them easy to cut off from everything else \u2014 and that is the whole algorithm.",
+    "blurb": "Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.",
     "date": "September 2026"
   },
   {
     "slug": "xgboost",
     "title": "XGBoost",
     "blurb": "Why predict the answer when you can predict your own mistakes? How trees, gradients and shrinkage turn a sequence of simple rules into the default model for tabular data.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "lightgbm",
+    "title": "LightGBM",
+    "blurb": "Bucket a column into 255 bins and the search for its best split stops being a scan over rows. It costs less than half a percent of the accuracy — and the speed does not come from where almost everyone says it does.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "k-means",
+    "title": "K-Means",
+    "blurb": "Two moves, repeated until nothing changes. The algorithm always stops, it never makes things worse, and it is under no obligation whatsoever to be right.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "autoencoders",
+    "title": "Autoencoders",
+    "blurb": "Squeeze data through a narrow layer and ask for it back, and a linear autoencoder rediscovers principal component analysis — in a basis nobody asked for, which it will never fix, because nothing in the loss can tell the difference.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "shapley-values",
+    "title": "Shapley Values",
+    "blurb": "Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?",
     "date": "September 2026"
   }
 ]
