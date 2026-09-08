@@ -34,5 +34,17 @@
     "title": "Shapley Values",
     "blurb": "Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?",
     "date": "September 2026"
+  },
+  {
+    "slug": "smote",
+    "title": "SMOTE",
+    "blurb": "The whole algorithm is one line: put a new minority point somewhere on the segment between two old ones. That line is a claim about the space between — where the claim is false, and what it was buying you anyway.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "f1-score",
+    "title": "F1 Score",
+    "blurb": "Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.",
+    "date": "September 2026"
   }
 ]
