@@ -46,5 +46,11 @@
     "title": "F1 Score",
     "blurb": "Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.",
     "date": "September 2026"
+  },
+  {
+    "slug": "dbscan-hdbscan",
+    "title": "DBSCAN & HDBSCAN",
+    "blurb": "Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN's answer is to stop cutting straight.",
+    "date": "September 2026"
   }
 ]
