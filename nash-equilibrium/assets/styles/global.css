@@ -1,0 +1,184 @@
+:root {
+  /* Fonts 
+  see: http://typography.aka.amazon.com/
+  */
+  /* The starter's own rules ask for --squid-ink while defining --squidink, so
+     every one of them silently falls back. Alias rather than chase them. */
+  --squid-ink: #232f3e;
+
+  --font-main: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-heavy: "Inter Heavy", "Inter", system-ui, sans-serif;
+  --font-light: "Inter Light", "Inter", system-ui, sans-serif;
+
+  /* Colors 
+  see: https://brand.amazon.com/aws/visual-guidelines-ob/colors/
+  */
+  --squidink: #232f3e;
+  /* set 1 */
+  --anchor: #003181;
+  --sky: #2074d5;
+  --smile: #ff9900;
+  --rind: #fbd8bf;
+  /* set 2 */
+  --galaxy: #330066;
+  --cosmos: #df2a5d;
+  --violet: #7c5aed;
+  --cyan: #7ce8f4;
+  /* set 3 */
+  --seablue: #005276;
+  --aqua: #007faa;
+  --lab: #38ef7d;
+  --mist: #9ffcea;
+  /* set 4 */
+  --anchor: #003181;
+  --sky: #2074d5;
+  --magenta: #f46ebb;
+  --peach: #ffad97;
+  /* neutrals */
+  --darksquidink: #161e2d;
+  --stone: #d4dada;
+  --paper: #f1f3f3;
+  --white: #ffffff;
+
+  /* Z-Index */
+  --z-bottom: -100;
+  --z-middle: 0;
+  --z-top: 100;
+  --z-overlay: 1000;
+
+  /* Color Variables */
+
+  --bg: var(--paper);
+  --fg: var(--off-black);
+  --default: var(--squidink);
+  --primary: var(--violet);
+  --secondary: var(--seablue);
+}
+
+body {
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  background-color: var(--bg);
+}
+
+/* Global Reusable Styles For Convenience */
+.body-text {
+  max-width: 45rem;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.5em;
+  font-family: var(--font-main);
+  max-width: 600px;
+}
+
+p.body-text + p.body-text {
+  margin-top: 1.15rem;
+}
+
+.body-header {
+  max-width: 45rem;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 30px;
+  line-height: 1.5em;
+  font-family: var(--font-heavy);
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  max-width: 600px;
+}
+
+.centered {
+  margin: auto;
+  max-width: 45rem;
+  max-width: 600px;
+}
+
+.bold {
+  font-family: var(--font-heavy);
+}
+
+a {
+  color: var(--primary);
+  font-family: var(--font-heavy);
+}
+
+h1 {
+  color: var(--squid-ink);
+  font-family: var(--font-heavy);
+}
+
+p {
+  color: var(--squid-ink);
+  font-family: var(--font-main);
+  font-weight: none;
+}
+
+/* mobile */
+@media screen and (max-width: 950px) {
+  .body-text {
+    max-width: 80%;
+    font-size: 18px;
+  }
+
+  .body-header {
+    max-width: 80%;
+    font-size: 30px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Styles for markup injected with {@html ...}.
+
+   Svelte's scoped CSS works by stamping a class onto elements it compiles, so
+   a rule written inside a component never reaches HTML that was injected as a
+   string - the scrollytelling step text, in this article. These have to live in
+   the global stylesheet.
+   --------------------------------------------------------------------------- */
+.step-title {
+  font-family: var(--font-heavy);
+  font-size: 1.05rem;
+  line-height: 1.35;
+  margin: 0 0 0.55rem 0;
+  color: var(--squidink);
+}
+
+.step-content p {
+  margin: 0 0 0.65rem 0;
+  font-family: var(--font-main);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.step-content p:last-child {
+  margin-bottom: 0;
+}
+
+.mono {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.93em;
+}
+
+@media screen and (max-width: 950px) {
+  .step-title {
+    font-size: 1rem;
+  }
+}
+
+/*
+  Display maths overflows a phone and only a global rule can stop it: KaTeX
+  sizes .katex-display from the formula, and the maths arrives through {@html},
+  so no component's scoped rule reaches it. Scroll rather than shrink.
+*/
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2px;
+}
+
+@media screen and (max-width: 520px) {
+  .katex-display {
+    font-size: 0.92em;
+  }
+}

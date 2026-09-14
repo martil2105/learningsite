@@ -52,5 +52,23 @@
     "title": "DBSCAN & HDBSCAN",
     "blurb": "Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN's answer is to stop cutting straight.",
     "date": "September 2026"
+  },
+  {
+    "slug": "population-stability-index",
+    "title": "Population Stability Index",
+    "blurb": "Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "constrained-choice",
+    "title": "Constrained choice",
+    "blurb": "A pay rise makes free time dearer and makes you richer, and every course says theory cannot tell you which effect wins. For the utility function every course draws it does: they cancel to the last digit the arithmetic can carry, at every wage — and what actually shortened the working day was a subsistence floor getting out of the way, not one effect beating the other.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "nash-equilibrium",
+    "title": "Nash equilibrium",
+    "blurb": "One game in eight has no equilibrium you can find by checking cells. In those games your own behaviour is built entirely from the other player's payoffs — so raising a penalty does not reduce the thing it punishes, it buys less monitoring, at exactly the rate that leaves misconduct where it was.",
+    "date": "September 2026"
   }
 ]
