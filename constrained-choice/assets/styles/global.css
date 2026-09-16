@@ -73,7 +73,11 @@ body {
   max-width: 600px;
 }
 
-p.body-text + p.body-text {
+/* The Svelte 5 articles put .body-text on a <section> and leave the <p>s
+   unclassed, so the first selector alone gave their paragraphs no gap at all.
+   Display maths written as <p class="eq"> keeps its own margins. */
+p.body-text + p.body-text,
+.body-text > p:not(.eq) + p:not(.eq) {
   margin-top: 1.15rem;
 }
 
