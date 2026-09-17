@@ -1,80 +1,162 @@
 [
   {
-    "slug": "isolation-forest",
-    "title": "Isolation Forest",
-    "blurb": "Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.",
+    "slug": "comparative-advantage",
+    "title": "Comparative advantage",
+    "track": "economics",
+    "spine_order": 1,
+    "unit": "Principles",
+    "bridge": "Trade allows two economies to mutually gain whenever their opportunity costs differ, but market equilibrium leaves the division of surplus entirely to relative size.",
+    "blurb": "Two economies both gain at any price between their opportunity costs, but nobody gets to choose the price. Relative size sets it, both gain only inside a band exactly as wide as the gap between their costs, and an economy that is better at everything, trading with a partner its own size, can come away with exactly nothing.",
     "date": "September 2026"
   },
   {
-    "slug": "xgboost",
-    "title": "XGBoost",
-    "blurb": "Why predict the answer when you can predict your own mistakes? How trees, gradients and shrinkage turn a sequence of simple rules into the default model for tabular data.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "lightgbm",
-    "title": "LightGBM",
-    "blurb": "Bucket a column into 255 bins and the search for its best split stops being a scan over rows. It costs less than half a percent of the accuracy — and the speed does not come from where almost everyone says it does.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "k-means",
-    "title": "K-Means",
-    "blurb": "Two moves, repeated until nothing changes. The algorithm always stops, it never makes things worse, and it is under no obligation whatsoever to be right.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "autoencoders",
-    "title": "Autoencoders",
-    "blurb": "Squeeze data through a narrow layer and ask for it back, and a linear autoencoder rediscovers principal component analysis — in a basis nobody asked for, which it will never fix, because nothing in the loss can tell the difference.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "shapley-values",
-    "title": "Shapley Values",
-    "blurb": "Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?",
-    "date": "September 2026"
-  },
-  {
-    "slug": "smote",
-    "title": "SMOTE",
-    "blurb": "The whole algorithm is one line: put a new minority point somewhere on the segment between two old ones. That line is a claim about the space between — where the claim is false, and what it was buying you anyway.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "f1-score",
-    "title": "F1 Score",
-    "blurb": "Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "dbscan-hdbscan",
-    "title": "DBSCAN & HDBSCAN",
-    "blurb": "Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN's answer is to stop cutting straight.",
-    "date": "September 2026"
-  },
-  {
-    "slug": "population-stability-index",
-    "title": "Population Stability Index",
-    "blurb": "Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.",
+    "slug": "economic-rent",
+    "title": "Economic rent",
+    "track": "economics",
+    "spine_order": 2,
+    "unit": "U1–U2",
+    "bridge": "Comparative advantage took production techniques as fixed endowments across nations. Economic rent investigates where technological differences originate: innovating firms adopt superior techniques to capture temporary rents, which competition systematically erodes while spreading the innovation.",
+    "blurb": "Seven technologies make the same thing, and the rectangle test every first course teaches leaves five survivors — crowning a sensible middle option that is the cheapest choice at no price at all. Rent is the gap under the price, and competition closes it from below while copying the difference that opened it.",
     "date": "September 2026"
   },
   {
     "slug": "constrained-choice",
     "title": "Constrained choice",
+    "track": "economics",
+    "spine_order": 3,
+    "unit": "U3",
+    "bridge": "Economic rent examined how firms select cost-minimising techniques under given market prices. Constrained choice steps back to the individual decision-maker, establishing the foundational geometry of optimization where subjective preferences balance against objective resource constraints at a tangency.",
     "blurb": "A pay rise makes free time dearer and makes you richer, and every course says theory cannot tell you which effect wins. For the utility function every course draws it does: they cancel to the last digit the arithmetic can carry, at every wage — and what actually shortened the working day was a subsistence floor getting out of the way, not one effect beating the other.",
     "date": "September 2026"
   },
   {
     "slug": "nash-equilibrium",
     "title": "Nash equilibrium",
+    "track": "economics",
+    "spine_order": 4,
+    "unit": "U4",
+    "bridge": "Constrained choice solved an isolated agent's trade-offs against fixed environmental limits. Nash equilibrium introduces strategic interaction, where each agent's optimal decision depends on what others do and your own equilibrium behaviour is built entirely from the other player's payoffs.",
     "blurb": "One game in eight has no equilibrium you can find by checking cells. In those games your own behaviour is built entirely from the other player's payoffs — so raising a penalty does not reduce the thing it punishes, it buys less monitoring, at exactly the rate that leaves misconduct where it was.",
     "date": "September 2026"
   },
   {
-    "slug": "comparative-advantage",
-    "title": "Comparative advantage",
-    "blurb": "Two economies both gain at any price between their opportunity costs, but nobody gets to choose the price. Relative size sets it, both gain only inside a band exactly as wide as the gap between their costs, and an economy that is better at everything, trading with a partner its own size, can come away with exactly nothing.",
+    "slug": "bargaining-and-the-surplus",
+    "title": "Bargaining and the surplus",
+    "track": "economics",
+    "spine_order": 5,
+    "unit": "U5",
+    "bridge": "Nash equilibrium analyzed non-cooperative games with fixed simultaneous moves. Bargaining models how two parties divide a shared surplus through alternating offers, proving that impatience and outside options pin down a unique division on the Pareto frontier.",
+    "blurb": "Any point on the frontier beats no deal, and nothing in the picture picks one — until offers alternate, and then the model picks exactly one, built from the other side's impatience over both, with your outside option worth exactly nothing until it crosses the line.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "markup-and-elasticity",
+    "title": "Markup and elasticity",
+    "track": "economics",
+    "spine_order": 6,
+    "unit": "U7",
+    "bridge": "Bargaining resolved bilateral negotiations over a shared surplus. Markup and elasticity examines how a price-setting firm sells to many consumers, showing that the optimal markup is governed by elasticity while demand curvature dictates cost pass-through.",
+    "blurb": "markup = 1/|elasticity| is exactly true at every optimum — and it is a statement about a single point. Two demand curves through that point set the same price to the last digit, and one passes half a cost increase through while the other passes two and a half times.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "tax-incidence",
+    "title": "Tax incidence",
+    "track": "economics",
+    "spine_order": 7,
+    "unit": "U8",
+    "bridge": "Markup and elasticity analyzed a single price-setting firm with monopoly power. Tax incidence shifts to competitive markets with price-taking buyers and sellers, proving that tax burden is determined entirely by relative elasticities rather than statutory liability.",
+    "blurb": "Who writes the cheque changes nothing, to fourteen decimal places; the elasticities set the split exactly for a straight line and only to first order otherwise — and at the revenue-maximising rate the tax has destroyed half the trades and burned half the take.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "efficiency-wages",
+    "title": "Efficiency wages",
+    "track": "economics",
+    "spine_order": 8,
+    "unit": "U6",
+    "bridge": "Tax incidence demonstrated how competitive supply and demand clear ordinary goods markets. Efficiency wages reveals why the labour market cannot clear like an ordinary market: when effort is unobservable, firms set wages to motivate discipline, generating involuntary unemployment as an equilibrium necessity.",
+    "blurb": "The wage buys effort, and the cheapest effort sits where the effort elasticity is exactly one — a number labour demand never enters, which is why one worker and a thousand draw the same pay and the queue outside is the collateral, not the failure.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "externalities",
+    "title": "Externalities",
+    "track": "economics",
+    "spine_order": 9,
+    "unit": "U10",
+    "bridge": "Efficiency wages demonstrated contractual failure within the employment relationship. Externalities tackles failure across the wider market when private transactions impose uncounted costs on third parties, determining when taxes, quotas, or bargaining best minimize expected social loss under uncertainty.",
+    "blurb": "A tax, a quota and a bargain reach the same quantity and move the same money into different pockets, so the choice looks purely distributional — until the regulator is uncertain, and then the expected-loss ratio between price and quantity is the square of a slope ratio, crossing at exactly one.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "isolation-forest",
+    "title": "Isolation Forest",
+    "track": "ml",
+    "blurb": "Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "xgboost",
+    "title": "XGBoost",
+    "track": "ml",
+    "blurb": "Why predict the answer when you can predict your own mistakes? How trees, gradients and shrinkage turn a sequence of simple rules into the default model for tabular data.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "lightgbm",
+    "title": "LightGBM",
+    "track": "ml",
+    "blurb": "Bucket a column into 255 bins and the search for its best split stops being a scan over rows. It costs less than half a percent of the accuracy — and the speed does not come from where almost everyone says it does.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "k-means",
+    "title": "K-Means",
+    "track": "ml",
+    "blurb": "Two moves, repeated until nothing changes. The algorithm always stops, it never makes things worse, and it is under no obligation whatsoever to be right.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "autoencoders",
+    "title": "Autoencoders",
+    "track": "ml",
+    "blurb": "Squeeze data through a narrow layer and ask for it back, and a linear autoencoder rediscovers principal component analysis — in a basis nobody asked for, which it will never fix, because nothing in the loss can tell the difference.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "shapley-values",
+    "title": "Shapley Values",
+    "track": "ml",
+    "blurb": "Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?",
+    "date": "September 2026"
+  },
+  {
+    "slug": "smote",
+    "title": "SMOTE",
+    "track": "ml",
+    "blurb": "The whole algorithm is one line: put a new minority point somewhere on the segment between two old ones. That line is a claim about the space between — where the claim is false, and what it was buying you anyway.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "f1-score",
+    "title": "F1 Score",
+    "track": "ml",
+    "blurb": "Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "dbscan-hdbscan",
+    "title": "DBSCAN & HDBSCAN",
+    "track": "ml",
+    "blurb": "Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN's answer is to stop cutting straight.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "population-stability-index",
+    "title": "Population Stability Index",
+    "track": "ml",
+    "blurb": "Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.",
     "date": "September 2026"
   }
 ]

@@ -4,13 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Visual explainers · Martin Le</title>
-    <meta name="description" content="Short, interactive essays on machine learning and statistics — one idea each, with something on the page you can actually move." />
+    <meta name="description" content="Short, interactive essays on economics, machine learning, and statistics — one idea each, with something on the page you can actually move." />
     <meta property="og:title" content="Visual explainers" />
-    <meta property="og:description" content="Short, interactive essays on machine learning and statistics — one idea each, with something on the page you can actually move." />
+    <meta property="og:description" content="Short, interactive essays on economics, machine learning, and statistics — one idea each, with something on the page you can actually move." />
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjZjFmM2YzIi8+PHJlY3QgeD0iNS41IiB5PSI1LjUiIHdpZHRoPSIyMSIgaGVpZ2h0PSIyMSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjMyZjNlIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSIxOCIgeTE9IjUuNSIgeDI9IjE4IiB5Mj0iMjYuNSIgc3Ryb2tlPSIjN2M1YWVkIiBzdHJva2Utd2lkdGg9IjIuNSIvPjxsaW5lIHgxPSI1LjUiIHkxPSIxNyIgeDI9IjE4IiB5Mj0iMTciIHN0cm9rZT0iIzdjNWFlZCIgc3Ryb2tlLXdpZHRoPSIyLjUiLz48L3N2Zz4=" />
     <style>
     @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
     @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-ext-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+    @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-ext-500-normal.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
     @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
     @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-ext-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
     @font-face{font-family:"Inter";src:url("assets/fonts/inter-latin-800-normal.woff2") format("woff2");font-weight:800;font-style:normal;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
@@ -20,7 +22,9 @@
       --squidink: #232f3e;
       --paper: #f1f3f3;
       --violet: #7c5aed;
+      --violet-dim: rgba(124, 90, 237, 0.12);
       --stone: #d4dada;
+      --stone-light: #e5e9e9;
       --font-main: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
 
@@ -35,7 +39,7 @@
     }
 
     .wrap {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 1.25rem 5rem 1.25rem;
     }
@@ -45,7 +49,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
-      padding: 1.75rem 0 3.5rem 0;
+      padding: 2rem 0 3rem 0;
     }
 
     .wordmark {
@@ -58,7 +62,7 @@
 
     h1 {
       text-wrap: balance;
-      font-size: clamp(2.6rem, 9vw, 4rem);
+      font-size: clamp(2.6rem, 9vw, 3.8rem);
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -72,11 +76,81 @@
       font-size: 1.15rem;
       line-height: 1.6;
       text-align: center;
-      opacity: 0.75;
-      margin: 0 auto 3.5rem auto;
-      max-width: 34rem;
+      opacity: 0.8;
+      margin: 0 auto 2.5rem auto;
+      max-width: 36rem;
     }
 
+    .track-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .track-nav a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border: 2px solid var(--squidink);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--squidink);
+      background: transparent;
+      transition: all 150ms ease;
+    }
+
+    .track-nav a:hover,
+    .track-nav a:focus-visible {
+      background: var(--squidink);
+      color: var(--paper);
+      outline: none;
+    }
+
+    .track-nav .count {
+      background: var(--violet);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      line-height: 1.2;
+    }
+
+    .track-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 2rem;
+    }
+
+    .track-header {
+      border-bottom: 2px solid var(--squidink);
+      padding-bottom: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .track-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin: 0 0 0.4rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+
+    .track-subtitle {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    /* Card styling */
     .card {
       display: block;
       border: 3px solid var(--squidink);
@@ -85,29 +159,54 @@
       text-decoration: none;
       color: inherit;
       background: transparent;
-      transition: border-color 150ms ease, transform 150ms ease;
+      transition: border-color 150ms ease, transform 150ms ease, background-color 150ms ease;
     }
 
     .card:hover,
     .card:focus-visible {
       border-color: var(--violet);
       transform: translateY(-2px);
+      background: #ffffff;
       outline: none;
     }
 
+    .card-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .spine-order-badge {
+      background: var(--squidink);
+      color: var(--paper);
+      padding: 0.15rem 0.5rem;
+    }
+
+    .spine-unit-badge {
+      border: 1px solid var(--squidink);
+      padding: 0.15rem 0.5rem;
+      opacity: 0.85;
+    }
+
     .card-title {
-      font-size: 1.6rem;
+      font-size: 1.55rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin: 0 0 0.6rem 0;
+      line-height: 1.2;
     }
 
     .card-blurb {
       font-size: 1rem;
       line-height: 1.55;
       margin: 0 0 1rem 0;
-      opacity: 0.8;
+      opacity: 0.85;
     }
 
     .card-meta {
@@ -123,11 +222,53 @@
 
     .card:hover .arrow { color: var(--violet); opacity: 1; }
 
-    .empty { text-align: center; opacity: 0.6; }
+    /* Spine and bridge elements */
+    .spine-container {
+      position: relative;
+    }
+
+    .spine-bridge {
+      position: relative;
+      margin: 0.5rem 0 0.5rem 1rem;
+      padding: 0.8rem 1rem 0.8rem 1.25rem;
+      border-left: 2px solid var(--violet);
+      background: var(--violet-dim);
+    }
+
+    .bridge-line-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .bridge-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--violet);
+    }
+
+    .bridge-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--violet);
+    }
+
+    .bridge-text {
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin: 0;
+      color: var(--squidink);
+      opacity: 0.9;
+    }
 
     footer {
       border-top: 1px solid var(--stone);
-      margin-top: 3.5rem;
+      margin-top: 4rem;
       padding-top: 1.5rem;
       font-size: 0.85rem;
       line-height: 1.6;
@@ -135,6 +276,13 @@
     }
 
     footer a { color: var(--violet); font-weight: 700; }
+
+    @media (max-width: 600px) {
+      .wrap { padding: 0 1rem 4rem 1rem; }
+      .card { padding: 1.2rem 1.2rem 1rem 1.2rem; }
+      .card-title { font-size: 1.35rem; }
+      .spine-bridge { margin-left: 0.5rem; }
+    }
     </style>
   </head>
 
@@ -151,73 +299,222 @@
 
       <main>
         <h1>Visual explainers</h1>
-        <p class="blurb">Short, interactive essays on machine learning and statistics — one idea each, with something on the page you can actually move.</p>
+        <p class="blurb">Short, interactive essays on economics, machine learning, and statistics — one idea each, with something on the page you can actually move.</p>
 
-      <a class="card" href="isolation-forest/">
-        <h2 class="card-title">Isolation Forest</h2>
-        <p class="card-blurb">Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="xgboost/">
-        <h2 class="card-title">XGBoost</h2>
-        <p class="card-blurb">Why predict the answer when you can predict your own mistakes? How trees, gradients and shrinkage turn a sequence of simple rules into the default model for tabular data.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="lightgbm/">
-        <h2 class="card-title">LightGBM</h2>
-        <p class="card-blurb">Bucket a column into 255 bins and the search for its best split stops being a scan over rows. It costs less than half a percent of the accuracy — and the speed does not come from where almost everyone says it does.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="k-means/">
-        <h2 class="card-title">K-Means</h2>
-        <p class="card-blurb">Two moves, repeated until nothing changes. The algorithm always stops, it never makes things worse, and it is under no obligation whatsoever to be right.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="autoencoders/">
-        <h2 class="card-title">Autoencoders</h2>
-        <p class="card-blurb">Squeeze data through a narrow layer and ask for it back, and a linear autoencoder rediscovers principal component analysis — in a basis nobody asked for, which it will never fix, because nothing in the loss can tell the difference.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="shapley-values/">
-        <h2 class="card-title">Shapley Values</h2>
-        <p class="card-blurb">Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="smote/">
-        <h2 class="card-title">SMOTE</h2>
-        <p class="card-blurb">The whole algorithm is one line: put a new minority point somewhere on the segment between two old ones. That line is a claim about the space between — where the claim is false, and what it was buying you anyway.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="f1-score/">
-        <h2 class="card-title">F1 Score</h2>
-        <p class="card-blurb">Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="dbscan-hdbscan/">
-        <h2 class="card-title">DBSCAN &amp; HDBSCAN</h2>
-        <p class="card-blurb">Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN&#x27;s answer is to stop cutting straight.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="population-stability-index/">
-        <h2 class="card-title">Population Stability Index</h2>
-        <p class="card-blurb">Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="constrained-choice/">
-        <h2 class="card-title">Constrained choice</h2>
-        <p class="card-blurb">A pay rise makes free time dearer and makes you richer, and every course says theory cannot tell you which effect wins. For the utility function every course draws it does: they cancel to the last digit the arithmetic can carry, at every wage — and what actually shortened the working day was a subsistence floor getting out of the way, not one effect beating the other.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="nash-equilibrium/">
-        <h2 class="card-title">Nash equilibrium</h2>
-        <p class="card-blurb">One game in eight has no equilibrium you can find by checking cells. In those games your own behaviour is built entirely from the other player&#x27;s payoffs — so raising a penalty does not reduce the thing it punishes, it buys less monitoring, at exactly the rate that leaves misconduct where it was.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
-      <a class="card" href="comparative-advantage/">
-        <h2 class="card-title">Comparative advantage</h2>
-        <p class="card-blurb">Two economies both gain at any price between their opportunity costs, but nobody gets to choose the price. Relative size sets it, both gain only inside a band exactly as wide as the gap between their costs, and an economy that is better at everything, trading with a partner its own size, can come away with exactly nothing.</p>
-        <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
-      </a>
+        <nav class="track-nav" aria-label="Sections">
+          <a href="#economics">Economics Sequence <span class="count">9</span></a>
+          <a href="#machine-learning">Machine Learning &amp; Statistics <span class="count">10</span></a>
+        </nav>
+
+        <section id="economics" class="track-section">
+          <header class="track-header">
+            <h2 class="track-title">The Microeconomics Sequence</h2>
+            <p class="track-subtitle">An ordered progression through microeconomic foundations. Each article builds on the machinery of the last, connected by a two-sentence bridge explaining what the previous article established and what the next one needs.</p>
+          </header>
+          <div class="spine-container">
+        <div class="spine-bridge" aria-label="Introduction">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Introduction</span>
+          </div>
+          <p class="bridge-text">Trade allows two economies to mutually gain whenever their opportunity costs differ, but market equilibrium leaves the division of surplus entirely to relative size.</p>
+        </div>
+        <a class="card card-spine" href="comparative-advantage/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 01</span>
+            <span class="spine-unit-badge">Principles</span>
+          </div>
+          <h3 class="card-title">Comparative advantage</h3>
+          <p class="card-blurb">Two economies both gain at any price between their opportunity costs, but nobody gets to choose the price. Relative size sets it, both gain only inside a band exactly as wide as the gap between their costs, and an economy that is better at everything, trading with a partner its own size, can come away with exactly nothing.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Comparative advantage took production techniques as fixed endowments across nations. Economic rent investigates where technological differences originate: innovating firms adopt superior techniques to capture temporary rents, which competition systematically erodes while spreading the innovation.</p>
+        </div>
+        <a class="card card-spine" href="economic-rent/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 02</span>
+            <span class="spine-unit-badge">U1–U2</span>
+          </div>
+          <h3 class="card-title">Economic rent</h3>
+          <p class="card-blurb">Seven technologies make the same thing, and the rectangle test every first course teaches leaves five survivors — crowning a sensible middle option that is the cheapest choice at no price at all. Rent is the gap under the price, and competition closes it from below while copying the difference that opened it.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Economic rent examined how firms select cost-minimising techniques under given market prices. Constrained choice steps back to the individual decision-maker, establishing the foundational geometry of optimization where subjective preferences balance against objective resource constraints at a tangency.</p>
+        </div>
+        <a class="card card-spine" href="constrained-choice/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 03</span>
+            <span class="spine-unit-badge">U3</span>
+          </div>
+          <h3 class="card-title">Constrained choice</h3>
+          <p class="card-blurb">A pay rise makes free time dearer and makes you richer, and every course says theory cannot tell you which effect wins. For the utility function every course draws it does: they cancel to the last digit the arithmetic can carry, at every wage — and what actually shortened the working day was a subsistence floor getting out of the way, not one effect beating the other.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Constrained choice solved an isolated agent&#x27;s trade-offs against fixed environmental limits. Nash equilibrium introduces strategic interaction, where each agent&#x27;s optimal decision depends on what others do and your own equilibrium behaviour is built entirely from the other player&#x27;s payoffs.</p>
+        </div>
+        <a class="card card-spine" href="nash-equilibrium/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 04</span>
+            <span class="spine-unit-badge">U4</span>
+          </div>
+          <h3 class="card-title">Nash equilibrium</h3>
+          <p class="card-blurb">One game in eight has no equilibrium you can find by checking cells. In those games your own behaviour is built entirely from the other player&#x27;s payoffs — so raising a penalty does not reduce the thing it punishes, it buys less monitoring, at exactly the rate that leaves misconduct where it was.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Nash equilibrium analyzed non-cooperative games with fixed simultaneous moves. Bargaining models how two parties divide a shared surplus through alternating offers, proving that impatience and outside options pin down a unique division on the Pareto frontier.</p>
+        </div>
+        <a class="card card-spine" href="bargaining-and-the-surplus/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 05</span>
+            <span class="spine-unit-badge">U5</span>
+          </div>
+          <h3 class="card-title">Bargaining and the surplus</h3>
+          <p class="card-blurb">Any point on the frontier beats no deal, and nothing in the picture picks one — until offers alternate, and then the model picks exactly one, built from the other side&#x27;s impatience over both, with your outside option worth exactly nothing until it crosses the line.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Bargaining resolved bilateral negotiations over a shared surplus. Markup and elasticity examines how a price-setting firm sells to many consumers, showing that the optimal markup is governed by elasticity while demand curvature dictates cost pass-through.</p>
+        </div>
+        <a class="card card-spine" href="markup-and-elasticity/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 06</span>
+            <span class="spine-unit-badge">U7</span>
+          </div>
+          <h3 class="card-title">Markup and elasticity</h3>
+          <p class="card-blurb">markup = 1/|elasticity| is exactly true at every optimum — and it is a statement about a single point. Two demand curves through that point set the same price to the last digit, and one passes half a cost increase through while the other passes two and a half times.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Markup and elasticity analyzed a single price-setting firm with monopoly power. Tax incidence shifts to competitive markets with price-taking buyers and sellers, proving that tax burden is determined entirely by relative elasticities rather than statutory liability.</p>
+        </div>
+        <a class="card card-spine" href="tax-incidence/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 07</span>
+            <span class="spine-unit-badge">U8</span>
+          </div>
+          <h3 class="card-title">Tax incidence</h3>
+          <p class="card-blurb">Who writes the cheque changes nothing, to fourteen decimal places; the elasticities set the split exactly for a straight line and only to first order otherwise — and at the revenue-maximising rate the tax has destroyed half the trades and burned half the take.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Tax incidence demonstrated how competitive supply and demand clear ordinary goods markets. Efficiency wages reveals why the labour market cannot clear like an ordinary market: when effort is unobservable, firms set wages to motivate discipline, generating involuntary unemployment as an equilibrium necessity.</p>
+        </div>
+        <a class="card card-spine" href="efficiency-wages/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 08</span>
+            <span class="spine-unit-badge">U6</span>
+          </div>
+          <h3 class="card-title">Efficiency wages</h3>
+          <p class="card-blurb">The wage buys effort, and the cheapest effort sits where the effort elasticity is exactly one — a number labour demand never enters, which is why one worker and a thousand draw the same pay and the queue outside is the collateral, not the failure.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Efficiency wages demonstrated contractual failure within the employment relationship. Externalities tackles failure across the wider market when private transactions impose uncounted costs on third parties, determining when taxes, quotas, or bargaining best minimize expected social loss under uncertainty.</p>
+        </div>
+        <a class="card card-spine" href="externalities/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 09</span>
+            <span class="spine-unit-badge">U10</span>
+          </div>
+          <h3 class="card-title">Externalities</h3>
+          <p class="card-blurb">A tax, a quota and a bargain reach the same quantity and move the same money into different pockets, so the choice looks purely distributional — until the regulator is uncertain, and then the expected-loss ratio between price and quantity is the square of a slope ratio, crossing at exactly one.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+          </div>
+        </section>
+
+        <section id="machine-learning" class="track-section">
+          <header class="track-header">
+            <h2 class="track-title">Machine Learning &amp; Statistics</h2>
+            <p class="track-subtitle">Interactive visual essays on foundational algorithms, loss functions, decision boundaries, evaluation metrics, and distribution drift.</p>
+          </header>
+        <a class="card" href="isolation-forest/">
+          <h3 class="card-title">Isolation Forest</h3>
+          <p class="card-blurb">Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="xgboost/">
+          <h3 class="card-title">XGBoost</h3>
+          <p class="card-blurb">Why predict the answer when you can predict your own mistakes? How trees, gradients and shrinkage turn a sequence of simple rules into the default model for tabular data.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="lightgbm/">
+          <h3 class="card-title">LightGBM</h3>
+          <p class="card-blurb">Bucket a column into 255 bins and the search for its best split stops being a scan over rows. It costs less than half a percent of the accuracy — and the speed does not come from where almost everyone says it does.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="k-means/">
+          <h3 class="card-title">K-Means</h3>
+          <p class="card-blurb">Two moves, repeated until nothing changes. The algorithm always stops, it never makes things worse, and it is under no obligation whatsoever to be right.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="autoencoders/">
+          <h3 class="card-title">Autoencoders</h3>
+          <p class="card-blurb">Squeeze data through a narrow layer and ask for it back, and a linear autoencoder rediscovers principal component analysis — in a basis nobody asked for, which it will never fix, because nothing in the loss can tell the difference.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="shapley-values/">
+          <h3 class="card-title">Shapley Values</h3>
+          <p class="card-blurb">Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="smote/">
+          <h3 class="card-title">SMOTE</h3>
+          <p class="card-blurb">The whole algorithm is one line: put a new minority point somewhere on the segment between two old ones. That line is a claim about the space between — where the claim is false, and what it was buying you anyway.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="f1-score/">
+          <h3 class="card-title">F1 Score</h3>
+          <p class="card-blurb">Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="dbscan-hdbscan/">
+          <h3 class="card-title">DBSCAN &amp; HDBSCAN</h3>
+          <p class="card-blurb">Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN&#x27;s answer is to stop cutting straight.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <a class="card" href="population-stability-index/">
+          <h3 class="card-title">Population Stability Index</h3>
+          <p class="card-blurb">Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.</p>
+          <p class="card-meta">September 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        </section>
       </main>
 
       <footer>
