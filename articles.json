@@ -130,12 +130,62 @@
     "date": "September 2026"
   },
   {
+    "slug": "measuring-gdp",
+    "title": "Measuring GDP",
+    "track": "economics",
+    "unit": "Ma1",
+    "bridge": "Gini and the Lorenz curve closed the microeconomics principles by measuring how income is shared out. Measuring GDP opens the macroeconomics principles by measuring how much there is to share, and shows that the minus sign in front of imports is a correction for foreign content rather than a cost.",
+    "blurb": "GDP is C + I + G + X − M, and the minus sign is a correction, not a cost: an import changes GDP only through the home production it displaces, anywhere from none of its value to all of it, while the net-exports line in the release reads the same across that whole range.",
+    "date": "September 2026",
+    "spine_order": 14
+  },
+  {
+    "slug": "price-indices",
+    "title": "Price indices",
+    "track": "economics",
+    "unit": "Ma2",
+    "bridge": "Measuring GDP added up a year's production in that year's prices. Price indices asks how to compare prices across years, and finds that a fixed basket overstates the rise in the cost of living by an amount that depends on how readily people substitute, which nobody observes.",
+    "blurb": "A fixed basket overstates the cost of living by about half σ times the variance of the price changes: nothing when prices move together, quadratic in how far apart they move. Yet the Fisher index, built only from the two baskets people actually bought, lands on the true answer for every σ at once.",
+    "date": "September 2026",
+    "spine_order": 15
+  },
+  {
+    "slug": "unemployment-flows",
+    "title": "Unemployment flows",
+    "track": "economics",
+    "unit": "Ma3",
+    "bridge": "Price indices showed how a single number can hide the substitution behind it. Unemployment flows does the same for the unemployment rate, a stock fed by people losing jobs and people finding them, whose steady state depends only on the ratio of the two flows.",
+    "blurb": "The unemployment rate depends only on the ratio of job finding to job loss, so doubling layoffs and halving hiring give exactly the same rate, unemployment can nearly double while layoffs fall, and the same 6% can mean two-month spells in one town and eleven-month spells in another.",
+    "date": "September 2026",
+    "spine_order": 16
+  },
+  {
+    "slug": "compound-growth",
+    "title": "Compound growth",
+    "track": "economics",
+    "unit": "Ma4",
+    "bridge": "Unemployment flows looked at how an economy uses the workers it has from month to month. Compound growth turns to the long run, where a one-point gap in growth rates doubles the gap in living standards in about seventy years, and asks what happens when growth is uncertain.",
+    "blurb": "A one-point gap in growth rates doubles the gap in living standards in about seventy years. But the average growth rate isn't the rate you grew at, and with uncertain growth the typical path falls behind the expected one for ever: the share of paths above the expected level is exactly Φ(−σ√t/2).",
+    "date": "September 2026",
+    "spine_order": 17
+  },
+  {
+    "slug": "money-creation",
+    "title": "Money creation",
+    "track": "economics",
+    "unit": "Ma5",
+    "bridge": "Compound growth dealt with real output over decades. Money creation turns to the money that output is bought with, following one loan through three banks' balance sheets to show where deposits come from and what the money multiplier really measures.",
+    "blurb": "A bank that lends alone loses (1 − its share) of the loan in reserves, which is why bankers think deposits come first. Banks lending in step lose exactly nothing, so loans create deposits, and the money multiplier is a ratio that holds whichever way the causation runs.",
+    "date": "September 2026",
+    "spine_order": 18
+  },
+  {
     "slug": "constrained-choice",
     "title": "Constrained choice",
     "track": "economics",
-    "spine_order": 14,
+    "spine_order": 19,
     "unit": "U3",
-    "bridge": "Measuring aggregate inequality across an economy begs the question of how individuals make economic choices. Constrained choice steps down to the micro-foundations of utility theory, where subjective indifference curves meet objective budget constraints to determine labor supply.",
+    "bridge": "Money creation closed the macroeconomics principles with the banking system as a whole. Constrained choice opens the intermediate microeconomics by stepping down to a single person's decision, where an indifference curve meets a budget line, and asks what a pay rise does to how much someone chooses to work.",
     "blurb": "A pay rise makes free time dearer and makes you richer, and every course says theory cannot tell you which effect wins. For the utility function every course draws it does: they cancel to the last digit the arithmetic can carry, at every wage — and what actually shortened the working day was a subsistence floor getting out of the way, not one effect beating the other.",
     "date": "September 2026"
   },
@@ -143,7 +193,7 @@
     "slug": "nash-equilibrium",
     "title": "Nash equilibrium",
     "track": "economics",
-    "spine_order": 15,
+    "spine_order": 20,
     "unit": "U4",
     "bridge": "Constrained choice resolved how a single optimizing individual behaves against fixed constraints. Nash equilibrium expands individual choice into multi-agent strategic interaction, where each player's optimal action depends on the anticipated choices of every rival.",
     "blurb": "One game in eight has no equilibrium you can find by checking cells. In those games your own behaviour is built entirely from the other player's payoffs — so raising a penalty does not reduce the thing it punishes, it buys less monitoring, at exactly the rate that leaves misconduct where it was.",
@@ -153,30 +203,30 @@
     "slug": "bargaining-and-the-surplus",
     "title": "Bargaining and the surplus",
     "track": "economics",
-    "spine_order": 16,
+    "spine_order": 21,
     "unit": "U5",
     "bridge": "Nash equilibrium identified static equilibria in simultaneous games. Bargaining and the surplus studies dynamic bilateral negotiation over time, proving that relative patience and outside options dictate a unique division of economic surplus on the Pareto frontier.",
     "blurb": "Any point on the frontier beats no deal, and nothing in the picture picks one — until offers alternate, and then the model picks exactly one, built from the other side's impatience over both, with your outside option worth exactly nothing until it crosses the line.",
     "date": "September 2026"
   },
   {
-    "slug": "efficiency-wages",
-    "title": "Efficiency wages",
-    "track": "economics",
-    "spine_order": 17,
-    "unit": "U6",
-    "bridge": "Bargaining determined how parties divide surplus when actions are fully observable and contractible. Efficiency wages addresses incomplete employment contracts: when worker effort is unobservable, employers set wages above market-clearing levels to motivate performance, making involuntary unemployment an equilibrium outcome.",
-    "blurb": "The wage buys effort, and the cheapest effort sits where the effort elasticity is exactly one — a number labour demand never enters, which is why one worker and a thousand draw the same pay and the queue outside is the collateral, not the failure.",
-    "date": "September 2026"
-  },
-  {
     "slug": "externalities",
     "title": "Externalities",
     "track": "economics",
-    "spine_order": 18,
+    "spine_order": 22,
     "unit": "U10",
-    "bridge": "Efficiency wages showed how information asymmetry within firms prevents wage competition from clearing the labor market. Externalities examines market failures across firms and consumers where actions impose unpriced third-party costs, comparing price and quantity interventions under environmental uncertainty.",
+    "bridge": "Bargaining and the surplus showed how two parties who can negotiate directly split the gains from a deal. Externalities brings in a party who is not at the table: when one side's action imposes a cost nobody prices, a bargain, a tax and a quota reach the same quantity and split the money differently, and only the regulator's uncertainty about costs makes the choice between a price and a quantity matter.",
     "blurb": "A tax, a quota and a bargain reach the same quantity and move the same money into different pockets, so the choice looks purely distributional — until the regulator is uncertain, and then the expected-loss ratio between price and quantity is the square of a slope ratio, crossing at exactly one.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "efficiency-wages",
+    "title": "Efficiency wages",
+    "track": "economics",
+    "spine_order": 23,
+    "unit": "U6",
+    "bridge": "Externalities assumed the costly action could be seen and measured, so a bargain, a tax or a quota could aim straight at it. Efficiency wages turns to an action nobody can see, a worker's effort: when effort cannot be observed, employers pay above the market-clearing wage so that losing the job hurts, which makes involuntary unemployment an equilibrium outcome.",
+    "blurb": "The wage buys effort, and the cheapest effort sits where the effort elasticity is exactly one — a number labour demand never enters, which is why one worker and a thousand draw the same pay and the queue outside is the collateral, not the failure.",
     "date": "September 2026"
   },
   {
