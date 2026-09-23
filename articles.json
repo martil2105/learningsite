@@ -298,5 +298,12 @@
     "track": "ml",
     "blurb": "Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.",
     "date": "September 2026"
+  },
+  {
+    "slug": "peer-group-outliers",
+    "title": "Peer groups and outliers",
+    "track": "ml",
+    "blurb": "A field guide to k-means as a transaction-monitoring detector, tested on one synthetic bank from the raw data to the reason given to an investigator. K-means spends a centroid wherever it removes the most inertia, so a mule ring of 40 is flagged about a quarter as often as a lone mule, and the transform, the cap, the scaler and even who is in the table decide which typologies can be seen at all.",
+    "date": "September 2026"
   }
 ]
