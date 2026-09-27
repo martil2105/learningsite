@@ -1,0 +1,389 @@
+[
+  {
+    "slug": "comparative-advantage",
+    "title": "Comparative advantage",
+    "track": "economics",
+    "spine_order": 1,
+    "unit": "Principles",
+    "bridge": "Trade lets two economies both gain whenever their opportunity costs differ. Where the price lands between those costs, and so who gets the gains, is set by how big each economy is.",
+    "blurb": "Two economies can both gain from trade at any price between their opportunity costs, but nobody gets to pick the price. An economy that's better at everything, trading with a partner its own size, can come away with nothing at all.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "economic-rent",
+    "title": "Economic rent",
+    "track": "economics",
+    "spine_order": 2,
+    "unit": "Mi2",
+    "bridge": "Comparative advantage took each economy's techniques as given. Economic rent asks where a better technique comes from, and follows the reward a firm earns for being different until competition takes it away and spreads the idea.",
+    "blurb": "Seven technologies can do the same job, and the rectangle test from first courses leaves a sensible middle option standing that isn't the cheapest at any price. Along the way we meet economic rent, and see why the competition that removes it is also what spreads a new idea.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "supply-and-demand",
+    "title": "Supply and demand",
+    "track": "economics",
+    "spine_order": 3,
+    "unit": "Mi3",
+    "bridge": "Economic rent followed one firm's margin as competition closed it. Supply and demand steps up to the whole market, and shows that a line through its prices and quantities is a mix of the two curves rather than the demand curve.",
+    "blurb": "A line through a market's prices and quantities is a mix of demand and supply, not the demand curve. The R² that says how well the line fits also says how little the data can tell us about demand.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "elasticity",
+    "title": "Elasticity",
+    "track": "economics",
+    "spine_order": 4,
+    "unit": "Mi4",
+    "bridge": "Supply and demand took the slopes of the curves as given. Elasticity looks at how strongly quantity responds to price, and finds that the answer is a ratio of two lengths that each point cuts from its own tangent.",
+    "blurb": "Elasticity is a ratio of two lengths that each point on a demand curve cuts from its own tangent. The picture works on any smooth curve, and it shows what the usual two-point formulas assume without saying so.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "surplus-and-efficiency",
+    "title": "Surplus and efficiency",
+    "track": "economics",
+    "spine_order": 5,
+    "unit": "Mi5",
+    "bridge": "Elasticity measured how responsive buyers are along a curve. Surplus and efficiency measures what the gains from trade are worth, and shows that a price ceiling which rations at random loses more than the familiar triangle counts.",
+    "blurb": "The deadweight loss triangle counts the trades that don't happen. A price ceiling that rations at random adds a second loss, and in a linear market the two come to the size of the cut: cut output by 27% and 27% of the gains from trade are gone.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "tax-incidence",
+    "title": "Tax incidence",
+    "track": "economics",
+    "spine_order": 6,
+    "unit": "Mi6",
+    "bridge": "Surplus and efficiency measured the gains from trade and what a cut in output loses. Tax incidence puts a tax between the price buyers pay and the price sellers get, and asks who really pays it.",
+    "blurb": "Collecting a tax from buyers or from sellers doesn't change who ends up paying it, and the elasticity rule for the split is exact only in a straight-line market. At the rate that raises the most money, half the trades are gone and the lost surplus is half the revenue.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "cost-curves",
+    "title": "Cost curves",
+    "track": "economics",
+    "spine_order": 7,
+    "unit": "Mi7",
+    "bridge": "Tax incidence took the supply curve as given. Cost curves opens up the firm behind it, and shows that the plant built for an output is run at its own lowest cost per unit at only one output.",
+    "blurb": "A firm builds the cheapest plant for the output it plans, and yet that plant is almost never run at its own lowest cost per unit. The envelope picture shows why, and why getting the plant a little wrong costs so little.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "perfect-competition",
+    "title": "Perfect competition",
+    "track": "economics",
+    "spine_order": 8,
+    "unit": "Mi8",
+    "bridge": "Cost curves looked at one firm choosing its plant. Perfect competition lets firms like it into a market one at a time, and shows that because firms come in whole numbers, the long-run supply curve is a sawtooth rather than a flat line.",
+    "blurb": "Free entry is meant to push the price down to the lowest average cost. Because firms come in whole numbers, entry stops a little short, the firms that are in keep a small profit, and the long-run supply curve becomes a sawtooth.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "markup-and-elasticity",
+    "title": "Markup and elasticity",
+    "track": "economics",
+    "spine_order": 9,
+    "unit": "Mi9",
+    "bridge": "Perfect competition assumed firms that take the price as given. Markup and elasticity looks at a firm that sets its own price, and shows that the rule linking its markup to the elasticity of demand describes a single point.",
+    "blurb": "The best markup is one over the elasticity of demand, on every demand curve. But the rule describes a single point, and two curves that agree there can pass on a rise in cost very differently: half of it on one, two and a half times it on the other.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "monopolistic-competition",
+    "title": "Monopolistic competition",
+    "track": "economics",
+    "spine_order": 10,
+    "unit": "Mi10",
+    "bridge": "Markup and elasticity looked at one price-setting firm on its own, and perfect competition at many identical ones. Monopolistic competition sits between them, with firms that each sell a slightly different product, and asks how many varieties a market ends up with.",
+    "blurb": "How many varieties does a market end up with when every firm sells something slightly different? With a finite number of firms, each familiar answer picks up a small correction, and every correction fades as one over the number of firms.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "cartels-and-the-prisoners-dilemma",
+    "title": "Cartels and the prisoner's dilemma",
+    "track": "economics",
+    "spine_order": 11,
+    "unit": "Mi11",
+    "bridge": "Monopolistic competition had many firms, each too small to matter much to the others. Cartels and the prisoner's dilemma looks at a market with only a few, where firms try to act together, and shows why the firms that stay out gain the most.",
+    "blurb": "When a few firms agree to make less, the firms that stay out gain more than the members do. In a simple model of competition, a cartel pays its members only if it takes in almost the whole market, and every member would rather be the firm outside.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "tragedy-of-the-commons",
+    "title": "Tragedy of the commons",
+    "track": "economics",
+    "spine_order": 12,
+    "unit": "Mi12",
+    "bridge": "Cartels showed how one firm's output spills over onto its rivals. Tragedy of the commons finds the same kind of spillover on a shared resource, where each user counts the average catch rather than what its extra effort adds, and the resource's rent drains away.",
+    "blurb": "On a lake anyone can fish, each boat counts the average catch rather than what its extra hours add, so the lake's rent drains away. Most of it is gone once a few boats share the lake, and the second boat does the most damage.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "gini-and-the-lorenz-curve",
+    "title": "Gini and the Lorenz curve",
+    "track": "economics",
+    "spine_order": 13,
+    "unit": "Mi13",
+    "bridge": "Tragedy of the commons followed how much value a shared resource loses. Gini and the Lorenz curve closes the microeconomics principles by asking how income is shared out, and what a single number can and can't say about it.",
+    "blurb": "Two societies can share a Gini while their poorest live very differently, and two credit scorecards can share one while one catches 40% of defaulters in the riskiest tenth of applicants and the other 25.5%. One number can't say where the inequality sits.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "measuring-gdp",
+    "title": "Measuring GDP",
+    "track": "economics",
+    "unit": "Ma1",
+    "bridge": "Gini and the Lorenz curve looked at how income is shared out. Measuring GDP opens the macroeconomics principles by asking how much there is to share, and shows that the minus sign in front of imports is a correction rather than a cost.",
+    "blurb": "The minus sign in front of imports in C + I + G + X − M is a correction, not a cost. An import changes GDP only through the home production it replaces, and the trade line in a GDP release reads the same whether that's none of it or all of it.",
+    "date": "September 2026",
+    "spine_order": 14
+  },
+  {
+    "slug": "price-indices",
+    "title": "Price indices",
+    "track": "economics",
+    "unit": "Ma2",
+    "bridge": "Measuring GDP added up a year's production at that year's prices. Price indices asks how to compare prices across years, and finds that a fixed basket overstates the rise in the cost of living by an amount that depends on how readily people switch between goods.",
+    "blurb": "A fixed basket overstates the cost of living by about half of σ times the variance of the price changes, where σ is how readily people switch between goods. Averaging last year's basket with this year's gets close to the true answer without ever knowing σ.",
+    "date": "September 2026",
+    "spine_order": 15
+  },
+  {
+    "slug": "unemployment-flows",
+    "title": "Unemployment flows",
+    "track": "economics",
+    "unit": "Ma3",
+    "bridge": "Price indices showed how a single number can hide the switching behind it. Unemployment flows does the same for the unemployment rate, a stock fed by people losing jobs and people finding them, which settles where the two flows balance.",
+    "blurb": "The unemployment rate settles where job losses and job finding balance, and that depends only on the ratio of the two. So a hiring freeze can nearly double unemployment while layoffs fall, and two towns at 6% can have spells averaging two months in one and eleven in the other.",
+    "date": "September 2026",
+    "spine_order": 16
+  },
+  {
+    "slug": "compound-growth",
+    "title": "Compound growth",
+    "track": "economics",
+    "unit": "Ma4",
+    "bridge": "Unemployment flows looked at how an economy uses the workers it has from month to month. Compound growth turns to the long run, where a one-point gap in growth rates doubles the gap in living standards in about seventy years, and asks what happens when growth is uncertain.",
+    "blurb": "A one-point gap in growth rates doubles the gap in living standards in about seventy years. But an economy whose growth swings grows more slowly than its average rate, and once growth is uncertain, the typical path falls behind the expected one for ever.",
+    "date": "September 2026",
+    "spine_order": 17
+  },
+  {
+    "slug": "money-creation",
+    "title": "Money creation",
+    "track": "economics",
+    "unit": "Ma5",
+    "bridge": "Compound growth dealt with real output over decades. Money creation turns to the money that output is bought with, following one loan through three banks' balance sheets to show where deposits come from and what the money multiplier really measures.",
+    "blurb": "A bank that lends alone loses most of the loan in reserves, which is why bankers say deposits come first. Banks that lend in step lose none, so the system's loans create its deposits, and the money multiplier is a ratio that holds whichever way the causation runs.",
+    "date": "September 2026",
+    "spine_order": 18
+  },
+  {
+    "slug": "constrained-choice",
+    "title": "Constrained choice",
+    "track": "economics",
+    "spine_order": 19,
+    "unit": "U3",
+    "bridge": "Money creation closed the macroeconomics principles with the banking system as a whole. Constrained choice opens intermediate microeconomics by stepping down to one person's decision, where an indifference curve meets a budget line, and asks what a pay rise does to how much someone chooses to work.",
+    "blurb": "Many first courses say theory can't tell us whether a pay rise makes people work more or less, and in general that's true. But for the Cobb–Douglas utility they usually draw, the income and substitution effects cancel completely, and hours don't move at any wage.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "nash-equilibrium",
+    "title": "Nash equilibrium",
+    "track": "economics",
+    "spine_order": 20,
+    "unit": "U4",
+    "bridge": "Constrained choice looked at one person choosing against a fixed budget. Nash equilibrium brings in a second decision maker whose choice depends on ours, and shows what an equilibrium looks like when no cell of the payoff matrix is one.",
+    "blurb": "In one two-by-two game in eight, checking cells finds no equilibrium, and in those games each player's behaviour is set by the other player's payoffs. So in our model, a bigger fine buys less monitoring and leaves breaches where they were.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "bargaining-and-the-surplus",
+    "title": "Bargaining and the surplus",
+    "track": "economics",
+    "spine_order": 21,
+    "unit": "U5",
+    "bridge": "Nash equilibrium looked at games where both players move at once. Bargaining and the surplus looks at two sides taking turns to make offers, and shows that how impatient each one is picks a single split of the gains.",
+    "blurb": "Every split on the frontier beats no deal, and the picture can't pick one. Once the two sides take turns making offers, the model settles on a single split, in which your share grows with the other side's impatience, and an outside option counts only once it beats that share.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "externalities",
+    "title": "Externalities",
+    "track": "economics",
+    "spine_order": 22,
+    "unit": "U10",
+    "bridge": "Bargaining and the surplus showed how two sides who can negotiate split the gains from a deal. Externalities brings in a party who isn't at the table, and compares a tax, a quota and a bargain as ways to deal with a cost that nobody prices.",
+    "blurb": "A tax, a quota and a bargain can bring a polluter down to the same output and move the same money into different pockets. Once the regulator is unsure of the costs, the tax does better when damage is flatter than benefit, and the quota when it's steeper.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "efficiency-wages",
+    "title": "Efficiency wages",
+    "track": "economics",
+    "spine_order": 23,
+    "unit": "U6",
+    "bridge": "Externalities assumed the costly action could be seen and measured. Efficiency wages turns to one that can't be, a worker's effort, and shows why a firm might pay more than it has to and leave a queue of people outside.",
+    "blurb": "When a wage buys effort, the cheapest effort sits where a 1% pay rise buys 1% more effort. That wage comes from the effort curve alone, so a firm hiring one worker or a thousand pays the same, and the queue outside is part of how it works.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "order-book",
+    "title": "The order book",
+    "track": "finance",
+    "spine_order": 1,
+    "unit": "Fm1",
+    "bridge": "The finance sequence starts where every trade starts, at the queue of orders waiting on an exchange. The order book asks what a market order really pays, and why the shape of that queue matters.",
+    "blurb": "A market order's average price sits a fixed share of the way from the best quote to the worst price it reaches: half in a flat book, two thirds when depth grows linearly. The shape also decides whether cost grows with size or its square root.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "volatility-drag",
+    "title": "Volatility drag",
+    "track": "finance",
+    "spine_order": 2,
+    "unit": "Fr1",
+    "bridge": "The order book showed what it costs to get into a position. Volatility drag asks what happens once we hold one, and why a fund that resets its leverage every day drifts away from a multiple of the index.",
+    "blurb": "Over a year, a daily-reset fund's result depends on two numbers, the index's return and how much it moved along the way. A flat year at 20% volatility costs a 3× fund about 11% and a −3× fund about 21%.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "dividend-discount-model",
+    "title": "The dividend discount model",
+    "track": "finance",
+    "spine_order": 3,
+    "unit": "Fm7",
+    "bridge": "Volatility drag was about how returns add up over time. The dividend discount model steps back to ask what a share is worth in the first place, and why one gap sets both its price and its sensitivity to rates.",
+    "blurb": "Priced as a growing stream of dividends, a share depends on one gap, the discount rate minus the growth rate. That gap is the dividend yield and the inverse of the duration, so at a 3% gap a one-point rise in rates takes a quarter off the price.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "diversification",
+    "title": "Diversification",
+    "track": "finance",
+    "spine_order": 4,
+    "unit": "Fr3",
+    "bridge": "The dividend discount model priced a single share. Diversification puts many shares together and asks what holding more of them buys us, in risk and in growth.",
+    "blurb": "Holding more stocks shrinks risk towards a floor set by how they move together, and ten stocks remove 90% of what can go. It also raises the growth rate by half the variance removed, so over thirty years only one stock in six beats the portfolio.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "mean-variance-optimisation",
+    "title": "Mean-variance optimisation",
+    "track": "finance",
+    "spine_order": 5,
+    "unit": "Fr4",
+    "bridge": "Diversification used equal weights because they were simple. Mean-variance optimisation asks whether the textbook's best weights do better once their inputs have to be estimated from history.",
+    "blurb": "With estimated average returns, Markowitz's optimiser earns the best Sharpe ratio times the cosine of an angle set by the number of assets and the length of the history. To beat equal weights with ten assets, it needs about 68 years of data.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "time-diversification",
+    "title": "Time diversification",
+    "track": "finance",
+    "spine_order": 6,
+    "unit": "Fr16",
+    "bridge": "Mean-variance optimisation looked at a single period. Time diversification asks what happens to the risk of stocks as we hold them for longer, and why lower odds of losing aren't the same as smaller losses.",
+    "blurb": "Holding stocks for longer lowers the chance that they end behind bonds, from 42% over one year to 14% over thirty. But the average shortfall when they do grows from 13% to 37%, and a 1-in-20 bad outcome keeps getting worse for 17 years.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "samuelson-1963",
+    "title": "Samuelson’s fallacy of large numbers",
+    "track": "finance",
+    "spine_order": 7,
+    "unit": "Fr17",
+    "bridge": "Time diversification showed that holding for longer lowers the odds of a shortfall and deepens it. Samuelson's 1963 paper asks whether repeating a bet we'd refuse once can ever make it worth taking.",
+    "blurb": "If we'd refuse a bet at every level of wealth we could reach, we should refuse a hundred of them too. For someone with constant risk aversion, a hundred bets are worth a hundred times one, so the answer never flips.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "bodie-1995",
+    "title": "Bodie’s shortfall insurance",
+    "track": "finance",
+    "spine_order": 8,
+    "unit": "Fr18",
+    "bridge": "Samuelson argued that repeating a risk doesn't shrink it. Bodie's 1995 paper puts a price on long-run risk by asking what it costs to insure stocks against ending behind bonds.",
+    "blurb": "Insuring stocks against ending behind bonds costs about 8% of the money for one year and 42% for thirty, even as the chance of needing it falls. The price depends only on volatility and time, never on the premium stocks are expected to earn.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "isolation-forest",
+    "title": "Isolation Forest",
+    "track": "ml",
+    "blurb": "Anomalies are few, and they are different. Both of those make them easy to cut off from everything else — and that is the whole algorithm.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "xgboost",
+    "title": "XGBoost",
+    "track": "ml",
+    "blurb": "Why predict the answer when you can predict your own mistakes? How trees, gradients and shrinkage turn a sequence of simple rules into the default model for tabular data.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "lightgbm",
+    "title": "LightGBM",
+    "track": "ml",
+    "blurb": "Bucket a column into 255 bins and the search for its best split stops being a scan over rows. It costs less than half a percent of the accuracy — and the speed does not come from where almost everyone says it does.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "k-means",
+    "title": "K-Means",
+    "track": "ml",
+    "blurb": "Two moves, repeated until nothing changes. The algorithm always stops, it never makes things worse, and it is under no obligation whatsoever to be right.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "autoencoders",
+    "title": "Autoencoders",
+    "track": "ml",
+    "blurb": "Squeeze data through a narrow layer and ask for it back, and a linear autoencoder rediscovers principal component analysis — in a basis nobody asked for, which it will never fix, because nothing in the loss can tell the difference.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "shapley-values",
+    "title": "Shapley Values",
+    "track": "ml",
+    "blurb": "Three people, one fee, and no obvious way to split it. The answer game theory settled in 1953 turns out to be the answer to a question nobody was asking then: what did each feature contribute to this prediction?",
+    "date": "September 2026"
+  },
+  {
+    "slug": "smote",
+    "title": "SMOTE",
+    "track": "ml",
+    "blurb": "The whole algorithm is one line: put a new minority point somewhere on the segment between two old ones. That line is a claim about the space between — where the claim is false, and what it was buying you anyway.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "f1-score",
+    "title": "F1 Score",
+    "track": "ml",
+    "blurb": "Maximising F1 on a validation set is the standard way to pick a classification threshold. The rule has a closed form, it is not about your problem, and it asserts a cost ratio nobody chose.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "dbscan-hdbscan",
+    "title": "DBSCAN & HDBSCAN",
+    "track": "ml",
+    "blurb": "Every value of eps you could try is one horizontal line drawn across the same tree. When the branches do not line up, none of them is right — not a hard search, an empty set — and HDBSCAN's answer is to stop cutting straight.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "population-stability-index",
+    "title": "Population Stability Index",
+    "track": "ml",
+    "blurb": "Every reading is how far the population moved plus (B−1)(1/N + 1/M), and the second term is there whether anything moved or not. The 0.10 and 0.25 lines ignore it — so on a small segment the traffic light is mostly reporting your sample size, and on a large one it cannot see a shift worth eight points of approval rate.",
+    "date": "September 2026"
+  },
+  {
+    "slug": "peer-group-outliers",
+    "title": "Peer groups and outliers",
+    "track": "ml",
+    "blurb": "A field guide to k-means as a transaction-monitoring detector, tested on one synthetic bank from the raw data to the reason given to an investigator. K-means spends a centroid wherever it removes the most inertia, so a mule ring of 40 is flagged about a quarter as often as a lone mule, and the transform, the cap, the scaler and even who is in the table decide which typologies can be seen at all.",
+    "date": "September 2026"
+  }
+]

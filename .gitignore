@@ -1,1 +1,18 @@
+# learningsite: one repository for the generator and the built site.
+# GitHub Pages serves site/ (see .github/workflows/pages.yml).
+
+# Reinstallable
+node_modules/
+articles/*/public/build/
+**/verify/_browser-check-bundle.tgz
+
+# Never published: papers and chapters we read (copyright), and the
+# 243MB MLU-Explain clone kept as a local pattern reference
+sources/
+reference/aws-mlu-explain/
+
+# Local scratch
+Claude outputs/
+_to_delete/
+.claude/settings.local.json
 .DS_Store

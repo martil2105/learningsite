@@ -1,0 +1,22 @@
+{
+  "name": "compound-growth",
+  "version": "1.0.0",
+  "description": "Interactive visual essay on compound growth: a one-point gap doubles the gap in living standards in about seventy years, but the average growth rate is not the rate you grew at, and with uncertain growth the typical path falls behind the expected one for ever.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

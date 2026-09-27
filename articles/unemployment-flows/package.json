@@ -1,0 +1,22 @@
+{
+  "name": "unemployment-flows",
+  "version": "1.0.0",
+  "description": "Interactive visual essay on unemployment flows: the rate depends only on the ratio of job finding to job loss, so it can double while layoffs fall, and the same 6% can mean two-month spells or eleven-month ones.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

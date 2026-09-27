@@ -1,0 +1,22 @@
+{
+  "name": "externalities",
+  "version": "1.0.0",
+  "description": "A tax, a quota and a bargain reach the same quantity and move the same money into different pockets — until the regulator is uncertain, and then the square of a slope ratio decides.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

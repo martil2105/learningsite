@@ -1,0 +1,372 @@
+# Verifying an article
+
+Read this before writing the checks, and again before calling an article done.
+
+The class of error to hunt is **not** broken code. It is a mismatch between
+what the prose claims and what the chart beside it shows. That survives every
+code review, and it is what these two files exist to catch.
+
+## The quantity on the chart must be the quantity the claim is about
+
+Three ways this project has broken that rule. The general form is worth holding in
+one piece, because each one looked like a different bug at the time.
+
+- **In-sample cannot support out-of-sample.** The `xgboost` learning-rate section
+  told a story about shrinkage from training error, where less shrinkage always
+  wins and more rounds always help. Anything about overfitting, regularisation or
+  early stopping needs held-out data on the chart.
+- **A simulated world cannot support a claim about the real one.** These articles
+  generate from a known truth, which is what makes the checks strong — and it also
+  means a sentence about what happens in practice is not something the simulation
+  established. Be explicit about which of the two you are claiming.
+- **One draw cannot support a claim about a distribution.** A first PSI probe
+  found that swapping which sample defines the bins moved a small window's reading
+  by 70%. Over 250 replications the two directions agree in expectation on all
+  four channels: the effect was one lucky draw, a whole section had been built on
+  it, and it had to be rebuilt around the asymmetry that is real — emptying a bin
+  costs more than filling it. Replicate before believing an effect, and turn the
+  dead claim into a check so it cannot creep back.
+- **A simulated share is only as precise as its sample.** The pairwise-trap
+  share in `comparative-advantage` came out at 11.83% under the probe's
+  generator and 11.74% under the article's seeded one, 100,000 worlds each. The
+  standard error is about 0.1 points, so the prose says "about 12%" and the
+  check asserts the rounding, not a decimal the seed chose.
+
+## Every article ships two check files
+
+### `verify/check-numbers.mjs` — `npm run check`
+
+Runs `node --input-type=module` directly against `src/*.js`, no build step, so
+every claim the prose makes is re-derived from the same modules the page
+imports.
+
+Write the check for the **sentence**, not only for the number in it. A figure
+staying correct while the sentence around it stops being true is the failure
+this file exists for. Concretely, the assertions read like the claim they
+defend:
+
+```js
+ok("step 2: two well-separated clusters are still fine at the default k", …)
+ok("the article calls it a dead heat, so it had better be within a tenth of a point", …)
+ok("it opens with the handle inside its own cluster and nothing flagged", …)
+```
+
+What belongs in it:
+
+- **Identities held to machine precision**, not tolerances, wherever the subject
+  has a theorem in it. `articles/smote/` asserts that no synthetic point is ever
+  outside the convex hull (1.26M trials, 0 escapes) and that a variance ratio
+  equals a closed form to 1e-12.
+- **Two derivations of the same quantity, checked against each other.** One
+  enumerating and one simulating, sharing no code. In `smote` the closed-form
+  child moments agree with the sampler to four decimals across seven values of
+  `k` and three datasets — neither could be wrong alone.
+- **Tolerances are statements about units.** `residual < 1e-10` failed at 6.1e-10
+  on a covariance whose largest eigenvalue is 14.25 — a relative error of 4e-11,
+  which is fine. Divide by the natural scale first.
+- **A trend the prose describes**: load the modules and print the series. The
+  `xgboost` article told a story about three RMSE curves in which every claim
+  was inverted from what the chart drew.
+- **Training error cannot support a generalization claim.** Any argument about
+  overfitting, shrinkage, regularization or early stopping needs held-out data
+  on the chart. These articles generate from a known truth, so a test set — or
+  an exact integral against the generating densities — is a few lines.
+- **Numbers from real data are derived from a pinned file, never typed in.** For
+  an empirical subject the file lives in the article's `data/`, with series ID,
+  provider, URL, retrieval date and sha256 recorded in `data/SOURCES.md`, and the
+  check re-derives every figure in the prose from it. Revised series silently
+  change published articles, so the vintage is part of the claim.
+- **Precomputed freshness, as the first check.** See below.
+
+### `verify/check-browser.mjs` — Playwright, two viewports
+
+Copy the newest one and change the selectors. The first block of
+`articles/cost-curves/verify/check-browser.mjs` (page renders, no sideways
+scroll, SVGs fit and have a `viewBox`, finite geometry, no raw `$…$` or `\cmd`,
+KaTeX rendered, "Thanks for reading!", no page errors) is article-independent
+and can be copied whole; the second block is where this article's interactions
+go.
+
+**The scaffold's own `check-browser.mjs` is not a check for your article.** It
+asserts the scaffold's `.sticky`, `.steps` and `.plot` elements. Three articles
+(`cost-curves`, `perfect-competition`, `monopolistic-competition`) shipped with it
+unchanged, so their browser checks crashed on the first selector and had never
+run, and two of the three were blank pages that nobody had loaded. Replace it in
+pass 2, and in pass 3 treat a check file that throws as a failure, not as
+"no failures".
+
+Always present, at 390px and 1280px:
+
+- `pageerror` and console error/warning collection, before *and* after
+  interaction.
+- `document.documentElement.scrollWidth > window.innerWidth` — and when it
+  fails, **name the offender** by walking `body *` for rects crossing the
+  viewport. "The page is 93px too wide" is a fact; "this element is" is a fix.
+- Every `<svg>`'s edges against its parent's. `body { overflow-x: hidden }`
+  means a clipped chart passes the page-level test.
+- Nothing *drawn* outside the `<svg>` that contains it. An outer SVG clips
+  visually while still widening the document. Skip `.katex svg`: KaTeX draws
+  radicals and big delimiters as stretched svgs that overhang their own box on
+  purpose.
+- No negative `width`, `height` or `r` and no `undefined`/`NaN` in a path `d`,
+  swept across ~20 scroll positions.
+- `document.body.innerText.match(/\\[a-zA-Z]{2,}/g)` for LaTeX that reached the
+  DOM unrendered, plus a non-zero `.katex` count.
+- Every `.katex annotation` free of a `;` not preceded by a backslash: a spacing
+  command written `\;` inside a JS template literal loses its backslash and
+  renders as a literal semicolon, silently (`house-idioms.md`).
+- The title TEXT measured with a `Range` (the `h1` box is the container width).
+- Text glued to a separator or a word: `/[\d%]·|·[\dA-Za-z]|\d[a-z]{3,}/`.
+- Small-multiple panels share a bounding-rect `top` at desktop and do not on
+  mobile.
+
+Plus **one geometry check specific to this article's claim**, in rendered
+pixels. This is the check that pays for the file:
+
+- `autoencoders`: every reconstruction circle lies on the decoder's line.
+- `lightgbm`: every candidate dot's `cx` matches some bin edge's `x1` to 0.02px.
+- `smote`: every synthetic point is on one of the drawn segments; all are inside
+  the hull of the drawn fraud points; and a ringed point is outside the shaded
+  region while an unringed one is inside, via `path.isPointInFill`.
+
+The last shape is the strongest and worth writing every time: it runs the
+model's verdict, the contour, and both coordinate transforms through a single
+assertion, so any one of them being in the wrong coordinate system fails
+immediately. `elementsFromPoint` variants need the element scrolled into view
+first — it silently checks zero points otherwise, which reads as a pass.
+
+**For "this lies on that line", transform the points yourself.** A diagonal
+`<line>`'s `getBoundingClientRect` gives its box, not its direction, and leaves
+out the stroke. `comparative-advantage` maps each endpoint and each circle
+centre through the element's own `getScreenCTM()` and asserts perpendicular
+distances in screen pixels: the trading line lies within 0.5px of the frontier
+for the economy that gains nothing and more than 10px off it for the other, and
+the mirror case is asserted at the other end of the slider.
+
+**A selector that picks the first of several like-classed elements can assert
+the opposite of the figure's point.** `constrained-choice` draws two curves in
+one panel: one that must stay above a floor, and one whose whole job is to fall
+through it. Both were `class="curve"`, the check took
+`paths.find(p => p.classList.contains("curve"))`, and it failed loudly on the
+contrast curve while never once looking at the curve the sentence was about. The
+check was wrong, not the figure. Name each series in the component
+(`curve sg`, `curve ces`), select the named one, and — the part worth copying —
+add the mirror assertion too: the contrast curve *does* cross the floor. A check
+that only tests the well-behaved half of a comparison figure is testing half of
+nothing.
+
+**Scaffolded check files inherit selectors for components you deleted.** A new
+article's `check-browser.mjs` arrives asserting the scaffold's own `.sticky`,
+`.steps`, `line.model` and `circle.handle`, which is a red run for reasons that
+are not bugs. Rewrite the article-specific half before the first run, and give
+each figure a stable `id` on its wrapper so the checks and the screenshots can
+name one.
+
+**"The circle marks the lowest point" is a check on y, not x.** Near the bottom
+of a smooth minimum the curve is flat, so the grid vertex with the largest y can
+sit a few vertices away from the true minimum while differing by a thousandth of
+a pixel. `time-diversification` first asserted the circle's x against that vertex
+and failed at 1280px. Assert that the circle's y equals the path's extreme y, and
+that the path's vertex nearest the circle's x is at the circle's y.
+
+## Precompute anything too slow to run on load
+
+When the numbers cost more than a fraction of a second, do not compute them in
+the browser and do not hard-code them either:
+
+1. `scripts/precompute.mjs` runs the heavy work **from the same `src/` modules
+   the page imports** and writes `src/precomputed.js`, which is committed.
+2. It exports `run()` and only writes when invoked directly, so the check can
+   import it.
+3. The **first** check in `check-numbers.mjs` calls `run()` and deep-diffs the
+   result against the committed file.
+
+A stale precompute is then a failing check rather than a quiet lie — stronger
+than computing in the browser, because it also catches the case where the data
+changed and nobody re-ran anything. Keep the *interactive* part live regardless.
+
+## Shipping a build to the browser checks
+
+`npm run dev` inside the VM is not reachable from the host. Use
+`./verify/ship.sh`, which builds, refuses warnings, proves the build actually
+ran, runs `check-numbers`, tars `public/` and proves the tarball holds the
+bundle that is on disk. Then stage that one file, extract it, serve it, and run
+Playwright against it.
+
+That script exists because of a specific failure worth knowing about: the build
+ran, the tar ran after it, and the tar still packed the *previous* bundle. Two
+rounds of "my fix didn't work" were stale code. **The `bundle` hash it prints is
+the identity of the code** — if it does not change after an edit, the edit did
+not land.
+
+**Three ways to waste a run on the `-m` marker rather than on a bug.** The
+marker has to be a string that ends up *in the bundle*, so a sentence you just
+added to `verify/` or `README.md` will always report "not found". It has to sit
+on one line of the source: a phrase spanning a line break in a `.svelte`
+template does not survive compilation as the same substring. And it has to
+survive minification: comments are dropped and identifiers renamed, so a marker
+taken from a comment, or from code such as `SIZE_MIN ? "start"`, fails on a
+build that did land. Pick a distinctive fragment of a string literal or of
+template text on a single source line inside `src/`, or watch the `bundle` hash
+instead.
+
+**A geometry check against drawn marks needs every mark drawn.** The
+`peer-group-outliers` lab clipped its data to a fixed window, so one mule sat
+outside the chart; the readout said 19 of the ring were alerts and the check
+counted 18 circles. Worse, a centroid outside the window would have been missing
+from a "nearest drawn centroid" test. When the claim is about distances between
+marks, compute the window from the data (equal aspect, width capped so the chart
+isn't too tall) and assert that the readout's count equals the drawn count.
+
+**Check the checks' runtime before the device does.** `check-numbers.mjs`
+re-runs the full precompute for its freshness check, which took about five
+minutes for `peer-group-outliers`. `device_bash` stops at 180 seconds, so run
+`ship.sh` in the container or with `nohup` on the device, and keep
+`SKIP_FRESHNESS=1` for prose iterations only.
+
+**Kill the static server by its port before and after every run.** `npx sirv`
+starts a child process that outlives the `npx` you kill. It caches file sizes
+from when it started, so after a rebuild it serves a cut-off bundle, the page
+throws "Unexpected end of input" and renders blank, and every check times out
+on the first selector. It looks exactly like a broken build. Find the process
+by `sirv public -p <port>` and kill it, and don't use `pkill -f` with a pattern
+your own command line contains.
+
+**Don't run `git` on the device.** Even `git status` writes `.git/index.lock`,
+and the device shell can't delete it, so the next git command the owner runs
+fails with "another git process seems to be running". Read the repository with
+`git --no-optional-locks`, or leave git to the owner.
+
+## Then look at the screenshots
+
+Every bug that mattered in this project was invisible to every assertion:
+
+- a Voronoi layer drawn in data units, tucked into the corner of four charts
+- clipped chip text, and an overlay covering the chart it explained
+- a paragraph describing a "bulge" in a decision boundary that was not there
+
+The last one is the pattern to watch for. When a paragraph describes a *shape*
+in a chart, either replace the description with a number the chart is drawn
+from, or look at the chart. Preferably both.
+
+Crop what you look at. Element screenshots at ~700px answer the question; full
+pages at 2560px cost several times more and stay in context afterwards. Three
+targeted crops beat seven full pages.
+
+## A probe that cannot fail has not checked anything
+
+When the claim is that **X does not depend on Y**, the probe must compute X by a
+route that is *allowed to read Y*. Otherwise it is true by construction and
+measures only your own factoring.
+
+`nash-equilibrium` claims a player's equilibrium mix does not depend on their own
+payoffs. The first probe solved the row player's mix from the column player's
+matrix — the one place their own payoffs are structurally absent — and then
+reported that it had not moved when the row player's matrix changed. It could not
+have moved. The probe passed, proved nothing, and read exactly like a result.
+
+Rewritten, the solver takes both matrices and returns whatever it returns, and
+every answer is checked by exploitability, which also reads both. The claim
+survived; the first version of it was worthless.
+
+The general shape: an invariance claim needs an **oracle that could have seen the
+variable**. If your solver structurally cannot, the zero you are reporting is
+your own algebra, not a measurement.
+
+## Sliders in Playwright
+
+`locator.fill()` on an `<input type="range">` refuses a value that is not on the
+input's `step` grid ("Malformed value"), so sweep on the grid. A figure that
+opens at a value *off* its own grid can never be dragged back to it:
+`comparative-advantage` opens its log-scale slider at exactly 2.7, the example
+the prose quotes, and the check reads that opening state before it touches the
+slider.
+
+## An invariance through a solver inherits the solver's noise
+
+A claim of the form "the answer does not depend on L" is often checked by
+running the same optimiser at several L and comparing the answers. Even when
+the argmin is provably identical, the optimiser's *floating point* is not: a
+golden-section search whose comparisons sit near a flat minimum can land on
+neighbouring doubles for different multipliers, so the four answers agree only
+to the search's own noise floor (`efficiency-wages`: 1.6e-7, not 0). Assert
+within that stated noise, or make the search exact on purpose — never write
+"to the last bit" about a solver's output unless two routes share the
+iteration.
+
+## Population moments versus sample estimates
+
+When an article proves an algebraic identity between population moments (e.g.
+the true parameter vector, expected values, asymptotic limits, or closed-form
+integrals), assert machine precision (`< 1e-12`, typically `~1e-15`). When an
+interactive simulation or Monte Carlo routine estimates those moments from a
+finite sample of draws (e.g. 200 observed price-quantity shocks or 4,000
+shuffle replications), the sample statistic carries random sampling noise
+scaling as $O(1/\sqrt{N})$.
+
+- **Never assert exact double equality (`===`) on a finite sample statistic.**
+- **State the sample size in the prose when the reader is looking at the
+  sample**: a lab that draws 400 simulated economies says so, because the
+  reader sees them. The size of the *checks* never goes on the page ("over
+  280,000 random markets", "to fourteen decimal places"): that is rule 14 of
+  `reference/writing-the-prose.md`, and the prose gate fails on it.
+- **Set the test tolerance to the statistical bound** (e.g. `< 5e-3` for
+  4,000 draws, `< 0.05` for 200 draws) and label it clearly in the check output
+  as a sampling tolerance rather than an arithmetic gap.
+- **Test both separately**: assert the closed-form population identity to
+  machine precision in one check, and assert the Monte Carlo sample convergence
+  in a distinct check.
+
+## Load every page before it goes live
+
+`scripts/build-site.sh` ends by running `scripts/smoke-site.mjs`, which serves
+`site/`, opens every article in `site/articles.json` at 390px and 1280px, and
+fails on any page error or on a page with under 400 characters of text. Run it on
+its own with `node scripts/smoke-site.mjs <slug>`. It exists because `ship.sh`
+builds and checks numbers but never opens the page, and two articles went live
+blank.
+
+## The final read-through
+
+- **Read it for voice, last, on the rendered page.** Use the checklist at the
+  end of `reference/writing-the-prose.md` ("Before calling the prose done").
+  Pull the text a reader sees (every paragraph, caption and figure note, in
+  page order) and read it straight through. The prose gate in `ship.sh` catches
+  the fingerprints of the three ways this project's voice drifts, but it can't
+  hear a sentence. Three articles
+  passed every check on 17 September with no contractions, a "that framing is
+  fundamentally misleading" opener, and literal `$R^2$` showing on the page.
+
+- **Does the demo exercise the idea it is selling?** The `xgboost` article had a
+  headline section on the second-order Taylor expansion running entirely on
+  squared error, where `h ≡ 1` and the Hessian cancels out of every number on
+  screen. Ask whether the mechanism is visible in the demo, or whether the demo
+  has been set in the one regime where it disappears.
+- **Be fair to the thing you are arguing against.** Read the baseline's
+  implementation asking "would someone who liked it have written it this way?"
+  An exact split finder making two passes where every real implementation makes
+  one inflated a headline ratio by 2×, from a choice in the implementation
+  rather than anything about the algorithm.
+- **Let the measurements change the article.** The `lightgbm` piece was rebuilt
+  around a counter that contradicted its plan; `smote`'s ending went from "the
+  threshold wins" to "it is a dead heat, in the same direction three times",
+  and both are better for it. Restate the claim at the strength the evidence
+  supports, and rewrite the check to match — a check asserting "beats" when the
+  data says "ties" is now the wrong check.
+- **Claims that do not survive the data.** "Taking their logarithm changes no
+  split" — in a dataset reaching −9.2 °C. "Captures 2-way interactions" — with
+  one feature. Check the distinct count per column before writing a word about
+  bin counts.
+- **Framing drift.** One row was a "day" in `datasets.js` and a "household" in
+  the walkthrough.
+- **A source is a source of claims, not of sentences.** If a paragraph could be
+  recognised as a paraphrase of the paper or chapter it came from, rewrite it from
+  the measurement instead. Cite the theorem or equation number, and say plainly
+  what is yours and what is theirs.
+- **Verify citations before writing the sentence that leans on them.** Two
+  specifics were cut from `smote` at the last minute because they could not be
+  re-checked. Describe a paper from an abstract you have actually read.
+- **The limits section is where domain knowledge shows.** Extrapolation and
+  unstructured data are the answers everyone gives. What a model validator asks
+  first is whether the scores are calibrated, where the stopping rule comes
+  from, and what the feature importances are biased toward.

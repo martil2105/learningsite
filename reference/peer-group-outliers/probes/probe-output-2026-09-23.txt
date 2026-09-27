@@ -1,0 +1,296 @@
+######## p10.mjs
+== D1 dormant accounts (400 added)
+ without: k3 {"extreme":5,"normal":25,"mule":20} sizes 546,2071,2418 | k5 {"extreme":5,"normal":32,"mule":13} sizes 530,625,628,1426,1826 | k8 {"extreme":5,"normal":33,"mule":12} sizes 269,408,453,518,564,571,868,1384
+ with   : k3 {"normal":40,"mule":10,"struct":4} sizes 400,770,4265 | k5 {"mule":20,"normal":34} sizes 400,548,685,1100,2702 | k8 {"normal":39,"mule":12,"extreme":3} sizes 85,170,400,413,463,515,1525,1864
+ with rawZ: k3 {"normal":28,"struct":9,"mule":16,"extreme":1} sizes 5,796,4634 | k5 {"normal":34,"mule":13,"extreme":2,"struct":5} sizes 5,42,100,1818,3470 | k8 {"mule":20,"normal":31,"extreme":3} sizes 5,14,75,165,187,261,2320,2408
+== D3 own-account transfers (5% of ordinary customers)
+ k3: internal-transfer customers 270 (5.4%), alerts to them 2/50, ring 20/20
+ k5: internal-transfer customers 270 (5.4%), alerts to them 4/50, ring 12/20
+ k8: internal-transfer customers 270 (5.4%), alerts to them 2/50, ring 12/20
+== D5 heavy tails (raw inflow)
+ skew 25.7, kurtosis 783, mean 51437, median 38346, sd 104577; top 5 hold 84.9% of the sum of squares, top 50 89.9%; median customer raw z -0.125
+ log1p inflow skew 0.29
+   inflow   zeros 0.0%, distinct 5035, p50 38346, p99 226796, max 3776780
+   outflow  zeros 0.0%, distinct 5035, p50 35428, p99 214238, max 1305269
+   txns     zeros 0.0%, distinct 214, p50 72, p99 189, max 277
+   cashIn   zeros 89.1%, distinct 549, p50 0, p99 10981, max 58308
+   intlOut  zeros 84.7%, distinct 771, p50 0, p99 35687, max 106097
+   senders  zeros 0.0%, distinct 30, p50 2, p99 15, max 41
+== D2 aggregation window
+ k3: 1-month consecutive J 0.67; 3-month non-overlapping J 0.67; 3-month rolling (shift 1) J 0.79; ring 1m 20 3m 20; struct 1m 0
+ k5: 1-month consecutive J 0.59; 3-month non-overlapping J 0.67; 3-month rolling (shift 1) J 0.75; ring 1m 13 3m 18; struct 1m 0
+ k8: 1-month consecutive J 0.47; 3-month non-overlapping J 0.67; 3-month rolling (shift 1) J 0.85; ring 1m 12 3m 13; struct 1m 0
+######## p11.mjs
+== D1b: why dormant accounts move everything: sd of log inflow
+ sd log inflow 0.689 -> 2.389 (x3.47); mean 10.56 -> 9.93
+== D4 missing 'senders' (col 5)
+ mechanism mcar: 15.1% missing; ring members missing 3/20
+   median    k3 ring 17/20 (missing ones 0/3) alerts on imputed 2 | k5 ring 15/20 (missing ones 0/3) alerts on imputed 3 | k8 ring 17/20 (missing ones 0/3) alerts on imputed 3
+   mean      k3 ring 17/20 (missing ones 0/3) alerts on imputed 3 | k5 ring 15/20 (missing ones 0/3) alerts on imputed 3 | k8 ring 17/20 (missing ones 0/3) alerts on imputed 3
+   zero      k3 ring 17/20 (missing ones 0/3) alerts on imputed 5 | k5 ring 10/20 (missing ones 0/3) alerts on imputed 5 | k8 ring 11/20 (missing ones 0/3) alerts on imputed 4
+   indicator k3 ring 17/20 (missing ones 0/3) alerts on imputed 5 | k5 ring 11/20 (missing ones 0/3) alerts on imputed 7 | k8 ring 9/20 (missing ones 0/3) alerts on imputed 7
+   drop      k3 ring 17/20 (missing ones 0/3) alerts on imputed 0 | k5 ring 13/20 (missing ones 0/3) alerts on imputed 0 | k8 ring 11/20 (missing ones 0/3) alerts on imputed 0
+ mechanism ring: 15.2% missing; ring members missing 10/20
+   median    k3 ring 10/20 (missing ones 0/10) alerts on imputed 3 | k5 ring 10/20 (missing ones 0/10) alerts on imputed 3 | k8 ring 10/20 (missing ones 0/10) alerts on imputed 3
+   mean      k3 ring 10/20 (missing ones 0/10) alerts on imputed 3 | k5 ring 9/20 (missing ones 0/10) alerts on imputed 3 | k8 ring 10/20 (missing ones 0/10) alerts on imputed 3
+   zero      k3 ring 10/20 (missing ones 0/10) alerts on imputed 6 | k5 ring 7/20 (missing ones 0/10) alerts on imputed 5 | k8 ring 7/20 (missing ones 0/10) alerts on imputed 4
+   indicator k3 ring 10/20 (missing ones 0/10) alerts on imputed 6 | k5 ring 8/20 (missing ones 0/10) alerts on imputed 8 | k8 ring 10/20 (missing ones 0/10) alerts on imputed 6
+   drop      k3 ring 10/20 (missing ones 0/10) alerts on imputed 0 | k5 ring 9/20 (missing ones 0/10) alerts on imputed 0 | k8 ring 8/20 (missing ones 0/10) alerts on imputed 0
+ mean-imputed sd / observed sd = 0.921550 ; sqrt(1-q) = 0.921550
+== D7 categorical attributes
+ foreign address prevalence 2.72%: z-scored dummy = 5.979 for holders, -0.167 otherwise
+  k3: alerts to foreign-address holders 4/50 (they are 2.7%); ring 17/20 (without the column 20); overlap with no-column list J 0.54; does a cluster split on it? sizes 137,2291,2607
+  k5: alerts to foreign-address holders 9/50 (they are 2.7%); ring 13/20 (without the column 13); overlap with no-column list J 0.56; does a cluster split on it? sizes 137,511,615,1714,2058
+  k8: alerts to foreign-address holders 12/50 (they are 2.7%); ring 14/20 (without the column 12); overlap with no-column list J 0.56; does a cluster split on it? sizes 137,439,503,555,578,594,871,1358
+  product one-hot, prevalences 59.9%, 30.7%, 7.4%, 2.0%: raw one-hot distance² between any two different products = 2; z-scored: A-B 8.86, A-D 54.55, C-D 65.00
+  k5: alerts by product 16,27,6,1 ; ring 15/20
+== D8 seasonality: December, everyone's flows x1.3
+  k3: frozen model normal month vs December J 0.79; refit J 1.00
+     frozen Dec alerts {"extreme":5,"high":17,"mule":20,"selfemp":8}
+     frozen normal     {"extreme":5,"high":11,"mule":20,"selfemp":14}
+  k5: frozen model normal month vs December J 0.82; refit J 1.00
+     frozen Dec alerts {"extreme":5,"high":18,"selfemp":14,"mule":13}
+     frozen normal     {"extreme":5,"high":13,"selfemp":17,"mule":15}
+######## p12.mjs
+== P1 capping sweep (k=3 | k=5)
+  none  cap null  cash customers at cap -    | k3 ring 14 struct 9 sales 1 | k5 ring 13 struct 5 sales 2
+  none  cap 0.999 cash customers at cap 6    | k3 ring 10 struct 9 sales 5 | k5 ring 13 struct 9 sales 5
+  none  cap 0.995 cash customers at cap 26   | k3 ring 20 struct 0 sales 0 | k5 ring 18 struct 0 sales 0
+  none  cap 0.99  cash customers at cap 51   | k3 ring 20 struct 0 sales 0 | k5 ring 0 struct 0 sales 0
+  none  cap 0.975 cash customers at cap 126  | k3 ring 20 struct 0 sales 0 | k5 ring 0 struct 0 sales 0
+  none  cap 0.95  cash customers at cap 252  | k3 ring 3 struct 0 sales 0 | k5 ring 0 struct 0 sales 0
+  log1p cap null  cash customers at cap -    | k3 ring 20 struct 0 sales 5 | k5 ring 13 struct 0 sales 5
+  log1p cap 0.999 cash customers at cap 6    | k3 ring 20 struct 0 sales 5 | k5 ring 13 struct 0 sales 5
+  log1p cap 0.995 cash customers at cap 26   | k3 ring 20 struct 0 sales 0 | k5 ring 4 struct 0 sales 0
+  log1p cap 0.99  cash customers at cap 51   | k3 ring 20 struct 0 sales 0 | k5 ring 0 struct 0 sales 0
+  log1p cap 0.975 cash customers at cap 126  | k3 ring 4 struct 0 sales 0 | k5 ring 0 struct 0 sales 0
+  log1p cap 0.95  cash customers at cap 252  | k3 ring 0 struct 0 sales 0 | k5 ring 0 struct 0 sales 0
+  mean+3sd cap on inflow: 365168 with the five sales, 169894 without; customers above: 10 vs 113
+== P2 log offset log(x + c)
+  c=1      gap 0->3,000 = ln(1+3000/c) = 8.007, 3,000->38,000 = 2.539 | k3 ring 20 struct 0 sales 5 | k5 ring 13 struct 0 sales 5
+  c=100    gap 0->3,000 = ln(1+3000/c) = 3.434, 3,000->38,000 = 2.509 | k3 ring 20 struct 0 sales 5 | k5 ring 17 struct 0 sales 5
+  c=1000   gap 0->3,000 = ln(1+3000/c) = 1.386, 3,000->38,000 = 2.277 | k3 ring 20 struct 0 sales 5 | k5 ring 18 struct 0 sales 5
+  c=10000  gap 0->3,000 = ln(1+3000/c) = 0.262, 3,000->38,000 = 1.306 | k3 ring 13 struct 10 sales 5 | k5 ring 20 struct 9 sales 5
+  c=100000 gap 0->3,000 = ln(1+3000/c) = 0.030, 3,000->38,000 = 0.293 | k3 ring 14 struct 9 sales 5 | k5 ring 13 struct 9 sales 5
+== P3 scalers
+  none  z       k3 ring 14 struct 9 sales 1 | k5 ring 13 struct 5 sales 2 | scales 1.05e+5,4.82e+4,36.8,2.78e+3,6.62e+3,2.85
+  none  robust  k3 ring 0 struct 10 sales 0 | k5 ring 2 struct 7 sales 0 | scales 3.14e+4,2.95e+4,47.0,1.00,1.00,2.00
+  none  minmax  k3 ring 19 struct 9 sales 5 | k5 ring 13 struct 9 sales 5 | scales 3.77e+6,1.30e+6,271,5.83e+4,1.06e+5,40.0
+  none  rank    k3 ring 6 struct 4 sales 1 | k5 ring 9 struct 9 sales 1 | 
+  log1p z       k3 ring 20 struct 0 sales 5 | k5 ring 13 struct 0 sales 5 | scales 0.689,0.691,0.496,2.59,3.19,0.509
+  log1p robust  k3 ring 0 struct 0 sales 0 | k5 ring 12 struct 0 sales 5 | scales 0.803,0.813,0.653,1.00,1.00,0.693
+  log1p minmax  k3 ring 7 struct 0 sales 5 | k5 ring 8 struct 0 sales 4 | scales 6.95,6.03,3.68,11.0,11.6,3.04
+  raw min-max inflow: 99% of customers inside [0, 0.059] of the axis
+  IQR cash 0, IQR intl 0 (zero because 89.1% and 84.7% are zero)
+== P4 correlation
+  corr (log z):
+    inflow     1.00  0.99  0.41  0.05  0.18 -0.02
+    outflow    0.99  1.00  0.41  0.05  0.18 -0.01
+    txns       0.41  0.41  1.00 -0.05  0.16  0.19
+    cashIn     0.05  0.05 -0.05  1.00  0.00  0.05
+    intlOut    0.18  0.18  0.16  0.00  1.00  0.10
+    senders   -0.02 -0.01  0.19  0.05  0.10  1.00
+  eigenvalues 2.329, 1.133, 1.020, 0.885, 0.621, 0.012; effective number of features (participation ratio) 4.04 of 6
+  each z column's sum of squares = N: 5035.000000, 5035.000000, 5035.000000, 5035.000000, 5035.000000, 5035.000000 (N=5035)
+  duplicate inflow: k3 ring 20 struct 0 sales 5 J vs base 0.72 | k5 ring 11 struct 0 sales 5 J 0.72
+  duplicate senders: k3 ring 12 struct 0 sales 5 J vs base 0.52 | k5 ring 15 struct 0 sales 5 J 0.69
+  duplicate senders+senders: k3 ring 20 struct 0 sales 5 J vs base 0.64 | k5 ring 20 struct 0 sales 5 J 0.59
+== P5 PCA
+  cumulative variance 0.388, 0.577, 0.747, 0.895, 0.998, 1.000
+  keep 2 PCs (57.7%): k3 ring 10 struct 0 sales 5 | k5 ring 14 struct 0 sales 5 | k8 ring 7 struct 0 sales 5
+  keep 3 PCs (74.7%): k3 ring 18 struct 0 sales 5 | k5 ring 3 struct 0 sales 5 | k8 ring 2 struct 1 sales 5
+  keep 4 PCs (89.5%): k3 ring 18 struct 0 sales 5 | k5 ring 6 struct 0 sales 5 | k8 ring 6 struct 0 sales 5
+  keep 5 PCs (99.8%): k3 ring 20 struct 0 sales 5 | k5 ring 13 struct 0 sales 5 | k8 ring 12 struct 0 sales 5
+  keep 6 PCs (100.0%): k3 ring 20 struct 0 sales 5 | k5 ring 13 struct 0 sales 5 | k8 ring 12 struct 0 sales 5
+  ring mean offset: share in PC1..6 11.8%, 66.2%, 0.2%, 2.8%, 18.9%, 0.0%
+  structurers offset: share in PC1..6 10.3%, 1.1%, 87.2%, 0.3%, 1.1%, 0.0%
+== P7 irrelevant features
+  +0  noise features: k3 ring 20 struct 0 sales 5 contrast p99/p50 2.90 | k5 ring 13 struct 0 sales 5 contrast p99/p50 3.12
+  +2  noise features: k3 ring 20 struct 0 sales 5 contrast p99/p50 2.18 | k5 ring 14 struct 0 sales 5 contrast p99/p50 2.25
+  +5  noise features: k3 ring 18 struct 0 sales 5 contrast p99/p50 1.81 | k5 ring 10 struct 0 sales 5 contrast p99/p50 1.85
+  +10 noise features: k3 ring 16 struct 0 sales 5 contrast p99/p50 1.58 | k5 ring 8 struct 0 sales 5 contrast p99/p50 1.60
+  +20 noise features: k3 ring 10 struct 0 sales 5 contrast p99/p50 1.41 | k5 ring 4 struct 0 sales 5 contrast p99/p50 1.41
+== P8 a ratio feature: share of inflow sent abroad
+  ring ratio 0.600+; ordinary customers at or above it: 28; max ordinary 2.20
+  +ratio k3: ring 18 struct 0 sales 5 (without: ring 20 struct 0 sales 5)
+  +ratio k5: ring 3 struct 0 sales 5 (without: ring 13 struct 0 sales 5)
+  +ratio k8: ring 3 struct 0 sales 5 (without: ring 12 struct 0 sales 5)
+== P9 order of operations
+  percentile cap before vs after log: max difference 1.36e-5
+  z-then-clip-at-3 vs clip-at-3sd-then-z: max difference 4.782 (not the same thing)
+######## p13.mjs
+== F1 inertia decomposition (k=5)
+  total 30210.000000 = within 13149.445392 + between 17060.554608; residual -6.55e-11; inertia reported 13149.445392
+  per-feature R² (between/total): inflow 0.545, outflow 0.551, txns 0.364, cashIn 0.958, intlOut 0.816, senders 0.154
+== F2 k selection: inertia, elbow, CH, DB, silhouette, gap; detection
+  k=1  inertia  30210 2nd diff    -   CH   -   DB  -  sil  -  | ring 12 struct 0 sales 5
+  k=2  inertia  22817 2nd diff   3034 CH 1631 DB 1.573 sil 0.236 | ring 17 struct 0 sales 5
+  k=3  inertia  18457 2nd diff    748 CH 1602 DB 1.294 sil 0.280 | ring 20 struct 0 sales 5
+  k=4  inertia  14846 2nd diff   1915 CH 1736 DB 1.118 sil 0.317 | ring 12 struct 0 sales 5
+  k=5  inertia  13149 2nd diff    461 CH 1632 DB 1.161 sil 0.275 | ring 13 struct 0 sales 5
+  k=6  inertia  11914 2nd diff    -42 CH 1545 DB 1.203 sil 0.274 | ring 14 struct 0 sales 5
+  k=7  inertia  10636 2nd diff    379 CH 1542 DB 1.072 sil 0.282 | ring 15 struct 0 sales 5
+  k=8  inertia   9737 2nd diff    161 CH 1510 DB 1.119 sil 0.286 | ring 12 struct 0 sales 5
+  k=9  inertia   8999 2nd diff    229 CH 1481 DB 1.197 sil 0.293 | ring 17 struct 0 sales 5
+  k=10 inertia   8491 2nd diff     48 CH 1428 DB 1.128 sil 0.291 | ring 0 struct 0 sales 5
+  k=11 inertia   8030 2nd diff    -60 CH 1388 DB 1.157 sil 0.295 | ring 1 struct 0 sales 5
+  k=12 inertia   7509 2nd diff    -   CH 1381 DB 1.151 sil 0.263 | ring 0 struct 0 sales 5
+  picks: CH k=4, DB k=7, silhouette k=4
+  gap: k1 1.424±0.004, k2 1.414±0.003, k3 1.466±0.004, k4 1.545±0.002, k5 1.567±0.005, k6 1.600±0.006, k7 1.656±0.013, k8 1.684±0.016 -> Tibshirani rule picks k=1
+== F3 who owns the inertia
+  raw z: five house sales hold 20.3% of total inertia at k=1; top 50 customers 41.3%
+  log z: five house sales hold 1.1% of total inertia at k=1; top 50 customers 5.6%
+== F4 seeds and restarts (k=5, 8, 10; 40 seeds each)
+  k=5 nInit=1  distinct optima 23 worst/best inertia 1.203 ring caught min 1 max 14 mean 12.3 | alert J mean 0.75 min 0.15 | ARI mean 0.662
+  k=5 nInit=10 distinct optima 4  worst/best inertia 1.000 ring caught min 13 max 13 mean 13.0 | alert J mean 1.00 min 1.00 | ARI mean 0.999
+  k=8 nInit=1  distinct optima 37 worst/best inertia 1.156 ring caught min 0 max 20 mean 14.9 | alert J mean 0.60 min 0.18 | ARI mean 0.818
+  k=8 nInit=10 distinct optima 18 worst/best inertia 1.010 ring caught min 12 max 20 mean 12.2 | alert J mean 0.97 min 0.47 | ARI mean 0.997
+  k=10 nInit=1  distinct optima 40 worst/best inertia 1.074 ring caught min 0 max 20 mean 11.4 | alert J mean 0.48 min 0.16 | ARI mean 0.715
+  k=10 nInit=10 distinct optima 37 worst/best inertia 1.007 ring caught min 0 max 17 mean 16.1 | alert J mean 0.83 min 0.35 | ARI mean 0.795
+== F5 back-transformed centroids are geometric means (k=5)
+  cluster 0 (n=1826): centroid back-transformed 60438, arithmetic mean 76242 (x1.26), median 54755
+  cluster 1 (n=628): centroid back-transformed 13556, arithmetic mean 14811 (x1.09), median 13754
+  cluster 2 (n=1426): centroid back-transformed 27833, arithmetic mean 29098 (x1.05), median 28270
+  cluster 3 (n=625): centroid back-transformed 56766, arithmetic mean 70480 (x1.24), median 52539
+  cluster 4 (n=530): centroid back-transformed 41494, arithmetic mean 47017 (x1.13), median 39881
+== F6 the ratio feature made the ring cheap (cluster sizes)
+  k=3: 20 of the ring share a cluster of 734
+  k=5: 20 of the ring share a cluster of 168
+  k=8: 20 of the ring share a cluster of 153
+######## p14.mjs
+== X1 same clustering, different distances
+  k3 euclid       ring 20 struct 0 sales 5
+  k3 manhattan    ring 7 struct 0 sales 5
+  k3 chebyshev    ring 20 struct 0 sales 5
+  k3 cosine       ring 0 struct 0 sales 0
+  k3 mahalGlobal  ring 20 struct 0 sales 5
+  k3 mahalCluster ring 0 struct 0 sales 0 (singular cluster covariance)
+    overlap (J) vs euclid: euclid 1.00, manhattan 0.41, chebyshev 0.59, cosine 0.01, mahalGlobal 0.61, mahalCluster 0.00
+  k5 euclid       ring 13 struct 0 sales 5
+  k5 manhattan    ring 1 struct 0 sales 5
+  k5 chebyshev    ring 20 struct 0 sales 5
+  k5 cosine       ring 0 struct 0 sales 0
+  k5 mahalGlobal  ring 18 struct 0 sales 5
+  k5 mahalCluster ring 0 struct 0 sales 0 (singular cluster covariance)
+    overlap (J) vs euclid: euclid 1.00, manhattan 0.45, chebyshev 0.47, cosine 0.00, mahalGlobal 0.54, mahalCluster 0.00
+  k8 euclid       ring 12 struct 0 sales 5
+  k8 manhattan    ring 5 struct 0 sales 5
+  k8 chebyshev    ring 16 struct 0 sales 5
+  k8 cosine       ring 0 struct 0 sales 0
+  k8 mahalGlobal  ring 13 struct 0 sales 5
+  k8 mahalCluster ring 0 struct 0 sales 0 (singular cluster covariance)
+    overlap (J) vs euclid: euclid 1.00, manhattan 0.54, chebyshev 0.59, cosine 0.08, mahalGlobal 0.64, mahalCluster 0.00
+  cosine(x, 10x) in raw units = 1.000000000000000; in log1p units = 0.9934
+  global Mahalanobis alerts: mean |pass-through - 0.93| 0.159 vs population 0.074
+  raw z k=3 cluster sizes 4259,771,5; per-cluster Mahalanobis undefined for 5 customers (a cluster of 5 in 6 dimensions)
+== X3 chi-square calibration: share of customers with d² / (cluster variance per dim) above chi2_6(0.99)=16.812
+  k=1: isotropic 4.93% ; full per-cluster covariance 3.12% (nominal 1%)
+  k=3: isotropic 5.78% ; full per-cluster covariance 2.01% (nominal 1%)
+  k=5: isotropic 5.84% ; full per-cluster covariance 1.05% (nominal 1%)
+  k=8: isotropic 4.83% ; full per-cluster covariance 1.35% (nominal 1%)
+== S0 score rules (recap with k=3,5,8, log z)
+  k3: global ring 20 struct 0 sales 5 | per-cluster ring 18 struct 0 sales 5 (52 alerts) | normalised ring 20 struct 0 sales 5 | small-cluster ring 0 struct 0 sales 0 (0)
+  k5: global ring 13 struct 0 sales 5 | per-cluster ring 3 struct 0 sales 5 (54 alerts) | normalised ring 3 struct 0 sales 5 | small-cluster ring 0 struct 0 sales 0 (0)
+  k8: global ring 12 struct 0 sales 5 | per-cluster ring 1 struct 0 sales 5 (54 alerts) | normalised ring 1 struct 0 sales 5 | small-cluster ring 0 struct 0 sales 0 (0)
+######## p14b.mjs
+k3: per-cluster Mahalanobis undefined for 2418 of 5035 (48.0%); cluster of 2418: constant cashIn; among the rest: ring 0 sales 0
+   chi2 exceedance among defined: 3.86%
+k5: per-cluster Mahalanobis undefined for 3252 of 5035 (64.6%); cluster of 1826: constant cashIn+intlOut; cluster of 1426: constant cashIn; among the rest: ring 1 sales 0
+   chi2 exceedance among defined: 2.97%
+k8: per-cluster Mahalanobis undefined for 3269 of 5035 (64.9%); cluster of 1384: constant cashIn+intlOut; cluster of 453: constant intlOut; cluster of 564: constant cashIn; cluster of 868: constant cashIn; among the rest: ring 0 sales 0
+   chi2 exceedance among defined: 3.85%
+######## p15.mjs
+== S1 how similar are the peer groups under different preprocessing? (k=5, ARI / NMI)
+  rawZ        1.00/1.00  0.47/0.46  0.11/0.20  0.14/0.25  0.13/0.16
+  winsor      0.47/0.46  1.00/1.00  0.29/0.36  0.20/0.33  0.30/0.31
+  logZ        0.11/0.20  0.29/0.36  1.00/1.00  0.29/0.37  0.69/0.74
+  rank        0.14/0.25  0.20/0.33  0.29/0.37  1.00/1.00  0.27/0.29
+  logRobust   0.13/0.16  0.30/0.31  0.69/0.74  0.27/0.29  1.00/1.00
+  ARI(labels, permuted labels) = 1
+== S2 Hennig clusterwise bootstrap Jaccard (30 bootstraps)
+  k=3: n=2071 J=0.95 | n=2418 J=0.93 | n=546 J=0.88
+  k=5: n=1826 J=0.90 | n=628 J=0.87 | n=1426 J=0.87 | n=625 J=0.99 | n=530 J=0.99
+  k=8: n=269 J=0.73 | n=571 J=0.93 | n=1384 J=0.93 | n=453 J=0.88 | n=518 J=0.88 | n=408 J=0.81 | n=564 J=0.87 | n=868 J=0.94
+== S3 label switching and centroid drift, month 1 -> 2 (refit)
+  k=3: raw label agreement 15.8%, after Hungarian matching 95.0%; cluster IDs renumbered 2 of 3; ARI 0.825
+  k=5: raw label agreement 56.1%, after Hungarian matching 88.8%; cluster IDs renumbered 3 of 5; ARI 0.731
+  k=8: raw label agreement 5.2%, after Hungarian matching 79.3%; cluster IDs renumbered 8 of 8; ARI 0.580
+== S4 who switches peer group? assignment margin deciles (k=5, frozen scaling, refit month 2)
+  switch rate by margin decile (lowest first): 45.1%, 26.2%, 17.5%, 9.9%, 5.8%, 2.0%, 1.4%, 1.0%, 1.0%, 0.4%; overall 11.0%
+== S5 whole-population rank stability vs the top 1%
+  k=3: Spearman of scores month 1 vs 2 = 0.796; top-1% overlap J = 0.67; top-5% J = 0.53
+  k=5: Spearman of scores month 1 vs 2 = 0.704; top-1% overlap J = 0.59; top-5% J = 0.57
+  k=8: Spearman of scores month 1 vs 2 = 0.691; top-1% overlap J = 0.45; top-5% J = 0.65
+== S6 persistence: alerted in >= 2 of 3 months (frozen model)
+  k=3: distinct customers alerted in 3 months 68; once only 23 {"normal":23}; 2+ months 45 {"extreme":5,"normal":20,"mule":20}
+  k=5: distinct customers alerted in 3 months 74; once only 26 {"normal":24,"mule":2}; 2+ months 48 {"extreme":5,"normal":27,"mule":16}
+  k=8: distinct customers alerted in 3 months 82; once only 37 {"normal":29,"mule":8}; 2+ months 45 {"extreme":5,"normal":30,"mule":10}
+######## p16.mjs
+== T1 benchmarks (log z features, top 50)
+  k-means k=1                 ring 12 struct 0 sales 5 | AUC ring 0.995 struct 0.951 sales 1.000
+  k-means k=3                 ring 20 struct 0 sales 5 | AUC ring 0.999 struct 0.617 sales 1.000
+  k-means k=5                 ring 13 struct 0 sales 5 | AUC ring 0.995 struct 0.731 sales 1.000
+  k-means k=8                 ring 12 struct 0 sales 5 | AUC ring 0.992 struct 0.816 sales 1.000
+  global Mahalanobis          ring 19 struct 0 sales 5 | AUC ring 0.998 struct 0.961 sales 1.000
+  max |z| (univariate rules)  ring 20 struct 9 sales 5 | AUC ring 0.999 struct 0.997 sales 1.000
+  kNN distance k=5            ring 0 struct 0 sales 5 | AUC ring 0.828 struct 0.949 sales 1.000
+  kNN distance k=30           ring 9 struct 0 sales 5 | AUC ring 0.989 struct 0.922 sales 1.000
+  isolation forest            ring 14 struct 0 sales 0 | AUC ring 0.994 struct 0.922 sales 0.951
+== T2 dose-response: structurer monthly cash (k=3)
+  ~5000   per month: raw z 0 | log z 0 | log(x+10k) z 0 | rank 0
+  ~10000  per month: raw z 0 | log z 0 | log(x+10k) z 0 | rank 0
+  ~20000  per month: raw z 5 | log z 0 | log(x+10k) z 8 | rank 0
+  ~40000  per month: raw z 9 | log z 0 | log(x+10k) z 10 | rank 4
+  ~80000  per month: raw z 10 | log z 0 | log(x+10k) z 10 | rank 5
+  ~160000 per month: raw z 10 | log z 0 | log(x+10k) z 10 | rank 6
+== T2b dose-response: mule senders per month, ring of 20 (log z, k=5)
+  senders ~3   k3 0 | k5 0 | k8 0
+  senders ~6   k3 1 | k5 0 | k8 0
+  senders ~10  k3 4 | k5 0 | k8 0
+  senders ~15  k3 11 | k5 1 | k8 0
+  senders ~22  k3 17 | k5 9 | k8 6
+  senders ~30  k3 20 | k5 15 | k8 14
+  senders ~40  k3 20 | k5 20 | k8 20
+== T3 remedies for masking: k-means-- and trim-and-refit (12 seeds, log z)
+  ring 20, k=5: standard 0.84, k-means-- 0.88, trim-and-refit 0.87
+  ring 20, k=8: standard 0.76, k-means-- 0.92, trim-and-refit 0.89
+  ring 20, k=12: standard 0.10, k-means-- 0.65, trim-and-refit 0.18
+  ring 40, k=5: standard 0.56, k-means-- 0.64, trim-and-refit 0.65
+  ring 40, k=8: standard 0.23, k-means-- 0.66, trim-and-refit 0.42
+  ring 40, k=12: standard 0.00, k-means-- 0.17, trim-and-refit 0.00
+######## p17.mjs
+threshold distance t = 3.8999
+== E1 per-feature decomposition of d² among the 50 alerts
+  top feature per alert: inflow 8, outflow 3, txns 1, cashIn 7, intlOut 5, senders 26; alerts where one feature is >50% of d²: 30/50, >80%: 15/50
+  one ring member: terms 0.00, 0.01, 0.11, 0.00, 0.23, 24.72 sum 25.0675 = d² 25.0675
+== E2 Shapley values of d² with the centroid as baseline
+  fixed assignment: max |Shapley - term| over 50 alerts = 2.49e-14
+  re-assigning to the nearest centroid inside the value function: Shapley differs from the terms for 12/50 alerts; top reason changes for 2/50
+== E4 counterfactuals
+  moving straight toward the centroid, alerts must shrink their distance to between 51.5% and 100.0% of today's; alerts one feature alone could clear: 44/50
+  ring member's single-feature counterfactual on senders: from 41 to 22.8 (peer centroid 2.3)
+== E5 four global importance measures disagree
+  segmentation R²:        inflow 0.55, outflow 0.55, txns 0.36, cashIn 0.96, intlOut 0.82, senders 0.15
+     order cashIn > intlOut > outflow > inflow > txns > senders
+  mean share of alert d²: inflow 0.17, outflow 0.14, txns 0.07, cashIn 0.08, intlOut 0.08, senders 0.46
+     order senders > inflow > outflow > intlOut > cashIn > txns
+  permutation (1-J):      inflow 0.44, outflow 0.46, txns 0.33, cashIn 0.53, intlOut 0.44, senders 0.75
+     order senders > cashIn > outflow > inflow > intlOut > txns
+  drop-column refit (1-J):inflow 0.36, outflow 0.33, txns 0.28, cashIn 0.53, intlOut 0.65, senders 0.65
+     order intlOut > senders > cashIn > inflow > outflow > txns
+== E6 surrogate tree for peer groups (original units)
+  depth 1: fidelity 55.9%
+  depth 2: fidelity 72.3%
+  depth 3: fidelity 82.4%
+  depth 4: fidelity 87.2%
+  depth 5: fidelity 91.0%
+   inflow < 36589
+     outflow < 15860
+       -> cluster 1
+     else
+       -> cluster 2
+   else
+     intlOut < 1085
+       -> cluster 0
+     else
+       -> cluster 3

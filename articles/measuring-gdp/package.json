@@ -1,0 +1,22 @@
+{
+  "name": "measuring-gdp",
+  "version": "1.0.0",
+  "description": "Interactive visual essay on measuring GDP: the minus sign in front of imports is a correction, not a cost, and an import changes GDP only through the domestic production it displaces.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "markup-and-elasticity",
+  "version": "1.0.0",
+  "description": "markup = 1/|elasticity| is exactly true and it is a statement about a single point. Two demand curves that agree on the point set the same price and pass cost through five times differently.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

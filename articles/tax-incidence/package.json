@@ -1,0 +1,22 @@
+{
+  "name": "tax-incidence",
+  "version": "1.0.0",
+  "description": "Who writes the cheque changes nothing, to fourteen decimal places. The elasticity rule is exact only for an infinitesimal tax — and at the revenue-maximising rate, half the trades are gone and half the revenue burns.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

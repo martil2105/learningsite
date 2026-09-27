@@ -1,0 +1,22 @@
+{
+  "name": "price-indices",
+  "version": "1.0.0",
+  "description": "Interactive visual essay on price indices: a fixed basket overstates the cost of living by about half sigma times the variance of price changes, and the Fisher index recovers the truth for every sigma without knowing it.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}
