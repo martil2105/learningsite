@@ -1,0 +1,22 @@
+{
+  "name": "anarkulova-cederburg-odoherty-2022",
+  "version": "1.0.0",
+  "description": "Anarkulova, Cederburg and O'Doherty's 2022 paper rebuilt: the luckiest of many identical markets makes long-run losses look almost impossible, and by a margin we can work out.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "samuelson-merton-1969",
+  "version": "1.0.0",
+  "description": "Samuelson's and Merton's 1969 papers rebuilt: solve a lifetime portfolio problem backwards, year by year, and the horizon drops out for one family of investors; three changes bring it back.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

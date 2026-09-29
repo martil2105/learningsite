@@ -116,7 +116,12 @@ Always present, at 390px and 1280px:
   command written `\;` inside a JS template literal loses its backslash and
   renders as a literal semicolon, silently (`house-idioms.md`).
 - The title TEXT measured with a `Range` (the `h1` box is the container width).
-- Text glued to a separator or a word: `/[\d%]·|·[\dA-Za-z]|\d[a-z]{3,}/`.
+- Text glued to a separator or a word: `/[\d%]·|·[\dA-Za-z]|\d[a-z]{3,}/`. Read it from the
+  **live** page's `innerText` with `.katex` and `svg` set to `display: none`
+  for the read, not from a detached clone: a clone's `innerText` behaves like
+  `textContent`, so axis ticks ("0years") and adjacent legend items ("wealth
+  4wealth 2") come out glued and the check fails on text a reader never sees.
+  The live page lays flex items out on separate lines.
 - Small-multiple panels share a bounding-rect `top` at desktop and do not on
   mobile.
 
@@ -218,6 +223,10 @@ from a "nearest drawn centroid" test. When the claim is about distances between
 marks, compute the window from the data (equal aspect, width capped so the chart
 isn't too tall) and assert that the readout's count equals the drawn count.
 
+**`ship.sh` packs `verify/check-browser.mjs` into the tarball.** Edit the
+check file, then run `ship.sh` again before the browser run, or the run
+extracts and executes the previous checks and reports on them.
+
 **Check the checks' runtime before the device does.** `check-numbers.mjs`
 re-runs the full precompute for its freshness check, which took about five
 minutes for `peer-group-outliers`. `device_bash` stops at 180 seconds, so run
@@ -281,6 +290,79 @@ opens at a value *off* its own grid can never be dragged back to it:
 `comparative-advantage` opens its log-scale slider at exactly 2.7, the example
 the prose quotes, and the check reads that opening state before it touches the
 slider.
+
+## A dynamic programme's answer needs a route with no value function
+
+`samuelson-merton-1969` claims the best share is the same at every horizon,
+and the claim comes out of a backward solution on a wealth grid. Checking the
+grid against itself proves little, since an interpolation error would move
+every horizon together. The check that pays is a brute force over **whole
+strategies** for a short horizon (the first year's share and one share per
+outcome after it, on a fine grid), which never forms a value function: it
+picked 0.835 three times, as the DP did, and the same brute force confirmed
+the hedging demand in the reverting market and the "stocks = share × (savings
++ future pay)" rule in `human-capital`. Where the problem has a closed form
+(the floor case), assert the DP against it across wealth and horizon.
+
+## A solver needs a closed-form case, and a check away from the grid's edge
+
+`cocco-gomes-maenhout-2005` interpolated its value function linearly on a wealth
+grid. The policy was smooth, the shares were plausible, and a check of the grid
+against itself would have passed. But linear interpolation gets the *slope* of the
+value function wrong to the order of the grid step, and the slope is what the
+first-order condition uses, so every policy was slightly off. The check that
+found it was the solver run on a case with a closed form (a pure-wealth
+problem with no pay, whose share and consumption come from a first-order
+condition and a recursion) and compared across the grid.
+The fix was a cubic Hermite curve in log wealth, on the value function stored as
+F^(1/(1−γ)) so that it is nearly linear. Two rules follow.
+
+- **Every solver gets a case with a closed form, asserted across the grid.** The
+  solver is only trusted where a formula agrees with it.
+- **Test away from the grid's edges.** Start the comparison well inside the grid.
+  A life with no pay runs its cash down towards the grid's floor, where the
+  boundary code takes over, so a comparison there tests the boundary and not the
+  interpolation. Sample points between nodes, in the range the article draws.
+
+## A continuous-time formula gets a discrete route, and log utility is the γ = 1 case
+
+`cost-of-leverage` states a share for a saver whose borrowing rate differs from
+her lending rate. A formula written for continuous trading can be checked by
+brute force in a **short-step market**: shrink the step until the return is a
+narrow lognormal, maximise expected utility by a numerical search over the share
+(quadrature for the expectation, no derivative), and compare with the formula
+within about 1%, since the gap shrinks with the step. That route never uses the
+first-order condition the formula came from. The kink itself (the strip held at
+exactly 100%) is checked in a coin-flip market, where the whole strip is found
+by search.
+
+At a risk aversion of 1 the utility x^(1−γ)/(1−γ) is undefined, and a brute
+force that code-reuses it returns nonsense. Use ln x there, as the limit
+requires. The same trap sits in any brute force that reads a general-γ utility
+for a saver whose γ the article lets the reader set to 1.
+
+## A Monte Carlo estimate of a heavy-tailed moment can be pure noise
+
+`lifecycle-leverage`'s pass-1 probe read the coefficient of variation of final
+wealth off a simulation of 100,000 savers (1.10 to 1.14, with no trend across
+the rules) and built a claim on it. That number is mostly noise. Final wealth is a product of forty lognormals, and its
+mean and variance are dominated by a few extremely lucky savers who a
+simulation rarely draws. The exact figures come from a **moment recursion**: for
+independent years, E[W] and E[W²] are products of exact lognormal moments, so the
+coefficient of variation is computed, not sampled (1.11 at all stocks, about
+1.07 for every cap from 2 to 1 up: a small fall the simulation could not see). The article reports
+quantities a simulation *can* pin down (the spread of ln W, the 5th percentile,
+the median) and says so about the one it can't.
+
+- **Ask of every simulated statistic whether the tail decides it.** Means and
+  spreads of quantities that multiply are dominated by rare draws. Percentiles
+  and the log are not.
+- **Check the precomputed simulation with a second simulator**, written
+  separately and with its own seed, and assert agreement within the sampling
+  tolerance. A bug in a function both routes share would hide from both.
+- **An approximation that ranks correctly still gets its size stated.** The
+  first-order identity for the variance of ln W overstated the simulation by 6%
+  and 9%, and put the rules in the same order. The article says both.
 
 ## An invariance through a solver inherits the solver's noise
 
@@ -370,3 +452,19 @@ blank.
   unstructured data are the answers everyone gives. What a model validator asks
   first is whether the scores are calibrated, where the stopping rule comes
   from, and what the feature importances are biased toward.
+
+## Readouts rounded one at a time, and curated seeds
+
+- **Rounded readouts don't have to add up.** `market-making`'s three scores read
+  −$10.06, +$11.44 and −$1.39, which the reader can add to −$0.01. The prose
+  quotes what the readouts show, `check-numbers.mjs` asserts the zero sum on the
+  unrounded values, and the browser check allows a cent.
+- **When a lab shows "a day" or "a market", curate the seeds and assert each
+  one's story.** `market-making` lists its days in `DAYS` (an ordinary one first,
+  then one where the price goes the wrong way), and the checks assert the numbers
+  and the shape the prose tells about each, so a change to the generator that
+  reshuffles the draws fails instead of quietly changing the story.
+- **A slowly converging average needs a big sample before it's quoted.**
+  `index-construction`'s mean gap over 60 markets was 0.064 and over 1,000 was
+  0.043 ± 0.008; the page says "centred near zero" and quotes the one ratio that
+  is stable (97% of the gain taken back), asserted over 1,000 markets.

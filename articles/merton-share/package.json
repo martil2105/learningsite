@@ -1,0 +1,22 @@
+{
+  "name": "merton-share",
+  "version": "1.0.0",
+  "description": "The Merton share, (mu - r)/(gamma sigma^2): what it maximises, how flat its top is, and how much of its gain an estimated premium gives away.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

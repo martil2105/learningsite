@@ -1,0 +1,22 @@
+{
+  "name": "dividends-and-buybacks",
+  "version": "1.0.0",
+  "description": "At a fair price a buyback is a dividend in another wrapper; earnings per share rise whenever the earnings yield beats the interest on the cash, and at the wrong price a buyback moves wealth between sellers and stayers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

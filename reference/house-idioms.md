@@ -63,7 +63,10 @@ a literal semicolon beside the operator, and nothing warns. Write `\\;` (and
 of the Stage 1 macro drafts and was caught only by the browser check described
 in `verifying-an-article.md`, which reads each formula's `<annotation>` and fails
 on a `;` not preceded by a backslash; the scaffold's `check-browser.mjs` carries
-it now.
+it now. The same doubling applies to a row break. LaTeX's `\\` between the rows of a
+`cases` or `aligned` is written with four backslashes in the JS string, and
+`\\[6pt]` (a row break with extra space) with four backslashes before the bracket. With
+two, the rows run together. Look at the rendered formula, not the source.
 
 **KaTeX's hidden MathML escapes the scrolling display box.** `.katex-display`
 scrolls sideways on a phone, but its `.katex-mathml` copy is absolutely
@@ -301,6 +304,12 @@ Validated as an all-pairs categorical set against `--paper #f1f3f3` and white:
   contrast floor. `#8a94a2` clears 3:1 with the most distance from `--sky`.
 - Single-hue sequential on violet, passing the ordinal checks:
   `#a79eea, #8c82d2, #7366b9, #5b4ba1, #45308a, #311072`
+- **As lines, the ramp's lightest stop is too light.** `#a79eea` is 2.4:1 on a
+  white card, under the 3:1 floor for a mark. For a family of three curves
+  (`samuelson-merton-1969`'s wealth levels) use `#8c82d2, #5b4ba1, #311072`:
+  3.4:1 at the light end and ΔE ≥ 15 between neighbours under every
+  simulation. The validator's lightness band is for categorical sets and fails
+  the dark end; ignore it for an ordinal ramp.
 
 **Three categorical colours is the hard ceiling.** More levels must not be
 coloured by category — use small multiples, or let another channel carry it
@@ -464,3 +473,40 @@ because the numbers were right and only the rectangle was upside down.
 
 - **Families of curves must not use categorical colours.**
   When rendering a family of curves (such as short-run average cost curves for varying plant sizes $k$, or income distributions across deciles), do not cycle categorical colours (keep the hard ceiling of three categorical colours). Use a **single-hue sequential ramp** — for example, violet `#7c5aed` at stepping opacities (`0.18`, `0.35`, `0.65`, `1.0`) or lightness steps — or small multiples. Reserve distinct saturated colours exclusively for active selections, envelopes, or comparison targets.
+
+## Charts with a very wide range
+
+Three rules from `cost-of-leverage` and `lifecycle-leverage`, whose lines run
+from 77% to 4,299% of savings, or leave a chart's window altogether.
+
+- **A line that leaves the window is clipped or hidden, not just drawn.** A path
+  that runs past the y-scale draws over the axis labels and the title. Give the
+  plot area a `clipPath`, or draw only the points inside the window, and say in
+  the caption or a readout what the reader can no longer see.
+- **A long axis title beside four-digit tick labels collides with them.** "Share
+  of savings in stocks (%)" beside ticks like "4,000%" overlaps at 390px. Put the
+  unit in the tick labels, and use a short label above the axis for the quantity.
+- **A path's numbers are printed to two decimals, so a browser check that reads
+  them back cannot land exactly on the ends.** `levPct` in
+  `lifecycle-leverage` returned NaN at desktop width because the first x of the
+  path was 0.004px inside the first age. Clamp the reading to the path's first
+  and last x before interpolating.
+
+## Tick labels and linked sliders
+
+Three rules from Stage 1 of the finance slate (30 September 2026).
+
+- **A tick label shows the tick's value at the precision printed.** A scatter in
+  `etf-premiums` put ticks at half its window (±2.5%) and printed them with no
+  decimals, so a tick drawn at 2.5% read "3%". No check failed, because the
+  checks read the outer ticks to build the scale. Put ticks on a round step
+  (whole percentages here) or print enough decimals.
+- **Two sliders bound to one state have the same range.** `market-making`'s first
+  figure went to 50% and the lab bound to the same state stopped at 40%, so at
+  50% the lab's slider sat at its end while the lab ran at 50%. Give linked
+  sliders the same min, max and step, or keep separate state for each figure
+  (as `etf-premiums` does, where one figure needs 100% and the other can't use it).
+- **An edge tick label needs half its width in the margin.** "+1.50%" at the
+  right-hand tick of `etf-premiums`' band chart ran past its svg at 1280px and the
+  "nothing drawn outside its svg" check caught it. Widen the right margin or
+  shorten the edge labels ("+1.5%").

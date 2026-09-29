@@ -48,3 +48,12 @@ as it is (the repository's Pages source is "GitHub Actions"). To publish:
 `./scripts/build-site.sh`, then commit and push `main` from the repository root.
 `site/.nojekyll` is kept for any branch-based deploy. Every asset path is relative, so the site works at any
 base path without changes.
+
+**Adding an article in the middle of a spine.** Give it the `spine_order` of
+its place in reading order, renumber the entries after it, and rewrite the
+bridge of the article that now follows it, since that bridge names its
+predecessor. `render-index.py` sorts each spine by `spine_order` (since 30
+September 2026; before that it drew the manifest's file order, and the five
+Stage 1 finance articles first appeared at the end of the spine). Keep the
+file order the same as the spine order anyway, so the manifest reads the way
+the page does.

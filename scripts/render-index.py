@@ -101,8 +101,11 @@ def spine_item(a: dict, is_first: bool = False) -> str:
 def main() -> None:
     articles = json.loads((SITE / "articles.json").read_text())
 
-    econ_articles = [a for a in articles if a.get("track") == "economics"]
-    fin_articles = [a for a in articles if a.get("track") == "finance"]
+    # Each spine is drawn in spine_order, whatever order the manifest lists it in:
+    # an article added in the middle of a spine used to land at its end.
+    by_spine = lambda a: a.get("spine_order", 0)
+    econ_articles = sorted((a for a in articles if a.get("track") == "economics"), key=by_spine)
+    fin_articles = sorted((a for a in articles if a.get("track") == "finance"), key=by_spine)
     ml_articles = [a for a in articles if a.get("track") == "ml" or not a.get("track")]
 
     econ_cards = "\n".join(

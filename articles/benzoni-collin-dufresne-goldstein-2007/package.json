@@ -1,0 +1,22 @@
+{
+  "name": "benzoni-collin-dufresne-goldstein-2007",
+  "version": "1.0.0",
+  "description": "Pay that follows dividends with a lag is bond-like over a paycheck and stock-like over a career, so a young saver should hold far less stock than the textbook rule says, and the share is hump-shaped in age.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

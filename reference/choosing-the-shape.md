@@ -92,6 +92,21 @@ Derived from each article's `App.svelte` section order. Add a row in pass 4.
 | `time-diversification` | concept | lab first, one simulation on two rulers (yearly average / money at the end) → odds and depth in two panels sharing x → the parabola identity (how long each tail keeps sinking) → the fair case; finance Stage 8 | `HorizonLab` |
 | `samuelson-1963` | result (paper) | paper explainer: citation card → story → outcomes lab with a take-all/share toggle → the proof in one display → CARA lab (n × one bet) → what came later, with a loss-aversion figure; first use of the shape | `BetsLab` + `CaraLab` |
 | `bodie-1995` | result (paper) | paper explainer: citation card → guess card → two-panel lab (cost and chance) → only σ√T → price against expected payout → what came later | `PutLab` |
+| `pastor-stambaugh-2012` | result (paper) | paper explainer: citation card → forecast lab (one history, two bands: the unknown mean) → the predictive system and its five pieces → world-vs-investor lab with a piece-by-piece bar chart → persistence chart (the doubt band and its average) → the paper's numbers, quoted → what came later | `ForecastLab` + `TwoVariances` |
+| `anarkulova-cederburg-odoherty-2022` | result (paper, data not reachable) | paper explainer rebuilt on a simulated world: citation card → 39 identical markets, the luckiest in blue, loss chance by horizon from each record → the luck premium and its z-shift → truth against the luckiest record by n and Y → the paper's numbers, quoted | `MarketsLab` |
+| `merton-share` | concept | lab first (value of every share, a parabola, borrowing zone shaded) → the formula at the peak → the flat top (2x − x²) → which premium goes in → the premium we have to estimate (200 plug-in investors; kept fraction by years of data) | `ShareLab` |
+| `samuelson-merton-1969` | result (paper) | paper explainer: citation card → guess card (thirty years, one, or the same) → dynamic programming in words → the backward solution run in the browser (share by years to go; setup switch) → why the horizon drops out → ways out | `LifetimeLab` |
+| `human-capital` | concept | short build-up (future pay as a bond, Merton on total wealth) → lab: the first lifetime exposure timeline (savings under future pay, stock money above; share of savings below on a −100%…300% window) → the β identity → borrowing limits | `LifeLab` |
+| `bodie-merton-samuelson-1992` | result (paper) | paper explainer: citation card → guess card → hours as a second asset (Cobb–Douglas, the spending plan) → two workers and one year in the market → where the gap comes from (two Merton problems, one algebra step) → the same factor at every savings level and horizon, and the retirement corner | `FlexLab` + `AcrossLab` |
+| `cocco-gomes-maenhout-2005` | result (paper, solver) | paper explainer with a precomputed dynamic programme: citation card → guess card → risky permanent pay and a limit on the share → solving backwards in words → share by age for the median worker and the middle 80% of 4,000, with savings under it → pay that moves with stocks → what the limit costs in consumption | `PolicyLab` + `CostLab` |
+| `benzoni-collin-dufresne-goldstein-2007` | result (paper) | paper explainer: citation card → guess card → pay that follows dividends with a lag (half-life) → the hump in the share by age → the loading of each payday (one age at a time) → a knife-edge (share at 25 against the half-life) | `HumpLab` + `HorizonLab` + `EdgeLab` |
+| `lifecycle-leverage` | concept | short set-up (money riding on the market, year by year) → exposure lab (bars for each year, last-decade toggle, four rules) → effective years → what a cap on leverage buys, from 100,000 seeded savers (precomputed) → what the glide path does instead | `ExposureLab` + `CapLab` |
+| `cost-of-leverage` | concept | guess card → one line split in two by the spread (Merton's share, a band held at exactly 100%) → the same spread on a working life (leverage until 55, not 62) → what it costs in certain return → who borrows near the safe rate | `KinkLab` + `LifeLab` + `CostLab` |
+| `market-making` | model | question first (guess card: the break-even spread) → who sends a buy (a Bayes figure: area = probability, the ask is the average over the pink cells) → the ledger in one display → one steered simulation (a day of trades stepped by the reader; curated days, the second goes the wrong way) → learning speed on a log axis (curves shifted by 4 per halving) → the bill for a piece of news, with an announcement horizon; finance Stage 1, third use of the steered simulation | `TradeLab` + `BayesFigure` + `LearnChart` + `BillChart` |
+| `short-selling-and-margin` | model | question first (how far before the call?) → account lab (equity and the requirement as two straight lines crossing at the call; long/short toggle, price, both margins) → meeting the call (1/k) → selling short → forty simulated years on a log price axis with the two call lines, and the reflection-principle chance by volatility | `AccountLab` + `PathsLab` |
+| `index-construction` | result + model | build-up: three stocks, one month (two panels: cap-weighted needs no trade, equal-weighted sells its winner) → turnover and gain by rebalancing frequency (two panels sharing a log axis) → an exact identity → the lab (a dollar in each index; the gap split into gain and concentration at every date; a world toggle) | `IndexLab` + `DriftFigure` + `TurnoverChart` |
+| `etf-premiums` | model | case first (LQD's 5.0% discount on 12 March 2020) → the arbitrage band → a NAV built from last trades (one recursion) → sell-off lab (price and NAV, then the reported premium against the band) → who closes the gap (two regression panels over simulated days) | `SellOffLab` + `ArbFigure` + `GapRegression` |
+| `dividends-and-buybacks` | model | question first (EPS up or down, who's better off?) → comparison spine (the same payout as a dividend and a buyback: gains per share held, and EPS, side by side; the buyback price on a slider) → paying the wrong price → an accretion map (P/E against the after-tax yield on cash) → why the price doesn't move (beta and the return needed) | `PayoutLab` + `AccretionMap` |
 
 The first ten are Svelte 3 + Rollup 2 and stay that way; new articles are
 Svelte 5 + Vite from `articles/_scaffold-svelte5/`, of which
@@ -171,3 +186,45 @@ parts are the paper's (the story, the theorem, the setup) and which are ours
 (every figure and number). Both first uses found a closed form the paper didn't
 state (the golden-ratio fence and the $144 cap; price equal to expected payout
 at a zero premium), and it carried the best figure, as on the economics line.
+
+**When the paper's data can't be had** (`anarkulova-cederburg-odoherty-2022`,
+a 📄📊 row whose Global Financial Data panel isn't public, with no open
+multi-country panel reachable from the container or the Mac), rebuild the
+*mechanism* on a simulated world where the truth is known, and give the
+paper's real-data numbers a section of their own ("What the paper found"),
+each attributed to the version it came from (published abstract or working
+paper). The simulated world should be the smallest one that produces the
+paper's effect on its own: 39 identical markets reproduced the paper's
+US-versus-pooled gap from luck alone, which made a better article than a
+calibration to the paper's table would have. Say in "What this costs you"
+what the simulation leaves out.
+
+**A lab that runs a solver** (`samuelson-merton-1969` solves a 30-year dynamic
+programme per setup, about 150 ms each) solves lazily and caches per setup:
+`const sol = (c) => (cache[c] ??= solve(c))` inside the `$derived`, so the page
+pays only for the setup on screen.
+
+**A solver too slow for the page** (`cocco-gomes-maenhout-2005`: a 40-period
+dynamic programme with nested searches, twelve settings, 4,000 simulated
+workers) runs in `scripts/precompute.mjs` and ships as `src/precomputed.js`;
+the first check in `check-numbers.mjs` re-runs the solver and compares it with
+the committed file, so a stale file fails. `lifecycle-leverage` does the same
+for its 100,000-saver simulations.
+
+**A paper explainer still needs the maths on the page.** Rows 53 to 55 each
+put the paper's own step in a display equation (two Merton problems and one
+algebra step; the policy problem; the loading of a payday), and each put the
+paper's *claim* in a guess card first. A paper explainer that only runs a lab
+reads as a demo of the paper rather than a rebuild of it.
+
+**Stage 1 of the finance slate (`market-making` to `dividends-and-buybacks`,
+30 September 2026).** Five articles on market mechanics, built together after
+Stage 8. Three of the five turned out question first, because the received
+account in each was a procedure a reader can run (quote the break-even spread,
+find the call price, compare EPS), and one added case turns the answer. The
+comparison spine suited the payout article better than a lab: a dividend and a
+buyback are the same payout in two wrappers, and the article is the list of
+things that differ (EPS) and don't (wealth, P/E). Where a paper's identity
+carries an article (`index-construction`, Fernholz's split of the gap between
+two indices), it can sit in an ordinary build-up without the paper-explainer
+furniture, as long as the sources say whose idea it is.

@@ -1,0 +1,23 @@
+{
+  "name": "cocco-gomes-maenhout-2005",
+  "version": "1.0.0",
+  "description": "A small life-cycle model solved by dynamic programming: with borrowing ruled out and pay that is safe compared with stocks, the share in stocks sits at the cap through the early years and falls with age, and the cap costs the bold the most.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs",
+    "precompute": "node scripts/precompute.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}
