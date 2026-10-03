@@ -1,0 +1,22 @@
+{
+  "name": "capital-structure",
+  "version": "1.0.0",
+  "description": "Modigliani and Miller on one firm: borrowing raises the return shareholders expect and leaves the cost of capital flat; risky debt bends the equity line, a bond's yield is not its expected return, and taxes give debt its value",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

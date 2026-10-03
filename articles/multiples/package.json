@@ -1,0 +1,22 @@
+{
+  "name": "multiples",
+  "version": "1.0.0",
+  "description": "A P/E or P/B ratio prices growth only when the growth earns more than it costs: at a return on equity equal to the cost of capital a share is worth 1/r times earnings whatever its growth",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

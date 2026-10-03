@@ -58,6 +58,16 @@ running it for the first time. Otherwise it fails on `.sticky`, `.steps` and
 `circle.handle`, none of which the new article has, and a check file that
 crashes has checked nothing.
 
+**A finance article also takes the finance kit**, which isn't in the scaffold:
+`src/{finance.css,format.js,scale.js,random.js}` and
+`src/Components/{Figure,Slider,Segmented,Readout,AxisX,AxisY}.svelte` from
+`articles/dividends-and-buybacks/`, plus its `public/` assets and its
+`verify/check-browser.mjs` common block and read-back helpers (`scales`, `lin`,
+`pts`, `yAt`, `setRange`). `GuessCard`, `Title`, `Meta`, `Conclusion` and
+`Resources` are written fresh, since every word in them is the article's.
+Rows 9 to 12 were built this way in the container in one session, and each
+check file was its common block plus a block of this article's own checks.
+
 **Read the scaffold's `Lab.svelte` and `check-numbers.mjs`; do not copy them.**
 `Lab.svelte` is a worked example of the house rules in runes — a zero-height
 measuring child, one clamped width, a `viewBox`, pointer input converted back to

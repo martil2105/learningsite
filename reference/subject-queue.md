@@ -16,8 +16,9 @@ practice it lands in four places:
   have met and usually met once, at speed, in a diagram. See the queue below.
 - **Finance**, a second line since 26 September 2026 — the technical side of
   markets, from the order book to quant research methods. The ordered list is
-  the project doc `claude/finance-curriculum-slate.md` (44 rows, IDs `Fm`, `Fr`,
-  `Fd`); five are published under the `finance` track in `site/articles.json`.
+  the project doc `claude/finance-curriculum-slate.md` (69 rows, IDs `Fm`, `Fr`,
+  `Fd`); 27 are published under the `finance` track in `site/articles.json`
+  (3 October 2026).
   Finance theory built on economics machinery (CAPM from consumption, the term
   structure, bank runs) stays on the economics slate and is cross-linked.
 - **Statistics and econometrics** — estimators with an identifying assumption

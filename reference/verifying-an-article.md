@@ -26,6 +26,15 @@ one piece, because each one looked like a different bug at the time.
   it, and it had to be rebuilt around the asymmetry that is real — emptying a bin
   costs more than filling it. Replicate before believing an effect, and turn the
   dead claim into a check so it cannot creep back.
+- **A path compounded the wrong way can contradict the claim it illustrates.**
+  `sharpe-ratio` first drew a smoothed fund by compounding its reported simple
+  returns, and the reported line ended 17% above the true one after fifteen
+  years. Smoothing halves the volatility, so it halves the volatility drag too,
+  and the picture said smoothing adds return when the article's claim is that
+  it adds none. Compounding the returns as changes in the log of the value (what
+  an appraiser who moves part of the way does) makes the reported line track the
+  true one with a lag and no drift. When a chart shows two versions of one
+  series, check the gap at the end is the one the prose describes.
 - **A simulated share is only as precise as its sample.** The pairwise-trap
   share in `comparative-advantage` came out at 11.83% under the probe's
   generator and 11.74% under the article's seeded one, 100,000 worlds each. The
@@ -468,3 +477,22 @@ blank.
   `index-construction`'s mean gap over 60 markets was 0.064 and over 1,000 was
   0.043 ± 0.008; the page says "centred near zero" and quotes the one ratio that
   is stable (97% of the gain taken back), asserted over 1,000 markets.
+
+## Reading a chart back through its axes
+
+The finance articles read their charts back in `check-browser.mjs`: tick labels
+give the scale (`scales`, `lin`), path data gives the curve (`pts`, `yAt`), and
+a dot is checked to lie on its curve in pixels. Two rules from rows 9 to 12
+(3 October 2026).
+
+- **A log axis needs a log read-back.** `lin` interpolates between the first and
+  last tick labels, which is right only on a linear axis. On `sharpe-ratio`'s
+  log-scaled growth chart it would return the right value at the two end ticks
+  and the wrong one everywhere else, and a check of "both lines start at $1"
+  would pass or fail by accident. Interpolate log10 of the tick values instead.
+- **When the claim is an area, read the shape back through both axes.**
+  `npv-vs-irr` says each rectangle's area is its NPV. The check converts the
+  rect's x, width, y and height to data units through the drawn axes and
+  compares their product with the NPV readout, at two rates, for both pairs,
+  and for a rectangle hanging below zero. A check of the readout alone would
+  have passed with the rectangle drawn from the wrong corner.

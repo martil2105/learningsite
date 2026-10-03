@@ -107,6 +107,10 @@ Derived from each article's `App.svelte` section order. Add a row in pass 4.
 | `index-construction` | result + model | build-up: three stocks, one month (two panels: cap-weighted needs no trade, equal-weighted sells its winner) → turnover and gain by rebalancing frequency (two panels sharing a log axis) → an exact identity → the lab (a dollar in each index; the gap split into gain and concentration at every date; a world toggle) | `IndexLab` + `DriftFigure` + `TurnoverChart` |
 | `etf-premiums` | model | case first (LQD's 5.0% discount on 12 March 2020) → the arbitrage band → a NAV built from last trades (one recursion) → sell-off lab (price and NAV, then the reported premium against the band) → who closes the gap (two regression panels over simulated days) | `SellOffLab` + `ArbFigure` + `GapRegression` |
 | `dividends-and-buybacks` | model | question first (EPS up or down, who's better off?) → comparison spine (the same payout as a dividend and a buyback: gains per share held, and EPS, side by side; the buyback price on a slider) → paying the wrong price → an accretion map (P/E against the after-tax yield on cash) → why the price doesn't move (beta and the return needed) | `PayoutLab` + `AccretionMap` |
+| `multiples` | model | question first (guess card: a firm that never grows against one reinvesting half at 8%; same P/E) → lab (P/E against growth, one curve per ROE, every curve through 12.5 at zero growth and flat at ROE = r) → PVGO and the P/B identity → how long the margin lasts (P/E against years, two firms at the same 25) → one P/E, a line of stories (required return against growth for a P/E and a P/B, with presets) | `GrowthLab` + `FadeChart` + `StoryMap` |
+| `capital-structure` | model | question first (borrow half at a safe 3%: is the cost of capital 5.5%, 8% or more?) → both propositions in two displays → assumption lab (expected returns against D/E with the safe-debt line; asset volatility on a slider, so the line bends when the loan stops being safe) → the payoff split stacked to the firm over the distribution of next year's assets → the yield is a promise → taxes | `ReturnsLab` + `SplitFigure` + `YieldChart` + `TaxFigure` |
+| `npv-vs-irr` | result | question first (Quick at 50% or Slow at 24.6%?) → two scores → Hazen's identity in two displays → lab (NPV profiles above, the same NPVs as rectangles below: width = money tied up, height = IRR − r; a pair toggle) → reinvestment (the crossover rate again) → a mine with two IRRs and the identity at each | `RateLab` + `ReinvestFigure` + `MineFigure` |
+| `sharpe-ratio` | result | case first (two funds with the same returns, one priced by the market and one by appraisers; guess card) → from a month to a year (variance of a q-month return with memory) → one seeded history, true and reported, with an unsmooth toggle → the months Lo's correction can't see (reported ÷ true by horizon) → unsmoothing | `SmoothLab` + `MemoryFigure` + `HorizonChart` |
 
 The first ten are Svelte 3 + Rollup 2 and stay that way; new articles are
 Svelte 5 + Vite from `articles/_scaffold-svelte5/`, of which
@@ -228,3 +232,14 @@ things that differ (EPS) and don't (wealth, P/E). Where a paper's identity
 carries an article (`index-construction`, Fernholz's split of the gap between
 two indices), it can sit in an ordinary build-up without the paper-explainer
 furniture, as long as the sources say whose idea it is.
+
+**Stage 2 of the finance slate, and row 12 (`multiples` to `sharpe-ratio`,
+3 October 2026).** Three of the four are question first again, because each
+received account is a procedure (raise g in the P/E formula, average 8% and 3%
+by weight, take the higher IRR) that one added case turns. The slate flagged
+`npv-vs-irr` as a possible merge into the dividend discount model; pass 1 found
+an identity of its own (Hazen's NPV = margin × money tied up), and that turned a
+merge candidate into the clearest picture of the four, two rectangles whose
+heights are the IRR's verdict and whose areas are the NPV's. A slate's "may
+merge" is a pass-1 hypothesis like its "What it shows" line. Where an identity
+is a product, draw it as an area.
