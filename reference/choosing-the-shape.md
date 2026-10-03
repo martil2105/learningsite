@@ -111,6 +111,10 @@ Derived from each article's `App.svelte` section order. Add a row in pass 4.
 | `capital-structure` | model | question first (borrow half at a safe 3%: is the cost of capital 5.5%, 8% or more?) → both propositions in two displays → assumption lab (expected returns against D/E with the safe-debt line; asset volatility on a slider, so the line bends when the loan stops being safe) → the payoff split stacked to the firm over the distribution of next year's assets → the yield is a promise → taxes | `ReturnsLab` + `SplitFigure` + `YieldChart` + `TaxFigure` |
 | `npv-vs-irr` | result | question first (Quick at 50% or Slow at 24.6%?) → two scores → Hazen's identity in two displays → lab (NPV profiles above, the same NPVs as rectangles below: width = money tied up, height = IRR − r; a pair toggle) → reinvestment (the crossover rate again) → a mine with two IRRs and the identity at each | `RateLab` + `ReinvestFigure` + `MineFigure` |
 | `sharpe-ratio` | result | case first (two funds with the same returns, one priced by the market and one by appraisers; guess card) → from a month to a year (variance of a q-month return with memory) → one seeded history, true and reported, with an unsmooth toggle → the months Lo's correction can't see (reported ÷ true by horizon) → unsmoothing | `SmoothLab` + `MemoryFigure` + `HorizonChart` |
+| `capm-and-beta` | model + empirical | build-up: a beta is a slope (French's beta deciles, a scatter per decile) → the CAPM's line → a test that flattens the line on its own (a world where the CAPM holds; noise on a slider, the x axis on a toggle between sorting betas and the betas the groups then had) → the same test on US data → alphas by decile | `SortLab` + `BetaScatter` + `AlphaBars` |
+| `factor-models` | result + empirical | case first (value's 4.5% CAPM alpha; guess card) → alpha is an intercept → the identity (each added factor takes loading × its own alpha) → factor prices → waterfall lab (asset, factors, model presets; steps chain to the alpha left) → alphas that grow (momentum with value) → low beta under five factors | `AlphaLab` + `PriceBars` |
+| `equity-premium` | empirical | build-up: a century of yearly premiums with the band (window sliders, presets, a yearly/monthly toggle, a ruler under the bars) → guess card → yearly and monthly bands against years of data → rolling windows (20/30/50, a scrubber) → realised against Fama and French's dividend estimate by period, stacked | `BandLab` + `FreqBands` + `RollingChart` + `SplitLab` |
+| `fundamental-law` | result | question first (A: IC 0.06 on 50 stocks, B: 0.02 on 1,000; guess card) → one month of forecasts (scatter, IC slider) → breadth → lab (IR against N on a log axis, Grinold's curve and the curve with a month-to-month swing, its ceiling) → the two managers with the swing (the order flips) → ten simulated years against the risk model's bands | `BreadthLab` + `IcScatter` + `ManagerBars` + `RiskLab` |
 
 The first ten are Svelte 3 + Rollup 2 and stay that way; new articles are
 Svelte 5 + Vite from `articles/_scaffold-svelte5/`, of which
@@ -243,3 +247,14 @@ merge candidate into the clearest picture of the four, two rectangles whose
 heights are the IRR's verdict and whose areas are the NPV's. A slate's "may
 merge" is a pass-1 hypothesis like its "What it shows" line. Where an identity
 is a product, draw it as an area.
+
+**Stage 3 of the finance slate, rows 15 to 18 (`capm-and-beta` to
+`fundamental-law`, 3 October 2026).** Three of the four rest on pinned French
+data, and the shape that served them was a build-up whose first figure is the
+data itself (a decile's scatter, a century of bars), so the reader has seen the
+raw thing before a summary of it. Two used a world where the received claim
+holds exactly (the CAPM, Grinold's law) as the control for what the data or the
+added assumption does; that pairing is the cheapest way to separate a
+measurement effect from a real one. The guess card worked best where the
+received answer is a number the reader already carries (8.9%, "B has the higher
+IR") and the article changes what it means rather than whether it's right.

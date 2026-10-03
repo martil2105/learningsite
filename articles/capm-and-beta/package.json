@@ -1,0 +1,22 @@
+{
+  "name": "capm-and-beta",
+  "version": "1.0.0",
+  "description": "A beta from five years of returns is a noisy reading; sorted on it even a CAPM world draws a flat line, and against the betas the portfolios then had the US line is still half as steep as the CAPM says",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

@@ -85,6 +85,17 @@ What belongs in it:
   provider, URL, retrieval date and sha256 recorded in `data/SOURCES.md`, and the
   check re-derives every figure in the prose from it. Revised series silently
   change published articles, so the vintage is part of the claim.
+- **A source that changes in place is pinned through a versioned copy.**
+  Shiller's spreadsheet is revised under the same URL, so `equity-premium` pins
+  the datasets/s-and-p-500 mirror at one commit, with the commit hash in the URL
+  `data/sources.json` downloads from. `scripts/fetch-data.mjs` fails if any hash
+  has moved, and the check compares `src/data.js` with a fresh run of
+  `scripts/build-data.mjs`.
+- **A claim the page doesn't draw is still a claim.** `capm-and-beta`'s costs
+  section said equal-weighted groups give a flatter line still, and nothing
+  checked it until the final read-through. It is now re-derived from the
+  equal-weighted block of the same pinned file, which no figure uses. Costs
+  sections and conclusions are where these hide.
 - **Precomputed freshness, as the first check.** See below.
 
 ### `verify/check-browser.mjs` — Playwright, two viewports
@@ -473,6 +484,17 @@ blank.
   then one where the price goes the wrong way), and the checks assert the numbers
   and the shape the prose tells about each, so a change to the generator that
   reshuffles the draws fails instead of quietly changing the story.
+- **Round in the check the way the page rounds.** `equity-premium`'s lowest
+  twenty-year average is 2.55 in decimal. `Math.round(x * 10) / 10` gives 2.6, and
+  the readout's `toFixed(1)` gives 2.5, because the float is 2.5499…. The prose
+  said 2.6, the readout said 2.5, and both checks passed. Write
+  `r1 = (x) => +x.toFixed(1)` in `check-numbers.mjs`, as the page does.
+- **A seeded run the reader watches has to be representative, and the check
+  says so.** `fundamental-law` shows ten simulated years per manager and quotes
+  the long-run tracking errors beside them. The seeds were chosen so that each
+  run's realised figure sits within 10% of the long run at the settings the prose
+  uses, and the check asserts exactly that, so a new seed or generator can't
+  quietly show the reader a run that contradicts the sentence under it.
 - **A slowly converging average needs a big sample before it's quoted.**
   `index-construction`'s mean gap over 60 markets was 0.064 and over 1,000 was
   0.043 ± 0.008; the page says "centred near zero" and quotes the one ratio that
@@ -490,6 +512,9 @@ a dot is checked to lie on its curve in pixels. Two rules from rows 9 to 12
   log-scaled growth chart it would return the right value at the two end ticks
   and the wrong one everywhere else, and a check of "both lines start at $1"
   would pass or fail by accident. Interpolate log10 of the tick values instead.
+- **Abbreviated tick labels need their own parser.** `scales()` reads "1k" as
+  1, so `fundamental-law`'s log axis (10, 100, 1k, 10k) is read in its check by a
+  local function that multiplies a trailing k by 1,000 and interpolates log10.
 - **When the claim is an area, read the shape back through both axes.**
   `npv-vs-irr` says each rectangle's area is its NPV. The check converts the
   rect's x, width, y and height to data units through the drawn axes and

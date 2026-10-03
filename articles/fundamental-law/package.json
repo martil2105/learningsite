@@ -1,0 +1,22 @@
+{
+  "name": "fundamental-law",
+  "version": "1.0.0",
+  "description": "IR = IC x sqrt(breadth) assumes independent bets; when the IC varies from month to month the information ratio stops at IC over its volatility however many stocks are added",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

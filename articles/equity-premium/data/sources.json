@@ -1,0 +1,20 @@
+[
+  {
+    "file": "F-F_Research_Data_Factors.csv",
+    "series": "Fama/French 3 research factors, monthly and annual (Mkt-RF and RF are used)",
+    "provider": "Kenneth R. French Data Library, Tuck School of Business at Dartmouth",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+    "unzip": true,
+    "sha256": "d7d7fe37b150b5b15c9c069b3ba101dfe1af568c6d7b5db6e73cd0a6c0c9e5e5",
+    "retrieved": "2026-10-03"
+  },
+  {
+    "file": "shiller-sp500.csv",
+    "series": "Robert Shiller's monthly S&P composite: price, dividend and CPI since 1871 (dividends to 2023-06), tidied by the Frictionless Data project",
+    "provider": "github.com/datasets/s-and-p-500, data/data.csv at commit 07b81e6af68239acd65b901a11844d6d95db6ead, from Shiller's online data",
+    "url": "https://raw.githubusercontent.com/datasets/s-and-p-500/07b81e6af68239acd65b901a11844d6d95db6ead/data/data.csv",
+    "unzip": false,
+    "sha256": "3a45dffabc414afc298c12159abc84c2875f88175ff3d4473ef7417e725ecac6",
+    "retrieved": "2026-10-03"
+  }
+]

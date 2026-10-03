@@ -1,0 +1,38 @@
+/* Tokens and small shared classes for the finance articles' figures. The page
+   itself uses the house global.css; this only adds what the figures need.
+   Series colours are the house palette (reference/house-idioms.md): three
+   categorical hues, --c2 and --c5 are the same pink, and --c4 is ink, never
+   violet, which is an interface accent only. */
+:root {
+  --ink: #232f3e;
+  --ink-soft: #3d4756;
+  --muted: #6a7080;
+  --rule: #d4dada;
+  --panel: #f1f3f3;
+  --c1: #2074d5;
+  --c2: #df2a5d;
+  --c3: #2f7d32;
+  --c4: #232f3e;
+  --c5: #df2a5d;
+  --c1-soft: #d6e6f8;
+  --c2-soft: #f8d7e0;
+  --c3-soft: #d5e8d6;
+  --c4-soft: #e1e4e8;
+  --c5-soft: #f8d7e0;
+}
+
+.math-display { overflow-x: auto; overflow-y: hidden; margin: 0.9rem 0; }
+.num { font-family: var(--font-mono); font-size: 0.92em; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 14px 24px; padding: 0.75rem 1rem; background: var(--panel); margin-bottom: 1rem; }
+
+.readouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.6rem; margin: 0.9rem 0 0.4rem; }
+.readout { border: 1px solid var(--rule); padding: 0.5rem 0.7rem; display: flex; flex-direction: column; gap: 2px; }
+.readout .label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink); opacity: 0.75; line-height: 1.3; }
+.readout .value { font-family: var(--font-mono); font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+
+svg text { font-family: var(--font-main); font-size: 12px; fill: var(--ink-soft); }
+svg .axis line, svg .axis path { stroke: #b9c0c7; }
+svg .grid line { stroke: #e6e9ea; }
+svg .tick-label { fill: var(--muted); font-size: 11px; }
+svg .axis-title { fill: var(--ink-soft); font-size: 12px; font-weight: 600; }

@@ -1,0 +1,29 @@
+[
+  {
+    "file": "F-F_Research_Data_5_Factors_2x3.csv",
+    "series": "Fama/French 5 factors (2x3), monthly and annual: Mkt-RF, SMB, HML, RMW, CMA, RF",
+    "provider": "Kenneth R. French Data Library, Tuck School of Business at Dartmouth",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_5_Factors_2x3_CSV.zip",
+    "unzip": true,
+    "sha256": "c4915afc1e2a1fce6fbba415f574d825a3e1b800c8d1aa31c72351789851eb22",
+    "retrieved": "2026-10-03"
+  },
+  {
+    "file": "F-F_Momentum_Factor.csv",
+    "series": "Momentum factor (Mom), monthly and annual",
+    "provider": "Kenneth R. French Data Library, Tuck School of Business at Dartmouth",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Momentum_Factor_CSV.zip",
+    "unzip": true,
+    "sha256": "613b628c5ffa8b957e03ad3a4ccd891d3aa6daafc1801dffb7db7376f2017bdc",
+    "retrieved": "2026-10-03"
+  },
+  {
+    "file": "Portfolios_Formed_on_BETA.csv",
+    "series": "Portfolios formed on market beta, value-weighted monthly returns (the lowest-beta decile is used)",
+    "provider": "Kenneth R. French Data Library, Tuck School of Business at Dartmouth",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/Portfolios_Formed_on_BETA_CSV.zip",
+    "unzip": true,
+    "sha256": "95efd2aed8a1594b13440a1d699efc9194f9ce7ccba0b857efa9e933183aa041",
+    "retrieved": "2026-10-03"
+  }
+]

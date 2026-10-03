@@ -510,3 +510,26 @@ Three rules from Stage 1 of the finance slate (30 September 2026).
   right-hand tick of `etf-premiums`' band chart ran past its svg at 1280px and the
   "nothing drawn outside its svg" check caught it. Widen the right margin or
   shorten the edge labels ("+1.5%").
+
+## Window sliders, minor ticks and bands around an expectation
+
+Three rules from rows 15 to 18 of the finance slate (3 October 2026).
+
+- **A first-year and last-year pair clamps to a minimum window and writes the
+  clamp back.** `equity-premium`'s band lab needs at least twenty years. It
+  derives the window in use (`lo`, `hi`) from the two sliders and then sets the
+  last-year slider to `hi` in an `$effect`, so the thumb and its label always
+  show the window the readouts describe. Deriving the window without writing it
+  back leaves a thumb at 1950 beside a readout for 2000 to 2019.
+- **Only a labelled tick is a `g[transform]`.** The browser checks build an
+  axis's scale from every `.axis-x g[transform]` and its text. `fundamental-law`
+  drops the 2s and 5s of its log axis on a phone, and leaving them as text-less
+  groups crashed the check on its first read. Draw unlabelled minor ticks as bare
+  lines.
+- **A band of "normal" months is centred on the expected value, not on zero.**
+  `fundamental-law` draws two predicted standard deviations around a manager's
+  returns, which average 0.7% a month. Centred on zero, the upper line caught 14
+  of 120 quiet months where about 5 belong, and the story the figure tells
+  ("with no swing the months stay inside the lines") was false until the band
+  moved to the mean.
+
