@@ -1,7 +1,7 @@
 {
   "name": "yield-curve-and-forwards",
   "version": "1.0.0",
-  "description": "Value at risk is a quantile, so it can rise when a bond portfolio diversifies (one bond: zero; two: $30); expected shortfall is the area beyond it and never does",
+  "description": "Bootstrapping spot rates from coupon bonds, yields as duration-weighted averages of spot rates, forward rates as break-evens, and why forwards aren't forecasts in Vasicek's model",
   "private": true,
   "type": "module",
   "scripts": {

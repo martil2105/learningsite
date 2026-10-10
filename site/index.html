@@ -303,7 +303,7 @@
 
         <nav class="track-nav" aria-label="Sections">
           <a href="#economics">Economics Sequence <span class="count">23</span></a>
-          <a href="#finance">Finance Sequence <span class="count">41</span></a>
+          <a href="#finance">Finance Sequence <span class="count">46</span></a>
           <a href="#machine-learning">Machine Learning &amp; Statistics <span class="count">11</span></a>
         </nav>
 
@@ -687,7 +687,7 @@
         <section id="finance" class="track-section">
           <header class="track-header">
             <h2 class="track-title">The Finance Sequence</h2>
-            <p class="track-subtitle">The technical side of markets, in reading order: how a trade happens, how shares and bonds are valued, and how portfolios and risk are measured. Like the economics sequence, each article is joined to the last by a two-sentence bridge.</p>
+            <p class="track-subtitle">The technical side of markets, in reading order: how a trade happens, how shares, bonds and options are valued, and how portfolios and risk are measured. Like the economics sequence, each article is joined to the last by a two-sentence bridge.</p>
           </header>
           <div class="spine-container">
         <div class="spine-bridge" aria-label="Introduction">
@@ -1143,11 +1143,91 @@
             <span class="bridge-dot"></span>
             <span class="bridge-tag">Bridge</span>
           </div>
-          <p class="bridge-text">The yield curve and forward rates ended the stage on bonds. Time diversification asks what happens to the risk of stocks as we hold them for longer, and why lower odds of losing aren&#x27;t the same as smaller losses.</p>
+          <p class="bridge-text">The yield curve and forward rates priced loans that are sure to be repaid. The Merton model turns to loans that might not be, and reads a firm&#x27;s chance of default off the price of its shares.</p>
+        </div>
+        <a class="card card-spine" href="merton-model/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 29</span>
+            <span class="spine-unit-badge">Fm14</span>
+          </div>
+          <h3 class="card-title">The Merton model</h3>
+          <p class="card-blurb">A firm&#x27;s shares are a call option on its assets, so their price and how much they move pin down what the assets are worth and how risky they are. The chance of default that comes out is the market&#x27;s, which overstates the real chance most for the safest firms.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">The Merton model found that a share price implies the market&#x27;s chance of default, not the real one. The credit spread puzzle compares a century of corporate bond yields with the defaults that really happened.</p>
+        </div>
+        <a class="card card-spine" href="credit-spread-puzzle/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 30</span>
+            <span class="spine-unit-badge">Fm15</span>
+          </div>
+          <h3 class="card-title">The credit spread puzzle</h3>
+          <p class="card-blurb">Since 1919, Moody&#x27;s Baa bonds have yielded 1.16 points a year more than Aaa bonds, several times what their defaults cost. Paying lenders for when defaults happen explains most of the gap, and a 32-year record of defaults is far less certain than it looks.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">The credit spread puzzle ended the stage on bonds. Forwards and futures starts on derivatives, with the price for delivering something later, and why it isn&#x27;t anyone&#x27;s forecast.</p>
+        </div>
+        <a class="card card-spine" href="forwards-and-futures/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 31</span>
+            <span class="spine-unit-badge">Fd1</span>
+          </div>
+          <h3 class="card-title">Forwards and futures</h3>
+          <p class="card-blurb">A forward price is the cost of buying now and carrying to delivery, pinned by an arbitrage whatever anyone expects. For oil, which can be stored but not lent, that&#x27;s only a ceiling, which is how oil for May 2020 cost minus $37.63.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Forwards and futures priced a promise to buy later. Put–call parity builds the same promise from a call and a put, and reads the forward the market is using off option prices.</p>
+        </div>
+        <a class="card card-spine" href="put-call-parity/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 32</span>
+            <span class="spine-unit-badge">Fd2</span>
+          </div>
+          <h3 class="card-title">Put–call parity</h3>
+          <p class="card-blurb">A call minus a put is a forward in any model, so two models that disagree about every option agree on the difference. Run backwards, parity shows what a share costs to borrow: in March 2000, Palm&#x27;s options priced its shares 23% to 29% below their price.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Put–call parity priced the difference between a call and a put without a model. Binomial option pricing prices a single call on a tree, by copying it with shares and a loan.</p>
+        </div>
+        <a class="card card-spine" href="binomial-pricing/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 33</span>
+            <span class="spine-unit-badge">Fd3</span>
+          </div>
+          <h3 class="card-title">Binomial option pricing</h3>
+          <p class="card-blurb">When a share can only go up or down, a call can be copied, so its price doesn&#x27;t depend on the real chance of a rise, though its expected return does. Many steps converge to Black and Scholes, and a third branch brings the real chances back.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Binomial option pricing priced a single option by copying it. Time diversification asks what happens to the risk of stocks as we hold them for longer, and why lower odds of losing aren&#x27;t the same as smaller losses.</p>
         </div>
         <a class="card card-spine" href="time-diversification/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 29</span>
+            <span class="spine-order-badge">Part 34</span>
             <span class="spine-unit-badge">Fr16</span>
           </div>
           <h3 class="card-title">Time diversification</h3>
@@ -1163,7 +1243,7 @@
         </div>
         <a class="card card-spine" href="samuelson-1963/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 30</span>
+            <span class="spine-order-badge">Part 35</span>
             <span class="spine-unit-badge">Fr17</span>
           </div>
           <h3 class="card-title">Samuelson’s fallacy of large numbers</h3>
@@ -1179,7 +1259,7 @@
         </div>
         <a class="card card-spine" href="bodie-1995/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 31</span>
+            <span class="spine-order-badge">Part 36</span>
             <span class="spine-unit-badge">Fr18</span>
           </div>
           <h3 class="card-title">Bodie’s shortfall insurance</h3>
@@ -1195,7 +1275,7 @@
         </div>
         <a class="card card-spine" href="pastor-stambaugh-2012/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 32</span>
+            <span class="spine-order-badge">Part 37</span>
             <span class="spine-unit-badge">Fr19</span>
           </div>
           <h3 class="card-title">Pástor and Stambaugh’s long-run volatility</h3>
@@ -1211,7 +1291,7 @@
         </div>
         <a class="card card-spine" href="anarkulova-cederburg-odoherty-2022/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 33</span>
+            <span class="spine-order-badge">Part 38</span>
             <span class="spine-unit-badge">Fr20</span>
           </div>
           <h3 class="card-title">Stocks for the long run in 39 markets</h3>
@@ -1227,7 +1307,7 @@
         </div>
         <a class="card card-spine" href="merton-share/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 34</span>
+            <span class="spine-order-badge">Part 39</span>
             <span class="spine-unit-badge">Fr21</span>
           </div>
           <h3 class="card-title">The Merton share</h3>
@@ -1243,7 +1323,7 @@
         </div>
         <a class="card card-spine" href="samuelson-merton-1969/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 35</span>
+            <span class="spine-order-badge">Part 40</span>
             <span class="spine-unit-badge">Fr22</span>
           </div>
           <h3 class="card-title">Samuelson and Merton’s lifetime portfolio</h3>
@@ -1259,7 +1339,7 @@
         </div>
         <a class="card card-spine" href="human-capital/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 36</span>
+            <span class="spine-order-badge">Part 41</span>
             <span class="spine-unit-badge">Fr23</span>
           </div>
           <h3 class="card-title">Human capital</h3>
@@ -1275,7 +1355,7 @@
         </div>
         <a class="card card-spine" href="bodie-merton-samuelson-1992/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 37</span>
+            <span class="spine-order-badge">Part 42</span>
             <span class="spine-unit-badge">Fr24</span>
           </div>
           <h3 class="card-title">Bodie, Merton and Samuelson’s flexible worker</h3>
@@ -1291,7 +1371,7 @@
         </div>
         <a class="card card-spine" href="cocco-gomes-maenhout-2005/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 38</span>
+            <span class="spine-order-badge">Part 43</span>
             <span class="spine-unit-badge">Fr25</span>
           </div>
           <h3 class="card-title">Cocco, Gomes and Maenhout’s life-cycle portfolio</h3>
@@ -1307,7 +1387,7 @@
         </div>
         <a class="card card-spine" href="benzoni-collin-dufresne-goldstein-2007/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 39</span>
+            <span class="spine-order-badge">Part 44</span>
             <span class="spine-unit-badge">Fr26</span>
           </div>
           <h3 class="card-title">Benzoni, Collin-Dufresne and Goldstein’s cointegrated pay</h3>
@@ -1323,7 +1403,7 @@
         </div>
         <a class="card card-spine" href="lifecycle-leverage/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 40</span>
+            <span class="spine-order-badge">Part 45</span>
             <span class="spine-unit-badge">Fr27</span>
           </div>
           <h3 class="card-title">Lifecycle leverage</h3>
@@ -1339,7 +1419,7 @@
         </div>
         <a class="card card-spine" href="cost-of-leverage/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 41</span>
+            <span class="spine-order-badge">Part 46</span>
             <span class="spine-unit-badge">Fr28</span>
           </div>
           <h3 class="card-title">The cost of leverage</h3>

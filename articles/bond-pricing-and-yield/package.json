@@ -1,7 +1,7 @@
 {
   "name": "bond-pricing-and-yield",
   "version": "1.0.0",
-  "description": "Value at risk is a quantile, so it can rise when a bond portfolio diversifies (one bond: zero; two: $30); expected shortfall is the area beyond it and never does",
+  "description": "At an unchanged yield every bond earns its yield, but held to maturity a coupon bond earns its yield on only a share D/T of its life; the reinvestment of coupons carries most of the money",
   "private": true,
   "type": "module",
   "scripts": {

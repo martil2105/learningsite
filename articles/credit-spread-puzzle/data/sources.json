@@ -1,0 +1,18 @@
+[
+  {
+    "file": "BAA.csv",
+    "series": "BAA: Moody's Seasoned Baa Corporate Bond Yield, percent a year, monthly, not seasonally adjusted",
+    "provider": "Federal Reserve Bank of St. Louis (FRED), from Moody's",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAA",
+    "sha256": "3396297d0b2f8f4e8bb467207286c33c04d97bfe37b25bc5a97da6bafc615e93",
+    "retrieved": "2026-10-10"
+  },
+  {
+    "file": "AAA.csv",
+    "series": "AAA: Moody's Seasoned Aaa Corporate Bond Yield, percent a year, monthly, not seasonally adjusted",
+    "provider": "Federal Reserve Bank of St. Louis (FRED), from Moody's",
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=AAA",
+    "sha256": "15248259177710745867656c413bb2bae549c6485ca3acb7eed348a812f497ac",
+    "retrieved": "2026-10-10"
+  }
+]

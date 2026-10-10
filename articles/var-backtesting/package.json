@@ -1,7 +1,7 @@
 {
   "name": "var-backtesting",
   "version": "1.0.0",
-  "description": "Value at risk is a quantile, so it can rise when a bond portfolio diversifies (one bond: zero; two: $30); expected shortfall is the area beyond it and never does",
+  "description": "A year of 99% VaR exceptions can barely tell a right model from a wrong one, and on a century of US days a model with the right count of exceptions still bunches them into red years",
   "private": true,
   "type": "module",
   "scripts": {

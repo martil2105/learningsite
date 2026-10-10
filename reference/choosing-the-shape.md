@@ -125,6 +125,11 @@ Derived from each article's `App.svelte` section order. Add a row in pass 4.
 | `bond-pricing-and-yield` | concept | build-up (PV bars at one rate) → question first (30-year 8% bond, rates to 4% the next day) → what the yield promises (three bonds at 4%: price paths and each year's return split into coupon and price change) → where the money comes from → lab (the position worth P(r)(1 + r)^t against the promise on a log axis, with the crossing; the money at maturity in three parts) → the D/T rule as a tangent | `RealisedLab` + `PriceFigure` + `PullFigure` + `RuleFigure` |
 | `duration-and-convexity` | result | question first (sell at 12.2 years; rates to 4% or 12%: which is better?) → the average wait as a seesaw (moments cancel at the fulcrum) → the slope of the price (tangent and convexity) → lab (money at H against the promise for every new rate; a button for H = D) → why the floor is the promise (one zero, the coupon bond and a barbell with the same D) → is convexity free? → the duration hump | `HorizonLab` + `SeesawFigure` + `PriceCurve` + `SpreadFigure` + `HumpFigure` |
 | `yield-curve-and-forwards` | concept + model | build-up: bootstrapping as a short steered run (Next bond; a price-error slider) → a yield is a duration-weighted average of spot rates → forwards as break-evens (two ways to lend for two years) → question first (expected 4% for ever, no premium: the 30-year forward?) → lab (Vasicek: expected rate, forward and yield; premium and convexity shaded) → what the data say, quoted | `ForecastLab` + `BootLab` + `CouponFigure` + `BreakEvenFigure` |
+| `merton-model` | model + result | lab first after a guess card (shares move 60%: how much do the assets?) → two clues as two curves of possible firms in the plane of asset volatility and asset value, crossing at the firm → why the shares move more (the same firm at other asset values: share volatility above, the market's chance of default on a log axis below) → distance to default → whose chance (market's ÷ real against the real chance, 1 and 10 years, Sharpe slider) → default before the debt is due (200 seeded years, two counting rules) | `SolveLab` + `FallFigure` + `WhoseFigure` + `PathsFigure` |
+| `credit-spread-puzzle` | empirical + model | case first (a century of Baa over Aaa from FRED, period buttons, the expected-loss line) → what defaults cost → guess card (which bond's spread is the bigger multiple?) → lab (stacked bars: expected loss and the price of when defaults happen, the model's gap against what Baa paid; correlation and market Sharpe sliders) → the multiple against the default rate, following the lab → how sure is a default rate (2,000 seeded 32-year records in a one-factor world) | `ModelLab` + `HistoryFigure` + `MultipleFigure` + `NoiseFigure` |
+| `forwards-and-futures` | model | case first (WTI for May and June 2020, Friday and Monday) → two ways to own the index in a year (lab: forty seeded years with the carry line, then what each piece of the arbitrage pays, flat together) → guess card (two forecasts, one price) → a price, not a forecast → which prices an arbitrage rules out (index against oil) → back to April 2020 → daily settlement (three curated years; the tailed account lands on the forward's payoff, and one contract minus the tailed position) | `CarryLab` + `OilFigure` + `ForecastFigure` + `CeilingFigure` + `MarginFigure` |
+| `put-call-parity` | result | comparison spine: a call and a put side by side in every figure, the difference pinned. Payoffs (strike and ending-price sliders, toggle to the difference) → guess card → conversions → two models, one difference (lab) → the forward hiding in option prices (implied volatilities with a borrowing fee, wrong forward against the options' own) → Palm in March 2000 (synthetic share ranges by expiry against the price) → box spread → American band | `ModelsLab` + `PayoffFigure` + `IvLab` + `PalmFigure` |
+| `binomial-pricing` | model | question first (an optimist and a pessimist price the same call) → assumption lab (the reader finds the copy: shares and money owed on a one-step tree) → the risk-neutral probability → what the real chance sets (expected returns against p, two lines crossing at the safe rate, slopes 7 to 1) → a four-step tree filled backwards one column per press → convergence (price against steps, the zigzag) → a third branch (the no-arbitrage band and a risk-averse investor's price, real chances on sliders) | `CopyLab` + `ReturnFigure` + `TreeLab` + `ConvergeFigure` + `TrinomialLab` |
 
 The first ten are Svelte 3 + Rollup 2 and stay that way; new articles are
 Svelte 5 + Vite from `articles/_scaffold-svelte5/`, of which
@@ -287,7 +292,9 @@ areas in pixels.
 **Rows 24 to 28 (`var-backtesting` to `yield-curve-and-forwards`, 9 to 10
 October 2026), built a third longer than earlier rows on request.** About 2,000
 words, four or five figures and a guess card each, rather than 1,500 words and
-three figures. The extra length went into one more worked section with its own
+three figures. Martin made this the standard length the next day (see
+`CLAUDE.md`), so every shape in the menu above now plans for one more worked
+section than its earlier examples show. The extra length went into one more worked section with its own
 small figure (the capital the traffic light leaves, the shuffle, the
 detection densities, the US century, the duration hump, the bootstrap's error
 slider), not into longer paragraphs; that kept the voice numbers where they
@@ -301,3 +308,19 @@ were planned together so the first could hand the second its question:
 position, and `duration-and-convexity` opens on it; `duration-and-convexity`
 ends on the convexity a market must charge for, and `yield-curve-and-forwards`
 shows the same convexity pulling forward rates below expectations.
+
+**Rows 29 to 33 (`merton-model` to `binomial-pricing`, 10 October 2026), the
+first batch at the standard length.** 1,983 to 2,040 words, four or five
+figures and a guess card each. Two of them open on a real day rather than a
+toy: `forwards-and-futures` on WTI's −$37.63 (quoted settlements, with the
+Friday derived from the reported changes) and `put-call-parity` on Palm and
+3Com (Lamont and Thaler's quotes, reproduced to the cent), and in both the
+case is the place the clean result looks broken and isn't. The other three
+reuse one identity across two articles: `merton-model`'s
+N⁻¹(Q) = N⁻¹(P) + λ√T became `credit-spread-puzzle`'s whole model, so the
+second article could spend its length on data and on how uncertain the
+default rate is. `binomial-pricing` found its gap by adding a branch: the real
+chance drops out because the copy is exact, and a third branch is the
+smallest change that breaks it. Its hook asks the reader to find the copy's
+shares and loan with two sliders, which gives the lab something to do rather
+than something to watch.

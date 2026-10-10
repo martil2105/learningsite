@@ -581,3 +581,34 @@ Rules from rows 24 to 28 of the finance slate (10 October 2026).
   δ = 1 − κ (with 1 − tanh written as 2e^(−2y)/(1 + e^(−2y))) and writing the
   integrals with decaying exponentials kept every term finite, where the
   textbook cosh/sinh form subtracted huge numbers from each other.
+
+## Reproduced figures, kinks and bounds
+
+Rules from rows 29 to 33 of the finance slate (10 October 2026).
+
+- **Reproduce one published figure from the pinned data before building on
+  it.** `credit-spread-puzzle` pins FRED's Moody's Baa and Aaa series, and its
+  1970–2001 average gap, 1.09 points, is the 109 basis points Chen,
+  Collin-Dufresne and Goldstein report in their Table 1. That one match is what
+  makes the quoted default rates from the same paper comparable with our data.
+  FRED downloads work from the build container (`fredgraph.csv?id=...`).
+- **Derive quoted numbers from the source's own arithmetic where it gives
+  one.** The Friday WTI settlements in `forwards-and-futures` aren't typed in:
+  the check derives them from Monday's prices and the day's reported changes
+  (−37.63 + 55.90 = 18.27). Palm's synthetic prices are rebuilt from Lamont and
+  Thaler's quotes and LIBOR, and match their table to the cent.
+- **Quadrature over a kinked payoff is only first-order accurate at the
+  kink.** `merton-model`'s recovery, E[V | V < F]/F, by a 20,001-point grid
+  agrees with the closed form to 4e-4, not 1e-9; the tolerance says so.
+- **A simulated barrier on a grid needs the same shift as a simulated
+  drawdown.** Black and Cox's first passage was checked against 20,000 paths of
+  2,000 steps with the barrier moved by 0.5826·σ√dt, which is the
+  maximum-on-a-grid correction from `drawdowns` applied once.
+- **Check a no-arbitrage bound as an optimisation, not by its formula.** The
+  three-branch band in `binomial-pricing` is asserted as the cheapest
+  portfolio of shares and bank that always pays at least the call, and the
+  dearest that never pays more, each searched over a grid of share holdings.
+- **A bisection needs a bracket where the function is monotone.** The model's
+  Baa-over-Aaa gap rises with λ and then falls once both bonds are nearly sure
+  to default in the market's eyes; searching λ up to 3 returned 3. The search
+  stops at 0.6 and the check asserts the gap still rises there.

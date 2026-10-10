@@ -206,6 +206,14 @@ with every tool call. Clear between passes and write the handoff down.
 
 Short visual essays, not textbook chapters.
 
+- **Standard length, since 10 October 2026: about 2,000 to 2,200 words** of body
+  prose by the prose gate's count, with four or five figures and a guess card.
+  Martin set this from rows 24 to 28 of the finance slate, which were built a
+  third longer than the 1,500-word articles before them. The extra length goes
+  into one more worked section with its own small figure, not into longer
+  paragraphs. A shorter article is fine when the subject is genuinely small,
+  but say so in the handoff rather than stopping early.
+
 - **Narrate as "we", instruct as "you".** "Let's say we run a factory…", "our
   market", then "Drag the slider…". The register is MLU-Explain's, a patient
   guide working through the idea with the reader; the wording is always ours.

@@ -586,3 +586,33 @@ Rules from rows 24 to 28 of the finance slate (10 October 2026).
   "Backtesting value at risk" failed `ship.sh` because `value-at-risk` is a
   slug; the article is "Backtesting VaR", with "value at risk" spelled out in
   the body.
+
+## Near-identical lines, slider ends and windows
+
+Rules from rows 29 to 33 of the finance slate (10 October 2026).
+
+- **Two lines that differ by a hair hide each other; plot the difference.**
+  `forwards-and-futures` first drew one futures contract's margin account and
+  the tailed account on a ±$30 axis, and the gap that the section is about
+  (under $1) was invisible under the blue line. The third panel now plots one
+  minus the other on its own ±$1 axis.
+- **A slider has to reach every value the prose tells the reader to set.**
+  `credit-spread-puzzle` said a market Sharpe ratio of 0.61 closes the gap,
+  and the slider stopped at 0.6, so the browser check that set 0.61 read 98%
+  instead of 100%. Set the checks to the prose's own values and they find this.
+- **A step can be a fraction.** `binomial-pricing`'s copy needs exactly two
+  thirds of a share, so the slider's step is 1/60 and the "is it a copy?"
+  readout compares with a tolerance (0.6666666666666666 × 120 − 60 is
+  19.999999999999993).
+- **A line that touches the window's edge can cross it by a rounding error.**
+  The call's expected return at p = 1 is 20/9.5238 − 1 = 1.1000000000000005,
+  and the axis stopped at 110%. Leave room above the largest value rather than
+  putting the edge on it.
+- **A histogram's window comes from the simulated extremes, and the caption
+  says where the rest go.** `credit-spread-puzzle`'s records of default rates
+  reach 38% at the highest correlation; the chart runs to 20% with anything
+  above in the last bar, and says so.
+- **A package description is furniture too.** Four articles of rows 24 to 28
+  shipped with `value-at-risk`'s `package.json` description, copied by the
+  scaffold script; nothing renders it, so nothing caught it. The scaffold step
+  that renames `name` has to rename `description` in the same edit.

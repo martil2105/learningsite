@@ -103,6 +103,13 @@ MLU's amount of "we" and its short sentences, but not towards its jokes: an
 occasional light moment or exclamation mark is welcome where it's natural, and
 humour for its own sake, aphorisms and arch asides are not.
 
+**Length.** The standard since 10 October 2026 is about 2,000 to 2,200 words
+of body prose, as `check-prose.mjs --report` counts them (the rows 24 to 28
+batch ran 1,917 to 2,345), with four or five figures and a guess card. Reach it
+with one more worked section and its own small figure, never by padding
+paragraphs: the voice numbers below are per 1,000 words and don't move when the
+length is honest.
+
 **Numbers to aim at**, per 1,000 words of body prose, as `check-prose.mjs
 --report` prints them:
 
@@ -404,6 +411,19 @@ Read the rendered page top to bottom as a reader, not the source, and ask:
 7. Does the opening, or any transition, match another article's?
 8. Then run `node ../../scripts/check-prose.mjs . --report` and read the numbers
    against the targets in "The voice".
+
+## Two traps from rows 29 to 33
+
+- **A third-person trader drags the narration down.** `forwards-and-futures`
+  first walked through the arbitrage as "she borrows, she buys, she keeps",
+  and the gate read 9.9 "we" per 1,000 words. The same walk-through as "we
+  borrow, we buy, we keep" took it to 18. Keep named characters for a
+  disagreement (Ann and Ben's forecasts), and narrate the mechanism as "we".
+- **Don't add rounded parts in prose.** "$66.67 − $57.14 = $9.52" is a sum the
+  reader can check and get $9.53. Say "two thirds of $100 less $57.14, which
+  comes to $9.52", or give the parts to the precision that adds up. The gate
+  also reads "$80 − $60 = $20" as unrendered LaTeX between dollar signs, so
+  write sums of money in words.
 
 ## Mechanics
 

@@ -1,0 +1,22 @@
+{
+  "name": "binomial-pricing",
+  "version": "1.0.0",
+  "description": "Copying a call on a binomial tree: the real chance drops out of the price but sets the expected return; convergence to Black and Scholes; a third branch brings the real chances back",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

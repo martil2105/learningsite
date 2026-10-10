@@ -1,7 +1,7 @@
 {
   "name": "duration-and-convexity",
   "version": "1.0.0",
-  "description": "Value at risk is a quantile, so it can rise when a bond portfolio diversifies (one bond: zero; two: $30); expected shortfall is the area beyond it and never does",
+  "description": "Duration as the average wait, the price sensitivity and the horizon at which rate moves cancel; convexity's gain is half the spread of payment dates times the squared move",
   "private": true,
   "type": "module",
   "scripts": {
