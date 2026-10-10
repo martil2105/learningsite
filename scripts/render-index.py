@@ -431,7 +431,7 @@ def main() -> None:
         <section id="finance" class="track-section">
           <header class="track-header">
             <h2 class="track-title">The Finance Sequence</h2>
-            <p class="track-subtitle">The technical side of markets, in reading order: how a trade happens, how a share is valued, and how portfolios and risk are measured. Like the economics sequence, each article is joined to the last by a two-sentence bridge.</p>
+            <p class="track-subtitle">The technical side of markets, in reading order: how a trade happens, how shares and bonds are valued, and how portfolios and risk are measured. Like the economics sequence, each article is joined to the last by a two-sentence bridge.</p>
           </header>
           <div class="spine-container">
 {fin_cards}

@@ -61,7 +61,8 @@ crashes has checked nothing.
 **A finance article also takes the finance kit**, which isn't in the scaffold:
 `src/{finance.css,format.js,scale.js,random.js}` and
 `src/Components/{Figure,Slider,Segmented,Readout,AxisX,AxisY}.svelte` from
-`articles/dividends-and-buybacks/`, plus its `public/` assets and its
+`articles/dividends-and-buybacks/` (or any later finance article: rows 24 to 28
+took it, with `stats.js` and `clip.js`, from `value-at-risk`), plus its `public/` assets and its
 `verify/check-browser.mjs` common block and read-back helpers (`scales`, `lin`,
 `pts`, `yAt`, `setRange`). `GuessCard`, `Title`, `Meta`, `Conclusion` and
 `Resources` are written fresh, since every word in them is the article's.
@@ -80,6 +81,20 @@ exist, which is why they are read rather than inherited.
 `shortN`, `pathOf`, `areaOf`, `bandOf`, `clampW`. It replaced the older
 `plot.js`-for-everything arrangement; `plot.js` is now only the equal-aspect
 geometry, which most articles do not need.
+
+**The title, subtitle and meta description can't name another article's
+subject.** `ship.sh` looks for every other slug, as words, in `Title.svelte`,
+`Meta.svelte` and `index.html`, and a finance article's subject is often a
+neighbour's slug: `kelly-criterion`'s description said "Sharpe ratio" and
+`volatility-clustering`'s subtitle said "fat tails", and both failed. Say it
+another way in the furniture ("the market's wildest days"); the body and the
+sources can name the neighbour freely.
+
+**A data article reuses the daily kit.** `efficient-markets`, `fat-tails` and
+`volatility-clustering` each carry the same `data/` (French's daily file,
+pinned), `scripts/{data-lib,fetch-data,build-data}.mjs` and
+`src/{data,market}.js`; copy all of them from one of the three and add the
+article's own module.
 
 Amazon Ember, `mlu_robot.png`, the Svelte template favicon, `Scatter.js`,
 `StaticChart.svelte` and `CenterScroll.svelte` never arrive by this route, so the

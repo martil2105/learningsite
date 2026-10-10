@@ -1,0 +1,22 @@
+{
+  "name": "efficient-markets",
+  "version": "1.0.0",
+  "description": "The variance ratio on a century of US daily returns, and two efficient markets that fail it: stale prices (VR above one) and a bid-ask bounce (VR below one), where the predictability is profit only on paper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "kelly-criterion",
+  "version": "1.0.0",
+  "description": "Kelly's growth-optimal bet: how long its long run is (Kelly beats half Kelly with probability Phi(SR sqrt(T)/4)) and how far down it goes (ever falling to x has probability x)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

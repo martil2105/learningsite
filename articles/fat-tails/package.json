@@ -1,0 +1,23 @@
+{
+  "name": "fat-tails",
+  "version": "1.0.0",
+  "description": "A century of US daily returns against the normal distribution: 101 days beyond five standard deviations, power-law tails with an exponent near 3, and a kurtosis that has no value to settle at",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs",
+    "precompute": "node scripts/precompute.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

@@ -115,6 +115,16 @@ Derived from each article's `App.svelte` section order. Add a row in pass 4.
 | `factor-models` | result + empirical | case first (value's 4.5% CAPM alpha; guess card) → alpha is an intercept → the identity (each added factor takes loading × its own alpha) → factor prices → waterfall lab (asset, factors, model presets; steps chain to the alpha left) → alphas that grow (momentum with value) → low beta under five factors | `AlphaLab` + `PriceBars` |
 | `equity-premium` | empirical | build-up: a century of yearly premiums with the band (window sliders, presets, a yearly/monthly toggle, a ruler under the bars) → guess card → yearly and monthly bands against years of data → rolling windows (20/30/50, a scrubber) → realised against Fama and French's dividend estimate by period, stacked | `BandLab` + `FreqBands` + `RollingChart` + `SplitLab` |
 | `fundamental-law` | result | question first (A: IC 0.06 on 50 stocks, B: 0.02 on 1,000; guess card) → one month of forecasts (scatter, IC slider) → breadth → lab (IR against N on a log axis, Grinold's curve and the curve with a month-to-month swing, its ceiling) → the two managers with the swing (the order flips) → ten simulated years against the risk model's bands | `BreadthLab` + `IcScatter` + `ManagerBars` + `RiskLab` |
+| `kelly-criterion` | result | case first (Haghani and Dewey's 60% coin: 61 seeded players, a share slider, log axis) → Kelly's rule (typical growth against the average's) → from coins to stocks → guess card (Kelly against half Kelly after 30 years) → the race (40 pairs as Kelly ÷ rival on a log axis, the chance ahead below) → how far down (x^(2/c − 1) against the full-Kelly diagonal) | `RaceLab` + `CoinLab` + `GrowthFigure` + `DrawdownLab` |
+| `efficient-markets` | model + empirical | case first (a rule that held the market after up days: 30.5% a year on paper in 1962–86) → five-year windows (lag-1 autocorrelation, or the rule) → the variance ratio by period → two efficient markets that fail the test (stale prices / bid–ask bounce toggle, 40 days true against recorded, VR formula against 25 simulated years) → $1 on paper and for real | `WorldLab` + `HistoryBars` + `VRFigure` + `ProfitFigure` |
+| `fat-tails` | empirical + result | case first (19 October 1987, 16.2 sd) → every day binned on a log axis with the normal's counts and a threshold → the tails on log–log axes with Hill's fit (a k selector) → kurtosis that settles and doesn't (precomputed t₃ and t₆ samples; US windows split into the biggest day's slice and the rest) | `CountLab` + `TailFigure` + `KurtosisLab` |
+| `value-at-risk` | concept | question first (two bonds, each with a 95% VaR of zero; $50 in each gives $30) → a height and an area (the quantile panel: VaR a dot, ES a dashed rectangle with the shaded area's area) and both numbers against the number of bonds → apart and together (bars; bonds against two normal losses with a correlation slider) → FRTB | `BondsLab` + `PairFigure` |
+| `volatility-clustering` | empirical + model | question first (1987 or 1955: which was the bigger surprise?) → memory in sign and size (ACF by lag, band robust to clustering) → GARCH and its half-life → three years with the forecast band (five windows, pink days outside) → the ten biggest days ranked two ways | `VolLab` + `AcfFigure` + `RankFigure` |
+| `var-backtesting` | concept + empirical | question first (a model that's really a 98% VaR: how often green?) → the count lab (Binomial(250, p) over the three zones, the right model as grey caps, capital on US losses) → Kupiec → days needed (power against days on a log axis, jagged) → four models over 104 blocks of 250 US days (bars by block, one block's days with the VaR line) → bunching (the same exceptions shuffled; block counts against the binomial; the variance-ratio bracket) → the rules now | `ZoneLab` + `DaysFigure` + `CenturyLab` + `ShuffleFigure` |
+| `drawdowns` | result + empirical | question first (a ten-year backtest: will ten live years go past its worst?) → one steered path (backtest then 30 live years, live drawdowns from the live start, five curated seeds) → growth with record length, with a toggle to the strategy's own units where every Sharpe ratio above zero lies on one curve → live against backtest (50% at equal lengths) → a working and a dead strategy's densities with a stopping line → Wald's d/μ → the US century against a random walk | `PathLab` + `ScaleFigure` + `NextFigure` + `DeepFigure` + `UsFigure` |
+| `bond-pricing-and-yield` | concept | build-up (PV bars at one rate) → question first (30-year 8% bond, rates to 4% the next day) → what the yield promises (three bonds at 4%: price paths and each year's return split into coupon and price change) → where the money comes from → lab (the position worth P(r)(1 + r)^t against the promise on a log axis, with the crossing; the money at maturity in three parts) → the D/T rule as a tangent | `RealisedLab` + `PriceFigure` + `PullFigure` + `RuleFigure` |
+| `duration-and-convexity` | result | question first (sell at 12.2 years; rates to 4% or 12%: which is better?) → the average wait as a seesaw (moments cancel at the fulcrum) → the slope of the price (tangent and convexity) → lab (money at H against the promise for every new rate; a button for H = D) → why the floor is the promise (one zero, the coupon bond and a barbell with the same D) → is convexity free? → the duration hump | `HorizonLab` + `SeesawFigure` + `PriceCurve` + `SpreadFigure` + `HumpFigure` |
+| `yield-curve-and-forwards` | concept + model | build-up: bootstrapping as a short steered run (Next bond; a price-error slider) → a yield is a duration-weighted average of spot rates → forwards as break-evens (two ways to lend for two years) → question first (expected 4% for ever, no premium: the 30-year forward?) → lab (Vasicek: expected rate, forward and yield; premium and convexity shaded) → what the data say, quoted | `ForecastLab` + `BootLab` + `CouponFigure` + `BreakEvenFigure` |
 
 The first ten are Svelte 3 + Rollup 2 and stay that way; new articles are
 Svelte 5 + Vite from `articles/_scaffold-svelte5/`, of which
@@ -258,3 +268,36 @@ added assumption does; that pairing is the cheapest way to separate a
 measurement effect from a real one. The guess card worked best where the
 received answer is a number the reader already carries (8.9%, "B has the higher
 IR") and the article changes what it means rather than whether it's right.
+
+**Rows 19 to 23 (`kelly-criterion` to `volatility-clustering`, 4 October
+2026).** Three of the five rest on the same pinned daily file, and each used it
+for a different question: the sign of daily moves, their size, and their size
+against a forecast. Two of them turned a slate claim already covered elsewhere
+(`merton-share` had Kelly's flat top; `sharpe-ratio` had autocorrelation into
+√12) into a path or recording question instead, so check the built articles for
+the slate's line before probing it. Where a received account is "this number
+measures that" (kurtosis measures tails, VaR measures risk, a z-score measures
+surprise), the strongest figure put the number next to a second ruler that
+disagrees with it: the biggest day's slice of a kurtosis bar, ES as an area
+beside VaR as a height, the century's standard deviation against the
+forecast's. Draw an identity that is an average as a rectangle with the same
+area as the shaded region it averages (`value-at-risk`), and check the two
+areas in pixels.
+
+**Rows 24 to 28 (`var-backtesting` to `yield-curve-and-forwards`, 9 to 10
+October 2026), built a third longer than earlier rows on request.** About 2,000
+words, four or five figures and a guess card each, rather than 1,500 words and
+three figures. The extra length went into one more worked section with its own
+small figure (the capital the traffic light leaves, the shuffle, the
+detection densities, the US century, the duration hump, the bootstrap's error
+slider), not into longer paragraphs; that kept the voice numbers where they
+were. Three of the five turned the slate's line around: the VaR count can't see
+*when* (bunching), the √T law is only the no-edge case (with an edge it's
+logarithmic, and in the strategy's own units every edge is one curve), and
+duration's third job (the immunising horizon) is the claim, because
+`dividend-discount-model` already had duration as a sensitivity. Two neighbours
+were planned together so the first could hand the second its question:
+`bond-pricing-and-yield` ends on the crossing point of the promise and the real
+position, and `duration-and-convexity` opens on it; `duration-and-convexity`
+ends on the convexity a market must charge for, and `yield-curve-and-forwards`
+shows the same convexity pulling forward rates below expectations.

@@ -303,7 +303,7 @@
 
         <nav class="track-nav" aria-label="Sections">
           <a href="#economics">Economics Sequence <span class="count">23</span></a>
-          <a href="#finance">Finance Sequence <span class="count">31</span></a>
+          <a href="#finance">Finance Sequence <span class="count">41</span></a>
           <a href="#machine-learning">Machine Learning &amp; Statistics <span class="count">11</span></a>
         </nav>
 
@@ -687,7 +687,7 @@
         <section id="finance" class="track-section">
           <header class="track-header">
             <h2 class="track-title">The Finance Sequence</h2>
-            <p class="track-subtitle">The technical side of markets, in reading order: how a trade happens, how a share is valued, and how portfolios and risk are measured. Like the economics sequence, each article is joined to the last by a two-sentence bridge.</p>
+            <p class="track-subtitle">The technical side of markets, in reading order: how a trade happens, how shares and bonds are valued, and how portfolios and risk are measured. Like the economics sequence, each article is joined to the last by a two-sentence bridge.</p>
           </header>
           <div class="spine-container">
         <div class="spine-bridge" aria-label="Introduction">
@@ -983,11 +983,171 @@
             <span class="bridge-dot"></span>
             <span class="bridge-tag">Bridge</span>
           </div>
-          <p class="bridge-text">The fundamental law looked at many bets in one month. Time diversification asks what happens to the risk of stocks as we hold them for longer, and why lower odds of losing aren&#x27;t the same as smaller losses.</p>
+          <p class="bridge-text">The fundamental law turned many small bets into a steady return. The Kelly criterion asks how much to stake on each bet so that money grows fastest, and how long that takes to pay off.</p>
+        </div>
+        <a class="card card-spine" href="kelly-criterion/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 19</span>
+            <span class="spine-unit-badge">Fr9</span>
+          </div>
+          <h3 class="card-title">The Kelly criterion</h3>
+          <p class="card-blurb">Kelly&#x27;s bet grows money fastest in the long run, but the long run is measured in units of one over the Sharpe ratio squared. For stocks, Kelly beats half Kelly only 65% of the time after 30 years, and halves our money at some point with probability one half.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">The Kelly criterion took the odds of a bet as known. This article asks whether past prices tell us anything about tomorrow&#x27;s, and what a test that says yes really shows.</p>
+        </div>
+        <a class="card card-spine" href="efficient-markets/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 20</span>
+            <span class="spine-unit-badge">Fr10</span>
+          </div>
+          <h3 class="card-title">Efficient markets and the random walk</h3>
+          <p class="card-blurb">A rule that held the US market after its up days earned 30.5% a year on paper from 1962 to 1986. Stale prices and a bounce between the bid and the ask make efficient markets fail the random-walk test, and their predictability is profit only on paper.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Efficient markets looked at the direction of daily moves. Fat tails looks at their size, and at how often the US market has days that a normal distribution says should never happen.</p>
+        </div>
+        <a class="card card-spine" href="fat-tails/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 21</span>
+            <span class="spine-unit-badge">Fr11</span>
+          </div>
+          <h3 class="card-title">Fat tails</h3>
+          <p class="card-blurb">In a century of US daily returns, 101 days moved more than five standard deviations, where a normal distribution expects one every 6,600 years. The tails fall like a power law with an exponent near 3, so a sample&#x27;s kurtosis mostly records its worst day.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Fat tails showed how often big losses come. Value at risk turns the whole range of losses into one number for a bank&#x27;s board, and this article shows what that number can miss.</p>
+        </div>
+        <a class="card card-spine" href="value-at-risk/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 22</span>
+            <span class="spine-unit-badge">Fr12</span>
+          </div>
+          <h3 class="card-title">Value at risk</h3>
+          <p class="card-blurb">One bond with a 4% chance of default has a 95% value at risk of zero, and $50 in each of two has one of $30. Value at risk reads one point of the loss curve, so spreading money can raise it, while expected shortfall averages the tail and falls.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Value at risk needs a forecast of how large losses can be. Volatility clustering shows that the size of daily moves has a memory, and builds the simplest forecast from it.</p>
+        </div>
+        <a class="card card-spine" href="volatility-clustering/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 23</span>
+            <span class="spine-unit-badge">Fr13</span>
+          </div>
+          <h3 class="card-title">Volatility clustering</h3>
+          <p class="card-blurb">The sign of a daily move in US stocks is almost unpredictable and its size is not. A GARCH forecast with a half-life of about three months turns 1987 from a 16 standard deviation day into an 8.5 one, and leaves part of the fat tails unexplained.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Volatility clustering built a forecast of tomorrow&#x27;s risk. Backtesting VaR asks how a bank finds out whether such a forecast is any good, and why counting the days it was beaten says so little.</p>
+        </div>
+        <a class="card card-spine" href="var-backtesting/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 24</span>
+            <span class="spine-unit-badge">Fr14</span>
+          </div>
+          <h3 class="card-title">Backtesting VaR</h3>
+          <p class="card-blurb">A year of 99% VaR exceptions is a count of about 2.5 rare days, so a model that&#x27;s twice too optimistic is still green in 44% of years. On a century of US days, a model with exactly the right count was red in 8 of its 104 trading years.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Backtesting VaR asked whether a risk model&#x27;s bad days come as often as promised. Drawdowns looks at a strategy&#x27;s worst fall from a peak, and why it keeps getting deeper the longer we watch.</p>
+        </div>
+        <a class="card card-spine" href="drawdowns/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 25</span>
+            <span class="spine-unit-badge">Fr15</span>
+          </div>
+          <h3 class="card-title">Drawdowns</h3>
+          <p class="card-blurb">A strategy&#x27;s worst drawdown grows with the length of its record: like the square root of time with no edge, and like its logarithm with one. So live trading goes past a backtest&#x27;s worst half the time within the backtest&#x27;s own length, even when nothing has changed.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Drawdowns closed the stage on market risk. Bond prices and yields starts on fixed income, with the one rate that prices all of a bond&#x27;s payments and what it does and doesn&#x27;t promise.</p>
+        </div>
+        <a class="card card-spine" href="bond-pricing-and-yield/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 26</span>
+            <span class="spine-unit-badge">Fm11</span>
+          </div>
+          <h3 class="card-title">Bond prices and yields</h3>
+          <p class="card-blurb">At an unchanged yield every bond earns its yield, whatever its coupon. Held to maturity, though, a bond earns its yield on only a share of its life, its average wait over its maturity, so a 30-year 8% bond earns 5.84% when rates fall to 4%.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Bond prices and yields found two forces pulling on a bondholder&#x27;s money when rates move. Duration and convexity finds the horizon where they cancel, and why that leaves a small gain rather than nothing.</p>
+        </div>
+        <a class="card card-spine" href="duration-and-convexity/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 27</span>
+            <span class="spine-unit-badge">Fm12</span>
+          </div>
+          <h3 class="card-title">Duration and convexity</h3>
+          <p class="card-blurb">Duration is a bond&#x27;s average wait, the slope of its price and the one horizon at which a parallel move in rates can&#x27;t leave us short of the promised return. Convexity turns that floor into a small gain, which is why markets charge for it.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">Duration and convexity treated every maturity as having the same rate. The yield curve and forward rates gives each maturity its own, and asks what the forward rates locked in by those prices really tell us.</p>
+        </div>
+        <a class="card card-spine" href="yield-curve-and-forwards/">
+          <div class="card-badge-row">
+            <span class="spine-order-badge">Part 28</span>
+            <span class="spine-unit-badge">Fm13</span>
+          </div>
+          <h3 class="card-title">The yield curve and forward rates</h3>
+          <p class="card-blurb">Bootstrapping turns coupon bond prices into spot rates one maturity at a time, and forward rates are the break-evens they lock in. Even when investors expect rates to stay put and ask nothing for risk, convexity pulls long forward rates below the expected rate.</p>
+          <p class="card-meta">October 2026<span class="arrow">Read &rarr;</span></p>
+        </a>
+        <div class="spine-bridge" aria-label="Bridge">
+          <div class="bridge-line-wrap">
+            <span class="bridge-dot"></span>
+            <span class="bridge-tag">Bridge</span>
+          </div>
+          <p class="bridge-text">The yield curve and forward rates ended the stage on bonds. Time diversification asks what happens to the risk of stocks as we hold them for longer, and why lower odds of losing aren&#x27;t the same as smaller losses.</p>
         </div>
         <a class="card card-spine" href="time-diversification/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 19</span>
+            <span class="spine-order-badge">Part 29</span>
             <span class="spine-unit-badge">Fr16</span>
           </div>
           <h3 class="card-title">Time diversification</h3>
@@ -1003,7 +1163,7 @@
         </div>
         <a class="card card-spine" href="samuelson-1963/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 20</span>
+            <span class="spine-order-badge">Part 30</span>
             <span class="spine-unit-badge">Fr17</span>
           </div>
           <h3 class="card-title">Samuelson’s fallacy of large numbers</h3>
@@ -1019,7 +1179,7 @@
         </div>
         <a class="card card-spine" href="bodie-1995/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 21</span>
+            <span class="spine-order-badge">Part 31</span>
             <span class="spine-unit-badge">Fr18</span>
           </div>
           <h3 class="card-title">Bodie’s shortfall insurance</h3>
@@ -1035,7 +1195,7 @@
         </div>
         <a class="card card-spine" href="pastor-stambaugh-2012/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 22</span>
+            <span class="spine-order-badge">Part 32</span>
             <span class="spine-unit-badge">Fr19</span>
           </div>
           <h3 class="card-title">Pástor and Stambaugh’s long-run volatility</h3>
@@ -1051,7 +1211,7 @@
         </div>
         <a class="card card-spine" href="anarkulova-cederburg-odoherty-2022/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 23</span>
+            <span class="spine-order-badge">Part 33</span>
             <span class="spine-unit-badge">Fr20</span>
           </div>
           <h3 class="card-title">Stocks for the long run in 39 markets</h3>
@@ -1067,7 +1227,7 @@
         </div>
         <a class="card card-spine" href="merton-share/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 24</span>
+            <span class="spine-order-badge">Part 34</span>
             <span class="spine-unit-badge">Fr21</span>
           </div>
           <h3 class="card-title">The Merton share</h3>
@@ -1083,7 +1243,7 @@
         </div>
         <a class="card card-spine" href="samuelson-merton-1969/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 25</span>
+            <span class="spine-order-badge">Part 35</span>
             <span class="spine-unit-badge">Fr22</span>
           </div>
           <h3 class="card-title">Samuelson and Merton’s lifetime portfolio</h3>
@@ -1099,7 +1259,7 @@
         </div>
         <a class="card card-spine" href="human-capital/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 26</span>
+            <span class="spine-order-badge">Part 36</span>
             <span class="spine-unit-badge">Fr23</span>
           </div>
           <h3 class="card-title">Human capital</h3>
@@ -1115,7 +1275,7 @@
         </div>
         <a class="card card-spine" href="bodie-merton-samuelson-1992/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 27</span>
+            <span class="spine-order-badge">Part 37</span>
             <span class="spine-unit-badge">Fr24</span>
           </div>
           <h3 class="card-title">Bodie, Merton and Samuelson’s flexible worker</h3>
@@ -1131,7 +1291,7 @@
         </div>
         <a class="card card-spine" href="cocco-gomes-maenhout-2005/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 28</span>
+            <span class="spine-order-badge">Part 38</span>
             <span class="spine-unit-badge">Fr25</span>
           </div>
           <h3 class="card-title">Cocco, Gomes and Maenhout’s life-cycle portfolio</h3>
@@ -1147,7 +1307,7 @@
         </div>
         <a class="card card-spine" href="benzoni-collin-dufresne-goldstein-2007/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 29</span>
+            <span class="spine-order-badge">Part 39</span>
             <span class="spine-unit-badge">Fr26</span>
           </div>
           <h3 class="card-title">Benzoni, Collin-Dufresne and Goldstein’s cointegrated pay</h3>
@@ -1163,7 +1323,7 @@
         </div>
         <a class="card card-spine" href="lifecycle-leverage/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 30</span>
+            <span class="spine-order-badge">Part 40</span>
             <span class="spine-unit-badge">Fr27</span>
           </div>
           <h3 class="card-title">Lifecycle leverage</h3>
@@ -1179,7 +1339,7 @@
         </div>
         <a class="card card-spine" href="cost-of-leverage/">
           <div class="card-badge-row">
-            <span class="spine-order-badge">Part 31</span>
+            <span class="spine-order-badge">Part 41</span>
             <span class="spine-unit-badge">Fr28</span>
           </div>
           <h3 class="card-title">The cost of leverage</h3>

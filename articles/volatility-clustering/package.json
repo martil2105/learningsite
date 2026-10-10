@@ -1,0 +1,23 @@
+{
+  "name": "volatility-clustering",
+  "version": "1.0.0",
+  "description": "A century of US daily returns: the sign of a day is unpredictable and its size isn't; GARCH(1,1) with a 64-day half-life, and how much of the fat tails it explains (1987 shrinks from 16 to 8.5 sd, 1955 becomes the biggest surprise)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "start": "sirv public -D -m 1",
+    "check": "node verify/check-numbers.mjs",
+    "precompute": "node scripts/precompute.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.0",
+    "sirv-cli": "^1.0.0",
+    "svelte": "^5.57.0",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "katex": "^0.12.0"
+  }
+}

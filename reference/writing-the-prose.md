@@ -253,7 +253,10 @@ still reads the page.
 ## Things a rewrite tends to get wrong
 
 - **Pointing at layout.** "The right-hand chart" is wrong on a phone, where the
-  two panels stack. Say "the second chart".
+  two panels stack. Say "the second chart". The gate's pattern is blunt, so "on
+  the right day" fails too (it did in `var-backtesting`'s first draft). Reword
+  ("on the day it mattered") rather than weakening the pattern, since a real
+  pointer is the costlier miss.
 - **Counting sections.** "The frozen error from two sections ago" was four
   sections back. Refer to a section by what it is about ("the section on PSI's
   sampling distribution"), which survives reordering.

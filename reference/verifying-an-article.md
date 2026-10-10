@@ -521,3 +521,63 @@ a dot is checked to lie on its curve in pixels. Two rules from rows 9 to 12
   compares their product with the NPV readout, at two rates, for both pairs,
   and for a rectangle hanging below zero. A check of the readout alone would
   have passed with the rectangle drawn from the wrong corner.
+
+## Heavy-tailed medians, calendar years, and areas in pixels
+
+Three rules from rows 19 to 23 of the finance slate (4 October 2026).
+
+- **The median of a heavy-tailed statistic needs many samples, and a range in
+  the check.** `fat-tails` quotes the typical sample kurtosis of a Student t
+  with 3 degrees of freedom. Forty-one seeds gave 11, 29 and 69 at 1,000, 10,000
+  and 100,000 days; a different 41 gave 16, 40 and 84. With 1,001, 401 and 201
+  seeds it settles at about 15, 32 to 36, and 70, and the prose says "about 15,
+  roughly doubling with each tenfold" (the theory's 10^(1/3)). The check asserts
+  ranges, not decimals.
+- **"Once every N years" uses calendar years.** The NYSE traded on Saturdays
+  until 1952, so 26,317 days are 104 years at 252 a year but 100.2 calendar
+  years. `fat-tails` converts with the data's own 262.7 days a year, for the
+  normal's waits as well as the data's.
+- **When the claim is that a rectangle has an area, compare areas in pixels.**
+  `value-at-risk` draws expected shortfall as a dashed rectangle over (α, 1] with
+  the same area as the shaded region under the quantile steps. The browser check
+  computes the shaded polygon's area by the shoelace formula and compares it with
+  the rectangle's width × height at 1, 2 and 100 bonds.
+- **A seeded game the reader watches can be chosen to land on the exact
+  median.** `kelly-criterion`'s 61 players (seed 116) have a middle player with
+  exactly 180 heads in 300 flips, so the readout shows the exact $10,504, and the
+  check asserts the counts behind, halved and capped are within one or two of 61
+  times their exact chances.
+
+## Blocks of 250 days, drawdowns on a grid, and balance points
+
+Rules from rows 24 to 28 of the finance slate (10 October 2026).
+
+- **Count a regulator's year as 250 trading days, not a calendar year.** Before
+  1952 the NYSE traded on Saturdays, so 1932 has 302 trading days and 1968 (the
+  paperwork crisis) 226; calendar years made a 1% model's yearly counts
+  binomial with different n. `var-backtesting` splits the last 26,000 days into
+  104 blocks of 250 ending on the file's last day, so the newest block is "the
+  last 250 days" and a right model's zone chances are exact.
+- **A simulated worst drawdown on a grid of steps misses about 1.165·σ√dt.**
+  Both the peak and the trough are sampled, so the bias is twice the usual
+  0.5826·σ√dt for a maximum. `drawdowns` checks its eigenfunction series against
+  walks with drift corrected by that amount; uncorrected, its 4,000-step walks
+  fall short of the series by about eight standard errors. The
+  no-drift case, where the mean is √(π/2)·σ√T exactly, checks the series on its
+  own.
+- **An identity divided by a variance is 0/0 for a zero.** A zero-coupon bond
+  has no spread of payment dates, so "the bend of ln W is Var(t)" and "the
+  money at the horizon is lowest at the yield" are degenerate (the money doesn't
+  depend on the rate at all). Draw the random bonds for such checks from coupon
+  bonds only, and check the zero's case on its own.
+- **When the claim is a balance point, check the moments in pixels.**
+  `duration-and-convexity` asserts Σ (bar centre − fulcrum)·height ≈ 0,
+  normalised by total height × chart width. Normalising by Σ |moment| instead
+  would make a single bar (a zero) read ±1, since a sub-pixel offset is all
+  the moment there is.
+- **A solver near 1 needs the small quantity, not the large one.** The
+  drawdown series has a mode with tanh(κh) = κ, and for h past about 19 the
+  root is within 1e-16 of 1, where a double can't tell it from 1. Solving for
+  δ = 1 − κ (with 1 − tanh written as 2e^(−2y)/(1 + e^(−2y))) and writing the
+  integrals with decaying exponentials kept every term finite, where the
+  textbook cosh/sinh form subtracted huge numbers from each other.

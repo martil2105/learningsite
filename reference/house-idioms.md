@@ -533,3 +533,56 @@ Three rules from rows 15 to 18 of the finance slate (3 October 2026).
   ("with no swing the months stay inside the lines") was false until the band
   moved to the mean.
 
+
+## Paths cut at the window, a robust band, dates from a gap string
+
+Three rules from rows 19 to 23 of the finance slate (4 October 2026).
+
+- **A `clipPath` hides an overhang but doesn't shrink the path.** `kelly-criterion`
+  first clipped 61 players' wealth paths (and 40 pairs in `RaceLab`) with a
+  `clipPath`; they looked right, and the "nothing drawn outside its svg" check
+  failed, because `getBoundingClientRect` reports the whole path. Cut the
+  polyline at the band instead: `bandPath(points, top, bottom)` in `clip.js`
+  interpolates each crossing and starts a new subpath on re-entry, including a
+  segment that jumps straight across the band. Say in the caption that lines
+  leaving the chart are cut ("Lines that drop below 1¢ leave the chart").
+- **A band for return autocorrelations has to allow for clustering.** With
+  volatility that clusters, the noise in a return autocorrelation at lag k is
+  √(Σ e²ₜ e²ₜ₋ₖ)/Σ e²ₜ, about 2.4/√N at one day for US daily returns rather
+  than 1/√N. `volatility-clustering` first drew ±2/√N and 13 of 36 lags
+  "escaped"; with the robust band, 3 do, slightly. The same correction is Lo and
+  MacKinlay's robust variance-ratio statistic in `efficient-markets` (1962–86:
+  9.1 standard errors iid, 6.5 robust; 2000–26: 3.5 against 1.7).
+- **Daily data travel as integers and a gap string.** French's daily file is
+  26,317 rows; `scripts/build-data.mjs` in the three data articles keeps Mkt-RF
+  and RF as whole hundredths of a percent (exact) and the dates as the first date
+  plus one base-36 character per calendar-day gap, which brings `src/data.js` to
+  173KB (39KB gzipped). `src/market.js` decodes it once. French's monthly
+  `frenchBlock` parser only reads 4- to 6-digit dates, so the daily file needs
+  its own.
+
+## Dollar signs, `{@const}` and a signed zero
+
+Rules from rows 24 to 28 of the finance slate (10 October 2026).
+
+- **A `$` followed by digits is a backreference in a replacement string.**
+  `value-at-risk` shipped a meta description reading "and 00 spread over two
+  such bonds has one of 0": a replacement written through JavaScript's
+  `String.prototype.replace` (or a regex tool with the same convention) turned
+  `$100` and `$30` into group references. Nothing on the page shows the meta
+  description, so no check saw it. Write furniture text with a plain file write,
+  or escape `$` as `$$` in replacement strings, and grep the built
+  `index.html` and `Meta.svelte` for a money amount after editing them.
+- **`{@const}` takes one declaration.** `{@const x0 = …, w0 = …}` is a compile
+  error under Svelte 5 ("must consist of a single variable declaration"); write
+  two `{@const}` tags.
+- **A signed readout of zero has no sign.** `signedPct(0, 2)` prints `0.00%`,
+  not `+0.00%`, and `fixed` drops the minus from anything that rounds to zero,
+  but `signedPct(1e-7, 2)` prints `+0.00%`. Write the browser check for the
+  readout as the page prints it at the edge case (a zero-coupon bond's gain,
+  the floor of a valley), and compute that edge case exactly rather than as a
+  difference of two nearly equal floats.
+- **A title can't reuse a neighbour's subject even when it's the whole point.**
+  "Backtesting value at risk" failed `ship.sh` because `value-at-risk` is a
+  slug; the article is "Backtesting VaR", with "value at risk" spelled out in
+  the body.
